@@ -1,1 +1,264 @@
+```html
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>אנציקלופדיה פלאונטולוגית: מחקר הסמילודון המלא</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #e5e7eb; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(75, 85, 99, 0.3);
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased pb-24">
+
+    <!-- ניווט סטטי - לא מפריע בגלילה בסמסונג S25 Ultra -->
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl relative">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="../index.html" class="flex items-center gap-3 text-yellow-500 hover:text-yellow-400 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-extrabold text-xl tracking-tight">ארכיון האנציקלופדיה</span>
+            </a>
+            <div class="hidden sm:block text-gray-500 font-mono text-xs uppercase tracking-[0.2em]">Cenozoic Era Archive // File: SM-001</div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-16">
+        
+        <!-- כותרת ראשית מרשימה -->
+        <header class="text-center space-y-6 pt-6">
+            <div class="inline-block px-4 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-xs font-bold uppercase tracking-widest mb-4">
+                טורף-על של עידן הקרח
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient">סמילודון</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Saber-Toothed King: Smilodon Populator</p>
+            
+            <div class="relative mt-12 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[2.5rem] p-4 border border-gray-800 overflow-hidden">
+                    <img src="../images/smilodon.png" alt="סמילודון" class="w-full max-h-[500px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105" onerror="this.src='../smilodon.png'">
+                </div>
+            </div>
+        </header>
+
+        <!-- תעודת זהות מחקרית מורחבת (Dossier) -->
+        <section class="glass-card rounded-[2rem] p-8 md:p-12 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-8 flex items-center gap-4">
+                <span class="w-2 h-10 bg-yellow-500 rounded-full"></span>
+                תיק מחקר: נתונים מורפולוגיים
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="space-y-2">
+                    <h4 class="text-yellow-500 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-xl font-medium text-gray-100">2.5 מיליון עד 10,000 שנה לפני זמננו</p>
+                    <p class="text-sm text-gray-500 italic">תקופת הפליסטוקן (שיא עידן הקרח)</p>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="text-yellow-500 text-xs font-bold uppercase tracking-widest">מסה גופנית (משקל)</h4>
+                    <p class="text-xl font-medium text-gray-100">220 עד 450 קילוגרם</p>
+                    <p class="text-sm text-gray-500">גדול ב-50% מאריה מודרני ממוצע</p>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="text-yellow-500 text-xs font-bold uppercase tracking-widest">ממדים (אורך)</h4>
+                    <p class="text-xl font-medium text-gray-100">2.5 עד 3.2 מטרים</p>
+                    <p class="text-sm text-gray-500">בעל זנב קצר במיוחד (בובטייל)</p>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="text-yellow-500 text-xs font-bold uppercase tracking-widest">דיאטה (תזונה)</h4>
+                    <p class="text-xl font-medium text-red-400">קרניבור מוחלט (Hypercarnivore)</p>
+                    <p class="text-sm text-gray-500">התמחה בציד חיות משקל כבד: מגתריום, ביזון קדום, וממותות צעירות.</p>
+                </div>
+                <div class="space-y-2 lg:col-span-2">
+                    <h4 class="text-yellow-500 text-xs font-bold uppercase tracking-widest">סטטוס שימור מאובנים</h4>
+                    <p class="text-xl font-medium text-gray-100 underline decoration-yellow-600/30">שימור פנומנלי בבורות זפת</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">נמצאו מעל 2,000 שלדים שלמים בלה-בראה, המאפשרים ניתוח של פציעות, מחלות ותזונה ברמת הפרט.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- אטימולוגיה מפורטת - הפרדה מוחלטת וברורה -->
+        <section class="space-y-8">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-yellow-500 italic">01 //</span> ניתוח אטימולוגי
+            </h2>
+            <p class="text-lg text-gray-400 leading-relaxed max-w-3xl">
+                מקור השם המדעי של הסמילודון מייצג את אחת הדוגמאות המדויקות ביותר לתיאור אנטומי דרך שפה. בניגוד לשמות המוענקים על שם מגלים, כאן השם הוא "מפת דרכים" לנשק העיקרי של החיה.
+            </p>
+            
+            <div class="overflow-hidden rounded-3xl border border-gray-800 bg-gray-900/50 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
+                            <th class="p-6 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-6 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-6 border-b border-gray-700">משמעות מילולית ומחקרית</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200">
+                        <tr class="hover:bg-yellow-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-6 font-mono text-yellow-500 font-black text-2xl" dir="ltr">Smilo-</td>
+                            <td class="p-6 font-bold text-green-400">יוונית עתיקה (Smilē)</td>
+                            <td class="p-6 leading-relaxed">
+                                <span class="block font-bold text-white mb-1 uppercase text-xs">אזמל / סכין דו-צדדית</span>
+                                מתייחס לכלי חיתוך מושחז המשמש לגילוף. בניגוד לשיניים רגילות, הניבים של הסמילודון היו דקים ובעלי שוליים משוננים כמו סכין מטבח איכותית.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-yellow-500/5 transition-colors">
+                            <td class="p-6 font-mono text-yellow-500 font-black text-2xl" dir="ltr">-odon</td>
+                            <td class="p-6 font-bold text-green-400">יוונית עתיקה (Odous)</td>
+                            <td class="p-6 leading-relaxed">
+                                <span class="block font-bold text-white mb-1 uppercase text-xs">שן</span>
+                                המונח המדעי הסטנדרטי לתיאור מערכת שיניים. השילוב יוצר את המונח "שן-אזמל", המדגיש שהניבים לא נועדו לנשיכה אלא לחיתוך (Shearing).
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- נסיבות הגילוי והזהות המדעי - הרחבה מקסימלית -->
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-yellow-500 italic">02 //</span> תולדות הגילוי והזהות המוטעית
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- הגילוי המקורי בברזיל -->
+                <div class="bg-blue-900/10 border border-blue-900/30 p-10 rounded-[2.5rem] space-y-6">
+                    <h3 class="text-2xl font-bold text-blue-400 flex items-center gap-3">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m16 10-4 4-4-4"/></svg>
+                        הדרמה במערות לאגואה סנטה (1842)
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        הסיפור מתחיל ב<strong>פיטר וילהלם לונד</strong>, חוקר דני שחפר במערות הגיר של ברזיל במשך עשור. לונד מצא את עצמו במבוך של מעל 800 מערות, ובתוך אחת מהן, תחת שכבות של אפר געשי ובוץ עתיק, הוא מצא ניבים שאורכם עלה על 20 ס"מ. <br><br>
+                        <strong>משבר הזהות:</strong> לונד היה משוכנע בתחילה שהוא מצא סוג של <strong>"צבוע ענקי" (Hyena)</strong> או יצור דמוי דוב. הוא קרא לו בתחילה "Hyaena neogaea". חוסר היכולת שלו להאמין שחתול יכול להגיע לממדים כאלו ולפתח ניבים כאלו עיכב את הזיהוי המדעי הנכון בעשרות שנים.
+                    </p>
+                </div>
+
+                <!-- הזיהוי המדעי כחתול -->
+                <div class="bg-purple-900/10 border border-purple-900/30 p-10 rounded-[2.5rem] space-y-6">
+                    <h3 class="text-2xl font-bold text-purple-400 flex items-center gap-3">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                        מתי הבינו שמדובר בחתול?
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed italic">
+                        "האמת נמצאת באוזניים ובגולגולת, לא רק בניבים."
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        המעבר המחשבתי קרה רק לקראת שנות ה-90 של המאה ה-19, אך הוכחה רשמית הגיעה ב-<strong>1905</strong>. הפלאונטולוג <strong>ג'ון מריאם</strong> ניתח את מבנה הגולגולת ומצא שקערות האוזן (Auditory bullae) והחיבור של שרירי הלסת תואמים בדיוק למשפחת החתוליים (Felidae). מריאם הוכיח שהסמילודון הוא חתול שהתפתח במסלול אבולוציוני נפרד לחלוטין מזה של האריות והנמרים המודרניים.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- השלד השלם - בורות הזפת לה-בראה -->
+        <section class="bg-gray-900 border border-gray-800 p-10 md:p-16 rounded-[3rem] shadow-inner space-y-10 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-600 via-orange-500 to-yellow-600"></div>
+            
+            <div class="max-w-3xl space-y-6">
+                <h3 class="text-4xl font-black text-white">הגילוי של השלד השלם: מלכודת הזפת</h3>
+                <p class="text-xl text-gray-400 leading-relaxed">
+                    בעוד לונד מצא רק שברים בברזיל, העולם המתין לגילוי שיחשוף את החיה בשלמותה. זה קרה ב-<strong>בורות הזפת של לה-בראה (La Brea Tar Pits)</strong> בלוס אנג'לס, קליפורניה.
+                </p>
+                <div class="space-y-6 text-gray-300">
+                    <p>
+                        החל משנת <strong>1901</strong>, החלו להתגלות שלדים מושלמים בתוך בריכות של זפת טבעית (אספלט) שעלו מן האדמה. הזפת שימשה כ"מלכודת מוות" – חיות צמחוניות נתקעו בה, והסמילודונים, שחשבו שמצאו ארוחה קלה, זינקו פנימה ונתקעו בעצמם. 
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                        <div class="bg-black/40 p-6 rounded-2xl border border-gray-700">
+                            <h5 class="text-yellow-500 font-bold mb-2 uppercase text-xs tracking-widest">המשלחת הגדולה (1913-1915)</h5>
+                            <p class="text-sm">זו הייתה המשלחת ששינתה את פני המדע. מעל <strong>2,000 שלדים שלמים</strong> חולצו מהזפת. בזכות היעדר החמצן בתוך הזפת, העצמות נשמרו במצב "חי" כמעט, כולל עצמות זעירות של האוזן והלשון שלא נמצאו מעולם קודם לכן.</p>
+                        </div>
+                        <div class="bg-black/40 p-6 rounded-2xl border border-gray-700">
+                            <h5 class="text-yellow-500 font-bold mb-2 uppercase text-xs tracking-widest">גילוי הדינמיקה הקבוצתית</h5>
+                            <p class="text-sm">הכמות העצומה של שלדים במקום אחד אפשרה למדענים להבין שהסמילודון לא היה צייד בודד. העובדה שנמצאו כל כך הרבה טורפים באותה נקודה מרמזת שהם צדו בלהקות מאורגנות.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- אקולוגיה, התנהגות ואידיאולוגיה הישרדותית -->
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-yellow-500 italic">03 //</span> אקולוגיה והתנהגות חברתית
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        הסמילודון היה ה"מתאבק" של עולם החתולים. בניגוד לנמרים מודרניים שחונקים את הטרף בנשיכה ארוכה, הסמילודון פיתח <strong>אידיאולוגיה של עוצמה מתפרצת</strong>. רגליו הקדמיות היו עבות ושריריות כמעט כמו של דוב, מה שאיפשר לו לרתק חיות ששקלו פי 4 ממנו אל הקרקע.
+                    </p>
+                    <div class="bg-yellow-500/5 p-8 rounded-3xl border border-yellow-500/20 shadow-xl">
+                        <h4 class="text-xl font-bold text-yellow-500 mb-4 italic italic">טכניקת "פותחן הקופסאות"</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            המחקר הביומכני מראה שהניבים של הסמילודון היו פגיעים לשבירה מצד לצד. לכן, הוא היה נועץ אותם רק כאשר הטרף היה משותק לחלוטין. הוא פיתח שרירי צוואר אדירים שאיפשרו לו להוריד את הגולגולת כלפי מטה בעוצמה, כשהניבים חודרים את כלי הדם הראשיים (הקרוטיד) בגרון וגורמים למוות מהיר תוך שניות.
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-6 bg-gray-900/40 p-8 rounded-3xl border border-gray-800">
+                    <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">הוכחות לאלטרואיזם (חמלה בלהקה)</h3>
+                    <p class="text-gray-300 leading-relaxed italic">
+                        "הוא לא ננטש למות, הוא הואכל על ידי חבריו."
+                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        בבורות לה-בראה נמצאו שלדים של סמילודונים שסבלו מפציעות נוראיות: אגנים שבורים, עמודי שדרה מעוקמים וזיהומים בלסת. מדהים לגלות שהעצמות הללו הראו סימני החלמה של שנים. <br><br>
+                        <strong>המסקנה המדעית:</strong> חיה כזו לא יכולה לצוד לבדה. חברי הלהקה דאגו לפרטים הפצועים, הגנו עליהם והביאו להם מזון. זוהי רמה חברתית גבוהה ביותר שהקדימה את זמנה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- הישגים אבולוציוניים -->
+        <section class="bg-yellow-600/10 border border-yellow-600/30 p-10 md:p-16 rounded-[3rem] text-center space-y-8">
+            <h2 class="text-4xl font-black text-white">הישגים אבולוציוניים ששינו את ההיסטוריה</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 bg-gray-950 rounded-2xl border border-gray-800 shadow-xl">
+                    <div class="text-3xl font-bold text-yellow-500 mb-2">120°</div>
+                    <div class="text-white font-bold mb-2 uppercase text-xs">מפתח לסת אדיר</div>
+                    <p class="text-xs text-gray-500 italic">היכולת לפתוח את הפה בזווית כמעט כפולה מזו של אריה, כדי לאפשר לניבים העצומים לתמרן.</p>
+                </div>
+                <div class="p-6 bg-gray-950 rounded-2xl border border-gray-800 shadow-xl">
+                    <div class="text-3xl font-bold text-yellow-500 mb-2">C7-T1</div>
+                    <div class="text-white font-bold mb-2 uppercase text-xs">חוליות צוואר מחוזקות</div>
+                    <p class="text-xs text-gray-500 italic">מבנה חוליות ייחודי שנתן תמיכה לשרירי הצוואר החזקים ביותר בעולם החתוליים.</p>
+                </div>
+                <div class="p-6 bg-gray-950 rounded-2xl border border-gray-800 shadow-xl">
+                    <div class="text-3xl font-bold text-yellow-500 mb-2">Populator</div>
+                    <div class="text-white font-bold mb-2 uppercase text-xs">אופטימיזציה למשקל</div>
+                    <p class="text-xs text-gray-500 italic">המעבר מחתול "רץ" לחתול "מתאבק" – פיתוח מסת שריר במקום מהירות, לצורך ציד מגה-פאונה.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-sm border-t border-gray-900 mt-20">
+        <div class="flex justify-center gap-6 mb-4">
+            <span class="bg-gray-800 px-3 py-1 rounded text-[10px] tracking-widest uppercase">Research Log #001</span>
+            <span class="bg-gray-800 px-3 py-1 rounded text-[10px] tracking-widest uppercase">Chief Researcher: RAM</span>
+        </div>
+        אנציקלופדיית פרה-היסטוריה | מהדורה מורחבת 2026
+    </footer>
+
+</body>
+</html>
+
+```
 
