@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אנציקלופדיית פרה-היסטוריה</title>
+    
+    <!-- טעינת Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- טעינת React ו-ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- טעינת Babel לתרגום JSX בדפדפן -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- טעינת אייקונים של Lucide (גרסה ללא React) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        /* הסתרת רקע לבן מיותר בזמן הטעינה */
+        body { background-color: #030712; color: #f3f4f6; } 
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // --- Database ---
+        const animalsData = [
+          // --- פלאוזואיקון (Paleozoic) ---
+          {
+            id: 'dimetrodon',
+            name: 'דימטרודון',
+            englishName: 'Dimetrodon',
+            image: './images/dimetrodon.png',
+            era: 'Paleozoic',
+            timePeriod: '295 - 272 מיליון שנים לפני זמננו (תור הפרם)',
+            etymology: {
+              full: 'שן בשתי מידות',
+              parts: [
+                { part: 'Di', origin: 'יוונית', meaning: 'שניים / כפול' },
+                { part: 'Metron', origin: 'יוונית', meaning: 'מידה / גודל' },
+                { part: 'Odous', origin: 'יוונית', meaning: 'שן' }
+              ]
+            },
+            discovery: 'המאובנים הראשונים התגלו בשנת 1878 על ידי הפלאונטולוג אדוארד דרינקר קופ (Edward Drinker Cope) בטקסס, ארה"ב.',
+            behavior: 'טורף-על של תור הפרם. בניגוד לדעה הרווחת, הוא אינו דינוזאור אלא סינאפסיד (קרוב יותר ליונקים). הסנפיר הענק על גבו שימש ככל הנראה לוויסות חום גופו (קליטת חום מהשמש בבוקר) או לתצוגת חיזור והרתעה.',
+            significance: 'מהווה חוליה קריטית בהבנת האבולוציה של היונקים. מבנה השיניים המובחן שלו (שיניים חותכות וניבים) הוא מאפיין שהורש ליונקים מודרניים.'
+          },
+          {
+            id: 'dunkleosteus',
+            name: 'דנקליאוסטיוס',
+            englishName: 'Dunkleosteus',
+            image: './images/dunkleosteus.png',
+            era: 'Paleozoic',
+            timePeriod: '382 - 358 מיליון שנים לפני זמננו (תור הדבון)',
+            etymology: {
+              full: 'העצם של דנקל',
+              parts: [
+                { part: 'Dunkle', origin: 'אנגלית/שם משפחה', meaning: 'על שם הפלאונטולוג דיוויד דנקל' },
+                { part: 'Osteon', origin: 'יוונית', meaning: 'עצם' }
+              ]
+            },
+            discovery: 'התגלה לראשונה ב-1873 על ידי ג\'ון ניוברי באוהיו, ארה"ב. הגולגולות המשוריינות שלו השתמרו בצורה יוצאת דופן בפצלי קליבלנד.',
+            behavior: 'טורף-על ימי אימתני באורך של כ-6 עד 8 מטרים. לא היו לו שיניים אמיתיות, אלא לוחות עצם מחודדים שהתפקדו כמספריים אימתניות. עוצמת הנשיכה שלו נחשבת לאחת החזקות בהיסטוריה של בעלי החיים.',
+            significance: 'מייצג את שיא ההתפתחות של דגי המשוריינים (פלקודרמים), קבוצה שנכחדה כליל. הוא מדגים התאמה אבולוציונית קיצונית לטריפת חיות משוריינות אחרות בים.'
+          },
+          {
+            id: 'arthropleura',
+            name: 'ארתרופלאורה',
+            englishName: 'Arthropleura',
+            image: './images/arthropleura.png',
+            era: 'Paleozoic',
+            timePeriod: '345 - 290 מיליון שנים לפני זמננו (תור הקרבון)',
+            etymology: {
+              full: 'צלע מפורקת / בעלת מפרקים',
+              parts: [
+                { part: 'Arthron', origin: 'יוונית', meaning: 'מפרק' },
+                { part: 'Pleura', origin: 'יוונית', meaning: 'צלע / צד' }
+              ]
+            },
+            discovery: 'מאובנים נמצאו בסקוטלנד, גרמניה וצפון אמריקה. ב-2018 התגלה בצפון אנגליה המאובן הגדול ביותר עד כה של יצור זה.',
+            behavior: 'שלוותנית למרות המראה המאיים. בניגוד לנדלים מודרניים שהם טורפים, הארתרופלאורה הייתה ככל הנראה אוכלת צמחים (הרביבורית), שניזונה מנבגים וצמחייה רקובה ביערות הפחם הענקיים של הקרבון.',
+            significance: 'פרוק הרגליים (Invertebrate) היבשתי הגדול ביותר שידוע למדע (הגיע לאורך של למעלה מ-2.5 מטרים). גודלו התאפשר הודות לריכוז החמצן הגבוה במיוחד באטמוספירה באותה תקופה (כ-30-35%).'
+          },
+          
+          // --- מזוזואיקון (Mesozoic) ---
+          {
+            id: 'tyrannosaurus-rex',
+            name: 'טירנוזאורוס רקס',
+            englishName: 'Tyrannosaurus rex',
+            image: './images/tyrannosaurus-rex.png',
+            era: 'Mesozoic',
+            timePeriod: '68 - 66 מיליון שנים לפני זמננו (סוף תור הקרטיקון)',
+            etymology: {
+              full: 'מלך הלטאות העריצות',
+              parts: [
+                { part: 'Tyrannos', origin: 'יוונית', meaning: 'עריץ / רודן' },
+                { part: 'Sauros', origin: 'יוונית', meaning: 'לטאה' },
+                { part: 'Rex', origin: 'לטינית', meaning: 'מלך' }
+              ]
+            },
+            discovery: 'השלד החלקי הראשון התגלה ב-1900 בויומינג על ידי ברנום בראון. ב-1905, הנרי פיירפילד אוסבורן העניק לו את שמו המפורסם.',
+            behavior: 'טורף-על וייתכן שגם אוכל נבלות אופורטוניסט. בעל ראייה דו-עינית חדה במיוחד וחוש ריח מפותח ביותר (פקעות הרחה ענקיות במוח). זרועותיו הקצרות עדיין מהוות חידה, אך רגליו האחוריות ולסתותיו נועדו לרסק עצמות.',
+            significance: 'הדינוזאור הטורף המפורסם והנחקר ביותר. מספק תובנות קריטיות על ביומכניקה, קצב גדילה, והמערכת האקולוגית של סוף הקרטיקון רגע לפני הכחדת ה-K-Pg.'
+          },
+          {
+            id: 'archaeopteryx',
+            name: 'ארכאופטריקס',
+            englishName: 'Archaeopteryx',
+            image: './images/archaeopteryx.png',
+            era: 'Mesozoic',
+            timePeriod: '150 מיליון שנים לפני זמננו (תור היורה)',
+            etymology: {
+              full: 'כנף עתיקה',
+              parts: [
+                { part: 'Archaios', origin: 'יוונית', meaning: 'עתיק / קדום' },
+                { part: 'Pteryx', origin: 'יוונית', meaning: 'כנף / נוצה' }
+              ]
+            },
+            discovery: 'הנוצה הראשונה התגלתה ב-1861 בגרמניה, באבן גיר. זמן קצר לאחר מכן התגלה שלד כמעט שלם שזעזע את עולם המדע, שנתיים בלבד לאחר פרסום "מוצא המינים" של דרווין.',
+            behavior: 'יצור בגודל של עורב. היה מסוגל כנראה לדאייה או תעופה קצרה וחלשה. חי באיים טרופיים רדודים (היכן שכיום נמצאת אירופה) וניזון מחרקים ולטאות קטנות.',
+            significance: 'אחד המאובנים החשובים בהיסטוריה של המדע. "מאובן המעבר" הקלאסי הראשון שמדגים את האבולוציה מדינוזאורים לעופות (בעל מאפייני דינוזאור: שיניים, זנב גרמי; ומאפייני עוף: נוצות תעופה אסימטריות).'
+          },
+
+          // --- קנוזואיקון (Cenozoic) ---
+          {
+            id: 'smilodon',
+            name: 'סמילודון (טיגריס שנחרבי)',
+            englishName: 'Smilodon',
+            image: './images/smilodon.png',
+            era: 'Cenozoic',
+            timePeriod: '2.5 מיליון - 10,000 שנים לפני זמננו (פליסטוקן)',
+            etymology: {
+              full: 'שן אזמל / שן סכין',
+              parts: [
+                { part: 'Smile', origin: 'יוונית', meaning: 'אזמל / סכין מנתחים' },
+                { part: 'Odous', origin: 'יוונית', meaning: 'שן' }
+              ]
+            },
+            discovery: 'הוגדר לראשונה ב-1842 על ידי הפלאונטולוג הדני פיטר וילהלם לונד ממאובנים בברזיל. אלפי פרטים השתמרו בשלמותם בבורות הזפת של לה בריאה (La Brea) בלוס אנג\'לס.',
+            behavior: 'טורף מארב שרירי וכבד, שלא נועד לריצה מהירה אלא להכנעת טרף גדול (כמו ממותות צעירות ומקוקים). ניביו הארוכים נועדו לשיסוף מדויק של קנה הנשימה או כלי הדם בצוואר לאחר שהטרף רותק לקרקע.',
+            significance: 'סמל מובהק לעידן הקרח ולמגה-פאונה של אמריקה. הכחדתו חופפת להגעת האדם לאמריקה ולשינויי אקלים דרסטיים בסוף הפליסטוקן.'
+          },
+          {
+            id: 'woolly-mammoth',
+            name: 'ממותה צמרית',
+            englishName: 'Mammuthus primigenius',
+            image: './images/woolly-mammoth.png',
+            era: 'Cenozoic',
+            timePeriod: '400,000 - 4,000 שנים לפני זמננו (פליסטוקן-הולוקן)',
+            etymology: {
+              full: 'חפרפרת אדמה (מקור שגוי) / החיה העתיקה',
+              parts: [
+                { part: 'Mammuthus', origin: 'רוסית/מנסי (Mansi)', meaning: 'נגזר מ-"Mēmang ont" - קרן אדמה (שבטים סיביריים חשבו שהן חפרפרות ענק)' },
+                { part: 'Primigenius', origin: 'לטינית', meaning: 'ראשון / קדום / מקורי' }
+              ]
+            },
+            discovery: 'מוכרות לאנושות אלפי שנים, אף צוירו על ידי אדם קדמון במערות. פרטים קפואים ומושלמים (עם בשר ושיער) התגלו בפרמפרוסט הסיבירי החל מהמאה ה-18.',
+            behavior: 'חיה חברתית שחיה בעדרים פטריארכליים (כמו פילים מודרניים) בטונדרה הקפואה. מותאמת באופן מושלם לקור: אוזניים קטנות, שכבת שומן עבה, ושתי שכבות של פרווה בידוד צפופה.',
+            significance: 'אחת החיות הנחקרות ביותר בעולם עקב רמת השימור המדהימה של ה-DNA שלה. אוכלוסיית הממותות האחרונה שרדה באי וראנגל עד לפני כ-4000 שנה, הרבה אחרי בניית הפירמידות במצרים.'
+          }
+        ];
+
+        const allAnimalIds = [
+          { id: 'anomalocaris', name: 'אנומלוקאריס', era: 'Paleozoic' },
+          { id: 'ammonite', name: 'אמוניט', era: 'Mesozoic' },
+          { id: 'tiktaalik', name: 'טיקטאליק', era: 'Paleozoic' },
+          { id: 'ichthyostega', name: 'איכתיוסטגה', era: 'Paleozoic' },
+          { id: 'meganeura', name: 'מגאנורה', era: 'Paleozoic' },
+          { id: 'hylonomus', name: 'הילונומוס', era: 'Paleozoic' },
+          { id: 'eryops', name: 'אריופס', era: 'Paleozoic' },
+          { id: 'diplocaulus', name: 'דיפלוקאולוס', era: 'Paleozoic' },
+          { id: 'edaphosaurus', name: 'אדפוזאורוס', era: 'Paleozoic' },
+          { id: 'gorgonops', name: 'גורגונופס', era: 'Paleozoic' },
+          { id: 'scutosaurus', name: 'סקוטוזאורוס', era: 'Paleozoic' },
+          { id: 'cynognathus', name: 'צינוגנתוס', era: 'Mesozoic' },
+          { id: 'postosuchus', name: 'פוסטוסוכוס', era: 'Mesozoic' },
+          { id: 'plateosaurus', name: 'פלטאוזאורוס', era: 'Mesozoic' },
+          { id: 'coelophysis', name: 'צלוזופיסיס', era: 'Mesozoic' },
+          { id: 'allosaurus', name: 'אלוזאורוס', era: 'Mesozoic' },
+          { id: 'brachiosaurus', name: 'ברכיוזאורוס', era: 'Mesozoic' },
+          { id: 'diplodocus', name: 'דיפלודוקוס', era: 'Mesozoic' },
+          { id: 'stegosaurus', name: 'סטגוזאורוס', era: 'Mesozoic' },
+          { id: 'spinosaurus', name: 'ספינוזאורוס', era: 'Mesozoic' },
+          { id: 'velociraptor', name: 'ולוצירפטור', era: 'Mesozoic' },
+          { id: 'triceratops', name: 'טריצרטופס', era: 'Mesozoic' },
+          { id: 'quetzalcoatlus', name: 'קוואצלקואטלוס', era: 'Mesozoic' },
+          { id: 'megatherium', name: 'מגתריום', era: 'Cenozoic' },
+          { id: 'megaloceros', name: 'מגלוצרוס', era: 'Cenozoic' },
+          { id: 'woolly-rhinoceros', name: 'קרנף צמרירי', era: 'Cenozoic' }
+        ];
+
+        const completeDatabase = [
+          ...animalsData,
+          ...allAnimalIds.filter(a => !animalsData.find(d => d.id === a.id)).map(a => ({
+            ...a,
+            image: `./images/${a.id}.png`,
+            timePeriod: 'מידע מחקרי יתווסף בהמשך',
+            etymology: null,
+            discovery: 'ממתין למחקר.',
+            behavior: 'ממתין למחקר.',
+            significance: 'ממתין למחקר.'
+          }))
+        ];
+
+        const eras = [
+          { id: 'Paleozoic', name: 'פלאוזואיקון (עידן החיים הקדומים)', color: 'border-blue-500' },
+          { id: 'Mesozoic', name: 'מזוזואיקון (עידן הדינוזאורים)', color: 'border-green-500' },
+          { id: 'Cenozoic', name: 'קנוזואיקון (עידן היונקים)', color: 'border-yellow-500' }
+        ];
+
+        // --- Components ---
+        const SmartImage = ({ src, alt, className }) => {
+          const [error, setError] = useState(false);
+          return error ? (
+            <div className={`flex items-center justify-center bg-gray-800 text-gray-500 italic ${className}`}>
+              {alt}
+            </div>
+          ) : (
+            <img src={src} alt={alt} className={className} onError={() => setError(true)} />
+          );
+        };
+
+        // Icons using simple SVG strings for this HTML setup
+        const IconHome = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>;
+        const IconInfo = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>;
+        const IconArrowLeft = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>;
+        const IconChevronRight = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>;
+
+        function App() {
+          const [currentRoute, setCurrentRoute] = useState('index');
+          const [selectedAnimal, setSelectedAnimal] = useState(null);
+          const [showAboutModal, setShowAboutModal] = useState(false);
+
+          const navigateTo = (route, animal = null) => {
+            window.scrollTo(0, 0);
+            setSelectedAnimal(animal);
+            setCurrentRoute(route);
+          };
+
+          const renderEtymology = (etymology) => {
+            if (!etymology) return <p className="text-gray-400">המידע האטימולוגי בבנייה.</p>;
+            
+            return (
+              <div className="bg-gray-800 p-4 rounded-xl border border-gray-700">
+                <h4 className="text-xl font-bold text-blue-400 mb-2">אטימולוגיה (מקור השם): {etymology.full}</h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-right border-collapse">
+                    <thead>
+                      <tr className="border-b border-gray-600 text-gray-300">
+                        <th className="p-2">חלק בשם</th>
+                        <th className="p-2">שפת מקור</th>
+                        <th className="p-2">משמעות</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {etymology.parts.map((part, index) => (
+                        <tr key={index} className="border-b border-gray-700 hover:bg-gray-750 transition-colors">
+                          <td className="p-2 font-mono text-purple-400 font-bold" dir="ltr">{part.part}</td>
+                          <td className="p-2 text-green-400">{part.origin}</td>
+                          <td className="p-2 text-gray-200">{part.meaning}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            );
+          };
+
+          return (
+            <div className="min-h-screen bg-gray-950 text-gray-100 font-sans" dir="rtl">
+              <nav className="bg-gray-900 border-b border-gray-800 p-4 shadow-lg">
+                <div className="max-w-7xl mx-auto flex justify-between items-center">
+                  <div 
+                    className="flex items-center gap-2 cursor-pointer hover:text-blue-400 transition-colors"
+                    onClick={() => navigateTo('index')}
+                  >
+                    <IconHome />
+                    <h1 className="text-2xl font-black tracking-tight">אנציקלופדיית פרה-היסטוריה</h1>
+                  </div>
+                  <button 
+                    onClick={() => setShowAboutModal(true)}
+                    className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full transition-all border border-gray-700"
+                  >
+                    <IconInfo />
+                    <span className="font-semibold">אודות החוקר</span>
+                  </button>
+                </div>
+              </nav>
+
+              <main className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 pb-24">
+                
+                {currentRoute === 'index' && (
+                  <div className="space-y-12 animate-fadeIn">
+                    <header className="text-center space-y-4 mb-12">
+                      <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+                        מסע בזמן: העידנים הגיאולוגיים
+                      </h2>
+                      <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+                        בחר בעל חיים מתוך האוסף המחקרי כדי לצלול לעומק ההיסטוריה האבולוציונית שלו. האתר מחולק לפי עידנים.
+                      </p>
+                    </header>
+
+                    {eras.map(era => (
+                      <section key={era.id} className="space-y-6">
+                        <h3 className={`text-3xl font-bold border-r-4 ${era.color} pr-4 py-1 text-gray-200`}>
+                          {era.name}
+                        </h3>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                          {completeDatabase.filter(a => a.era === era.id).map(animal => (
+                            <div 
+                              key={animal.id}
+                              onClick={() => navigateTo('animal', animal)}
+                              className="group cursor-pointer bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 flex flex-col h-full"
+                            >
+                              <div className="aspect-square relative overflow-hidden bg-gray-800">
+                                <SmartImage 
+                                  src={animal.image} 
+                                  alt={animal.name} 
+                                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                />
+                              </div>
+                              <div className="p-4 flex-grow flex items-center justify-between">
+                                <span className="font-bold text-lg group-hover:text-blue-400 transition-colors">
+                                  {animal.name}
+                               </span>
+                                <IconChevronRight />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </section>
+                    ))}
+                  </div>
+                )}
+
+                {currentRoute === 'animal' && selectedAnimal && (
+                  <div className="max-w-4xl mx-auto space-y-8 animate-fadeIn">
+                    <button 
+                      onClick={() => navigateTo('index')}
+                      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-6"
+                    >
+                      <IconArrowLeft />
+                      <span>חזרה לאינדקס העידנים</span>
+                    </button>
+
+                    <div className="bg-gray-900 rounded-3xl border border-gray-800 overflow-hidden shadow-2xl">
+                      <div className="h-64 sm:h-96 relative bg-gray-800 w-full flex items-center justify-center p-4">
+                         <SmartImage 
+                            src={selectedAnimal.image} 
+                            alt={selectedAnimal.name} 
+                            className="max-w-full max-h-full object-contain"
+                          />
+                      </div>
+                      
+                      <div className="p-6 sm:p-10 space-y-8">
+                        <div>
+                          <h1 className="text-4xl sm:text-5xl font-black text-white mb-2">{selectedAnimal.name}</h1>
+                          <p className="text-xl text-blue-400 font-mono" dir="ltr">{selectedAnimal.englishName || selectedAnimal.id}</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div className="bg-gray-800/50 p-5 rounded-2xl border border-gray-700/50">
+                            <span className="text-sm text-gray-400 uppercase tracking-wider block mb-1">שנות חיים ותקופה</span>
+                            <span className="font-semibold text-lg text-gray-200">{selectedAnimal.timePeriod}</span>
+                          </div>
+                          <div className="bg-gray-800/50 p-5 rounded-2xl border border-gray-700/50">
+                            <span className="text-sm text-gray-400 uppercase tracking-wider block mb-1">שיוך לעידן</span>
+                            <span className="font-semibold text-lg text-gray-200">
+                              {eras.find(e => e.id === selectedAnimal.era)?.name}
+                            </span>
+                          </div>
+                        </div>
+
+                        {renderEtymology(selectedAnimal.etymology)}
+
+                        <div className="space-y-6 mt-8">
+                          <div className="space-y-2">
+                            <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+                              <span className="w-2 h-6 bg-purple-500 rounded-full inline-block"></span>
+                              גילוי ומחקר (ילדות)
+                            </h3>
+                            <p className="text-gray-300 leading-relaxed text-lg">{selectedAnimal.discovery}</p>
+                          </div>
+
+                          <div className="space-y-2">
+                            <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+                              <span className="w-2 h-6 bg-red-500 rounded-full inline-block"></span>
+                              התנהגות ואקולוגיה (אידיאולוגיה)
+                            </h3>
+                            <p className="text-gray-300 leading-relaxed text-lg">{selectedAnimal.behavior}</p>
+                          </div>
+
+                          <div className="space-y-2">
+                            <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+                              <span className="w-2 h-6 bg-yellow-500 rounded-full inline-block"></span>
+                              חשיבות אבולוציונית (הישגים)
+                            </h3>
+                            <p className="text-gray-300 leading-relaxed text-lg">{selectedAnimal.significance}</p>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </main>
+
+              {showAboutModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
+                  <div className="bg-gray-900 border border-gray-700 rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
+                    <button 
+                      onClick={() => setShowAboutModal(false)}
+                      className="absolute top-4 left-4 text-gray-400 hover:text-white bg-gray-800 p-2 rounded-full transition-colors"
+                    >
+                      <IconArrowLeft />
+                    </button>
+                    
+                    <div className="flex flex-col items-center text-center space-y-4 mt-4">
+                      <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500 shadow-lg shadow-blue-500/30">
+                        <SmartImage 
+                          src="./images/ram-profile.jpeg" 
+                          alt="Ram Profile" 
+                          className="w-full h-full object-cover" 
+                        />
+                      </div>
+                      
+                      <div>
+                        <h2 className="text-3xl font-black text-white mb-1">רם</h2>
+                        <p className="text-blue-400 font-semibold mb-4">חוקר ראשי ובונה האתר</p>
+                        <p className="text-gray-300 leading-relaxed">
+                          האתר נבנה כחלק ממחקר מעמיק על חיות פרה-היסטוריות. פותח בארכיטקטורת גיטהאב ומותאם אישית למכשירי קצה מתקדמים תוך הקפדה על חווית משתמש ועיצוב Dark Mode מלא. התחביבים שלי הם יצירה בבינה מלאכותית, וקריאת ספרי ביוגרפיה והיסטוריה.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
