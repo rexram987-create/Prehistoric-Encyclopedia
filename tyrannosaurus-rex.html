@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>מחקר מקיף: טירנוזאורוס רקס (Tyrannosaurus rex) - מלך המזוזואיקון</title>
+    <title>אנציקלופדיה פלאונטולוגית: מחקר טירנוזאורוס רקס (Tyrannosaurus rex) אולטימטיבי</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
@@ -16,10 +16,15 @@
         .glass-card {
             background: rgba(17, 24, 39, 0.7);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(75, 85, 99, 0.3);
+            border: 1px solid rgba(139, 92, 246, 0.3);
         }
         .accent-gradient {
-            background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+            background: linear-gradient(135deg, #f87171 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-accent {
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -27,107 +32,108 @@
 </head>
 <body class="antialiased pb-24">
 
-    <!-- ניווט סטטי מתקדם -->
-    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl relative">
+    <!-- ניווט סטטי -->
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl sticky top-0 z-50">
         <div class="max-w-5xl mx-auto flex items-center justify-between">
-            <a href="./index.html" class="flex items-center gap-3 text-green-500 hover:text-green-400 transition-all group">
+            <a href="./index.html" class="flex items-center gap-3 text-red-500 hover:text-red-400 transition-all group">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
                 <span class="font-extrabold text-xl tracking-tight text-white">ארכיון האנציקלופדיה</span>
             </a>
-            <div class="hidden sm:block text-gray-500 font-mono text-xs uppercase tracking-[0.2em]">Archive // File: TR-001</div>
+            <div class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.2em]">Cretaceous Period // File: TR-ULTIMATE</div>
         </div>
     </nav>
 
-    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-16">
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-20">
         
         <!-- כותרת ראשית -->
-        <header class="text-center space-y-6 pt-6">
-            <div class="inline-block px-4 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold uppercase tracking-widest mb-4">
-                טורף-העל של הקרטיקון המאוחר
+        <header class="text-center space-y-6 pt-10">
+            <div class="inline-block px-4 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold uppercase tracking-widest mb-4">
+                הטורף המוחלט של הקרטיקון
             </div>
-            <h1 class="text-6xl md:text-8xl font-black accent-gradient">טירנוזאורוס רקס</h1>
-            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Tyrant Lizard King: T. rex</p>
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient tracking-tighter">טירנוזאורוס רקס</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The King of Tyrant Lizards: T. rex</p>
             
             <div class="relative mt-12 group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-green-600 to-emerald-600 rounded-[2.5rem] blur opacity-20 group-hover:opacity-35 transition duration-1000"></div>
-                <div class="relative bg-gray-900 rounded-[2.5rem] p-4 border border-gray-800 overflow-hidden shadow-2xl">
-                    <img src="./images/tyrannosaurus-rex.png" alt="טירנוזאורוס רקס" class="w-full max-h-[500px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105" onerror="this.src='./tyrannosaurus-rex.png'">
+                <div class="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[3rem] p-6 border border-gray-800 overflow-hidden shadow-2xl">
+                    
+                    <img src="./images/tyrannosaurus-rex.png" alt="טירנוזאורוס רקס" class="w-full max-h-[550px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105 mt-6" onerror="this.style.display='none'">
                 </div>
             </div>
         </header>
 
         <!-- תעודת זהות מחקרית (Dossier) -->
-        <section class="glass-card rounded-[2rem] p-8 md:p-12 shadow-2xl">
-            <h2 class="text-3xl font-extrabold text-white mb-8 flex items-center gap-4">
-                <span class="w-2 h-10 bg-green-500 rounded-full"></span>
+        <section class="glass-card rounded-[3rem] p-10 md:p-14 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-10 flex items-center gap-4">
+                <span class="w-2 h-10 bg-red-600 rounded-full"></span>
                 תיק מחקר: נתונים פיזיולוגיים
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="space-y-2">
-                    <h4 class="text-green-400 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
-                    <p class="text-xl font-medium text-gray-100">68 עד 66 מיליון שנה לפני זמננו</p>
-                    <p class="text-sm text-gray-500 italic">שלהי תור הקרטיקון (עד להכחדה)</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div class="space-y-3">
+                    <h4 class="text-red-400 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">68 עד 66 מיליון שנה</p>
+                    <p class="text-sm text-gray-500 italic">שלהי תור הקרטיקון (Maastrichtian)</p>
                 </div>
-                <div class="space-y-2">
-                    <h4 class="text-green-400 text-xs font-bold uppercase tracking-widest">מסה גופנית (משקל)</h4>
-                    <p class="text-xl font-medium text-gray-100">8.4 עד 14 טונות</p>
-                    <p class="text-sm text-gray-500 italic">שווה ערך למשקלם של כ-2 פילים אפריקאים</p>
+                <div class="space-y-3">
+                    <h4 class="text-red-400 text-xs font-bold uppercase tracking-widest">מסה גופנית (משקל)</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">8 עד 9.5 טונות</p>
+                    <p class="text-sm text-gray-500 italic">משקל המקביל לשני פילים אפריקאים</p>
                 </div>
-                <div class="space-y-2">
-                    <h4 class="text-green-400 text-xs font-bold uppercase tracking-widest">ממדים (אורך וגובה)</h4>
-                    <p class="text-xl font-medium text-gray-100">אורך: עד 12.4 מטרים | גובה: 4 מ'</p>
-                    <p class="text-sm text-gray-500 italic">הגולגולת לבדה הגיעה לאורך של 1.5 מטר</p>
+                <div class="space-y-3">
+                    <h4 class="text-red-400 text-xs font-bold uppercase tracking-widest">ממדים (אורך)</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">12.3 עד 13 מטרים</p>
+                    <p class="text-sm text-gray-500 italic">גובה ירך של כ-4 מטרים</p>
                 </div>
-                <div class="space-y-2">
-                    <h4 class="text-green-400 text-xs font-bold uppercase tracking-widest">תזונה</h4>
-                    <p class="text-xl font-medium text-red-400">טורף-על ואוכל נבלות (Carnivore)</p>
-                    <p class="text-sm text-gray-500 leading-relaxed">התמחה בציד טריצרטופס ואדמונטוזאורוס בעלי שריון ועצמות עבות.</p>
+                <div class="space-y-3">
+                    <h4 class="text-red-400 text-xs font-bold uppercase tracking-widest">תזונה</h4>
+                    <p class="text-2xl font-medium text-red-500 font-bold underline">טורף-על (Apex Predator)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">ניזון מדינוזאורים צמחוניים ענקיים כמו טריצרטופס ואדמונטוזאורוס.</p>
                 </div>
-                <div class="space-y-2 lg:col-span-2">
-                    <h4 class="text-green-400 text-xs font-bold uppercase tracking-widest">מאפיין אבולוציוני קריטי</h4>
-                    <p class="text-xl font-medium text-gray-100 underline decoration-green-600/30">עוצמת נשיכה מרסקת עצמות</p>
-                    <p class="text-sm text-gray-500 leading-relaxed font-bold">החזיק בנשיכה החזקה ביותר מבין כל חיות היבשה אי פעם - למעלה מ-35,000 ניוטון (כ-3.5 טון-כוח).</p>
+                <div class="space-y-3 lg:col-span-2">
+                    <h4 class="text-red-400 text-xs font-bold uppercase tracking-widest">סיווג אבולוציוני</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">תרופוד (Theropod)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">מייצג את שיא ההנדסה הביולוגית של הטורפים היבשתיים בהיסטוריה.</p>
                 </div>
             </div>
         </section>
 
         <!-- אטימולוגיה מפורטת -->
-        <section class="space-y-8">
+        <section class="space-y-10">
             <h2 class="text-4xl font-black text-white flex items-center gap-4">
-                <span class="text-green-500 italic">01 //</span> ניתוח אטימולוגי
+                <span class="text-red-500 italic font-mono">01 //</span> ניתוח אטימולוגי נרחב
             </h2>
-            <div class="overflow-hidden rounded-3xl border border-gray-800 bg-gray-900/50 shadow-2xl">
+            <div class="overflow-hidden rounded-[2.5rem] border border-gray-800 bg-gray-900/50 shadow-2xl">
                 <table class="w-full text-right border-collapse">
                     <thead>
                         <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
-                            <th class="p-6 border-b border-gray-700">החלק בשם</th>
-                            <th class="p-6 border-b border-gray-700">שפת מקור</th>
-                            <th class="p-6 border-b border-gray-700">משמעות אטימולוגית</th>
+                            <th class="p-8 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-8 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-8 border-b border-gray-700">פירוש ומשמעות היסטורית</th>
                         </tr>
                     </thead>
                     <tbody class="text-gray-200">
-                        <tr class="hover:bg-green-500/5 transition-colors border-b border-gray-800">
-                            <td class="p-6 font-mono text-green-500 font-black text-2xl" dir="ltr">Tyrannos</td>
-                            <td class="p-6 font-bold text-yellow-500">יוונית עתיקה</td>
-                            <td class="p-6 leading-relaxed">
-                                <span class="block font-bold text-white mb-1 uppercase text-xs">עריץ / רודן</span>
-                                מתאר את מעמדו כשליט הבלתי מעורער והאכזר של שרשרת המזון.
+                        <tr class="hover:bg-red-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-red-500 font-black text-3xl" dir="ltr">Tyranno-</td>
+                            <td class="p-8 font-bold text-red-400">יוונית (τύραννος)</td>
+                            <td class="p-8 leading-relaxed">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">עריץ / שליט אכזרי</span>
+                                תיאור של אופי השליטה המוחלטת של היצור בסביבתו והאימה שהטיל.
                             </td>
                         </tr>
-                        <tr class="hover:bg-green-500/5 transition-colors border-b border-gray-800">
-                            <td class="p-6 font-mono text-green-500 font-black text-2xl" dir="ltr">Sauros</td>
-                            <td class="p-6 font-bold text-yellow-500">יוונית עתיקה</td>
-                            <td class="p-6 leading-relaxed">
-                                <span class="block font-bold text-white mb-1 uppercase text-xs">לטאה / זוחל</span>
-                                סיומת קלאסית בדינוזאורים המעידה על שיוכם למשפחת הזוחלים הגדולה.
+                        <tr class="hover:bg-red-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-red-500 font-black text-3xl" dir="ltr">-saurus</td>
+                            <td class="p-8 font-bold text-red-400">יוונית (σαῦρος)</td>
+                            <td class="p-8 leading-relaxed">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">לטאה</span>
+                                הסיומת המדעית הקלאסית המגדירה את היצור כחלק ממשפחת הזוחלים הגדולים.
                             </td>
                         </tr>
-                        <tr class="hover:bg-green-500/5 transition-colors">
-                            <td class="p-6 font-mono text-green-500 font-black text-2xl" dir="ltr">Rex</td>
-                            <td class="p-6 font-bold text-yellow-500">לטינית</td>
-                            <td class="p-6 leading-relaxed">
-                                <span class="block font-bold text-white mb-1 uppercase text-xs">מלך</span>
-                                תוספת נדירה של תואר המלכות למערכת השמות הבינומית.
+                        <tr class="hover:bg-red-500/5 transition-colors">
+                            <td class="p-8 font-mono text-yellow-500 font-black text-3xl" dir="ltr">rex</td>
+                            <td class="p-8 font-bold text-yellow-400">לטינית</td>
+                            <td class="p-8 leading-relaxed">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">מלך (King)</span>
+                                הלחם מלא של השם: **"מלך הלטאות העריצות"**. שם המדגיש את עליונותו מעל כולם.
                             </td>
                         </tr>
                     </tbody>
@@ -136,72 +142,142 @@
         </section>
 
         <!-- תולדות הגילוי והדרמה המדעית -->
-        <section class="space-y-10">
+        <section class="space-y-12">
             <h2 class="text-4xl font-black text-white flex items-center gap-4">
-                <span class="text-green-500 italic">02 //</span> תולדות הגילוי: ממפלצות ראווה ועד ה-FBI
+                <span class="text-red-500 italic font-mono">02 //</span> תולדות הגילוי: המרוץ לכתר
             </h2>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- הגילוי המקורי -->
-                <div class="bg-emerald-900/10 border border-emerald-900/30 p-10 rounded-[2.5rem] space-y-6 shadow-xl">
-                    <h3 class="text-2xl font-bold text-emerald-400 flex items-center gap-3">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m16 10-4 4-4-4"/></svg>
-                        הגילוי הראשון ומלחמות המוזיאונים (1900-1902)
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="bg-red-900/10 border border-red-900/30 p-12 rounded-[3rem] space-y-8 shadow-xl">
+                    <h3 class="text-2xl font-bold text-red-400 flex items-center gap-4">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m16 10-4 4-4-4"/></svg>
+                        הסיבה למשלחת (1900-1905)
                     </h3>
-                    <p class="text-gray-300 leading-relaxed text-lg">
-                        המאובנים הראשונים של הטי-רקס התגלו על ידי הפלאונטולוג האגדי <strong>ברנום בראון</strong> (Barnum Brown) במזרח ויומינג ובמונטנה. המשלחת שלו מומנה על ידי המוזיאון האמריקאי לתולדות הטבע (AMNH) בניו יורק.<br><br>
-                        <strong>מטרת המשלחת:</strong> המוזיאון בניו יורק היה בעיצומה של מלחמה על יוקרה ותקציבים מול מוזיאון קרנגי. הם חיפשו נואשות "מפלצות תצוגה" עצומות שידהימו את הקהל וימכרו כרטיסים. גילוי הטורף העצום שזכה מיד לשם "מלך הלטאות העריצות" היה ניצחון מוחץ בקרב על יחסי הציבור.
+                    <p class="text-gray-300 leading-relaxed text-lg text-justify font-medium">
+                        בתחילת המאה ה-20, המוזיאון האמריקאי לתולדות הטבע (AMNH) בניו יורק, תחת ניהולו של **הנרי פיירפילד אוסבורן**, היה נואש למצוא "תצוגת ראווה" שתאפיל על המוזיאונים המתחרים. אוסבורן רצה למצוא טורף יבשתי ענק שימחיש את עוצמת האבולוציה וימשוך המונים. הוא שלח את צייד המאובנים המוכשר ביותר שלו, **ברנום בראון** (Barnum Brown), למשימת סריקה מקיפה באזורים הנידחים של מונטנה וויומינג.
                     </p>
                 </div>
 
-                <!-- הדרמה של סו -->
-                <div class="bg-green-900/10 border border-green-900/30 p-10 rounded-[2.5rem] space-y-6 shadow-xl">
-                    <h3 class="text-2xl font-bold text-green-400 flex items-center gap-3">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        הגילוי של "סו" ופשיטת ה-FBI (1990)
+                <div class="bg-orange-900/10 border border-orange-900/30 p-12 rounded-[3rem] space-y-8 shadow-xl relative">
+                    <h3 class="text-2xl font-bold text-orange-400 flex items-center gap-4">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        הגילוי של ברנום בראון
                     </h3>
-                    <p class="text-gray-300 leading-relaxed text-lg">
-                        התגלית החשובה ביותר התרחשה כמעט במקרה. ב-12 באוגוסט 1990, בדרום דקוטה, הפלאונטולוגית <strong>סו הנדריקסון</strong> נשארה מאחור בזמן ששאר חברי המשלחת הלכו לתקן תקר (פנצ'ר) במשאית. בסיור רגלי סמוך לצוק, היא גילתה את "סו" - השלד השלם ביותר של טי-רקס שנמצא אי פעם (מעל 90%).<br><br>
-                        <strong>הדרמה:</strong> המאובן נמצא בשמורת אינדיאנים, מה שהוביל למאבק משפטי חסר תקדים. ה-FBI פשט על מכון המחקר והחרים את העצמות. בסופו של דבר, "סו" נמכרה במכירה פומבית היסטורית בסותבי'ס בסכום שיא של 8.36 מיליון דולר.
+                    <p class="text-gray-300 leading-relaxed text-lg text-justify font-medium">
+                        בשנת **1902**, ברנום בראון יצא ל**תצורת הל קריק (Hell Creek Formation)** במונטנה. באזור צחיח וקשה למעבר, בתוך שכבות אבן חול קשות כבטון, בראון חשף שלד חלקי שכלל לסתות עצומות וחלקי אגן. התנאים היו כה קשים שהוא נאלץ להשתמש ב**דינמיט** כדי לבקע את הסלע ולחלץ את המאובנים העצומים.
                     </p>
                 </div>
             </div>
+
+            <div class="glass-card p-10 rounded-[2.5rem] border border-red-500/20">
+                <h4 class="text-xl font-bold text-white mb-4">הפרסום והתהילה (1905)</h4>
+                <p class="text-gray-400 leading-relaxed">
+                    בראון שלח את הממצאים בתיבות עץ כבדות לאוסבורן בניו יורק. אוסבורן, שהבין מיד שמדובר בטורף היבשתי הגדול והמרשים ביותר שחי אי פעם, פרסם את התיאור המדעי הרשמי ב-1905 והעניק לו את השם האיקוני **Tyrannosaurus rex**. המהלך הזה הפך את הדינוזאור למותג עולמי עוד לפני שהציבור ראה שלד שלם שלו עומד על רגליו.
+                </p>
+            </div>
         </section>
 
-        <!-- אקולוגיה והתנהגות -->
-        <section class="glass-card p-10 md:p-16 rounded-[3rem] shadow-inner space-y-10">
-            <h3 class="text-4xl font-black text-white text-center">אקולוגיה וביומכניקה של ציד</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6 text-gray-300">
-                    <p class="text-lg leading-relaxed">
-                        הטי-רקס היה מכונת טרף משוכללת שחיה בסוואנות וביערות של "לארמידיה" (כיום מערב צפון אמריקה). מחקרים מתקדמים על גולגולתו הוכיחו שימוש מסיבי במערכות חישה, בדגש על הריח והראייה.
+        <!-- אקולוגיה ואידיאולוגיה -->
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden">
+            <h3 class="text-4xl font-black text-white text-center mb-12 uppercase tracking-tighter">אקולוגיה: המלך של סוף העידן</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8 text-gray-300">
+                    <p class="text-xl leading-relaxed text-justify">
+                        הטי-רקס לא היה רק "מפלצת", אלא בעל חיים מתוחכם עם התאמות אקולוגיות מדהימות שאיפשרו לו לשלוט ביבשת לאראמידיה ללא מתחרים.
                     </p>
-                    <div class="bg-black/30 p-6 rounded-2xl border border-green-500/20">
-                        <h4 class="text-green-400 font-bold mb-2 uppercase text-xs">הוכחות להתנהגות להקתית/משפחתית</h4>
-                        <p class="text-sm italic text-gray-400">
-                            על השלד של "סו" נמצאו פציעות קשות שהחלימו, כולל עצמות שבורות וזיהומים. חיה טורפת לא יכולה לצוד במצב כזה, והעובדה ששרדה שנים מצביעה על כך שחברי הלהקה שלה הגנו עליה והאכילו אותה.
+                    <div class="bg-black/50 p-8 rounded-[2rem] border border-red-500/30">
+                        <h4 class="text-red-400 font-bold mb-4 uppercase text-xs tracking-widest">חושים וביומכניקה</h4>
+                        <p class="text-sm leading-relaxed">
+                            מחקרי CT הוכיחו כי לטי-רקס הייתה **ראייה בינוקולרית** טובה יותר מזו של נשר מודרני, וחוש ריח חריף ביותר. נשיכתו הפעילה כוח של **57,000 ניוטון** – עוצמה מספקת כדי לרסק עצמות שלמות של טריצרטופס בוגר.
                         </p>
                     </div>
                 </div>
-                <div class="space-y-6 bg-gray-900/40 p-8 rounded-3xl border border-gray-800">
-                    <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">הישגים אבולוציוניים</h3>
-                    <ul class="space-y-5 text-gray-400 text-sm">
-                        <li class="flex gap-3"><span class="text-green-500 font-bold">●</span> <strong>מנגנון ריסוק עצמות:</strong> השיניים שלו היו בצורת בננה, עם שורשים עמוקים שנועדו לא לחיתוך בשר, אלא לריסוק עצמות הטרף כדי להגיע למח העצם המזין.</li>
-                        <li class="flex gap-3"><span class="text-green-500 font-bold">●</span> <strong>ראייה תלת-ממדית:</strong> העיניים שלו היו מופנות קדימה, והעניקו לו "ראייה בינוקולרית" מעולה, המאפשרת אומדן מרחק מושלם לפני תקיפה.</li>
-                        <li class="flex gap-3"><span class="text-green-500 font-bold">●</span> <strong>עצם הבריח (Furcula):</strong> גילוי העצם אצל הטי-רקס סיפק הוכחה חותכת לקשר האבולוציוני בין הדינוזאורים הטורפים לעופות של ימינו.</li>
+                <div class="space-y-8 bg-gray-900/60 p-10 rounded-[2.5rem] border border-gray-800 shadow-xl">
+                    <h4 class="text-2xl font-bold text-white mb-6 uppercase tracking-tighter">אידיאולוגיית ה"מלך"</h4>
+                    <ul class="space-y-6 text-gray-400 text-sm">
+                        <li class="flex gap-4"><span class="bg-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center shrink-0">1</span> <strong>טריטוריאליות:</strong> נשיכות על גולגולות של טי-רקסים אחרים מעידות על קרבות אכזריים על שליטה.</li>
+                        <li class="flex gap-4"><span class="bg-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center shrink-0">2</span> <strong>זרועות קטנות-גדולות:</strong> למרות גודלן, יכלו להרים כ-200 ק"ג כל אחת ושימשו כנראה לאחיזת הטרף.</li>
+                        <li class="flex gap-4"><span class="bg-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center shrink-0">3</span> <strong>קצה שרשרת המזון:</strong> ללא טורפים טבעיים בבגרותו, הטי-רקס עיצב את כל המערכת האקולוגית סביבו.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
+        <!-- שלמות המאובנים: סו וסטאן -->
+        <section class="space-y-16">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-red-500 italic font-mono">03 //</span> שלמות המאובנים: סיפוריהם של "סו" ו"סטאן"
+            </h2>
+
+            <!-- סו -->
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-8">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-6 border-b border-gray-800 pb-8">
+                    <div>
+                        <h3 class="text-3xl font-black gold-accent uppercase tracking-tighter">הסיפור המלא של "סו" (Sue)</h3>
+                        <p class="text-gray-500 text-sm">השלד השלם והמפורסם בעולם // 90% שלמות</p>
+                    </div>
+                    <span class="bg-yellow-500/10 border border-yellow-500/30 text-yellow-500 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Discovery ID: SUE-1990</span>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 text-gray-300">
+                    <div class="space-y-6">
+                        <p class="leading-relaxed text-justify">
+                            ב-12 באוגוסט 1990, משלחת ממכון בלאק הילס חקרה את שמורת "נהר השאיין" בדרום דקוטה. למשאית של הצוות היה **תקר בגלגל**. בזמן שחברי המשלחת נסעו לעיירה לתקן את הגלגל, הפלאונטולוגית **סו הנדריקסון** החליטה לסייר בצוקים הסמוכים. היא הבחינה בשברי עצמות בבסיס הצוק, וכשהרימה את מבטה ראתה שלוש חוליות ענק בולטות מהסלע. 
+                        </p>
+                        <p class="leading-relaxed text-justify font-bold text-white">
+                            מקור השם: השלד נקרא "סו" באופן מיידי כהוקרה למגלה שלו, סו הנדריקסון. השם הפך לסמל של עוצמה פלאונטולוגית.
+                        </p>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="p-6 bg-black/40 rounded-2xl border border-yellow-500/20 text-sm italic">
+                            
+                            <p class="mt-4">לאחר מאבק משפטי אדיר, "סו" נמכרה ב-1997 תמורת 8.36 מיליון דולר למוזיאון השדה בשיקגו, בסיוע של חברות כמו דיסני ומקדונלד'ס.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- סטאן -->
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-8">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-6 border-b border-gray-800 pb-8">
+                    <div>
+                        <h3 class="text-3xl font-black gold-accent uppercase tracking-tighter">הסיפור המלא של "סטאן" (Stan)</h3>
+                        <p class="text-gray-500 text-sm">הגולגולת השמורה ביותר // השורד הפצוע</p>
+                    </div>
+                    <span class="bg-yellow-500/10 border border-yellow-500/30 text-yellow-500 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Discovery ID: STAN-1987</span>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 text-gray-300">
+                    <div class="space-y-6">
+                        <p class="leading-relaxed text-justify">
+                            בשנת **1987**, הפלאונטולוג החובב **סטאן סקריסון** חפר בבתרונות של צפון דרום דקוטה. הוא נתקל בעצמות אגן בולטות מהאדמה. בתחילה, מדענים שראו את האתר חשבו בטעות שמדובר בטריצרטופס נפוץ. רק ב-1992 הבינו במכון בלאק הילס שמדובר בטי-רקס יוצא דופן באיכותו (70% שלם).
+                        </p>
+                        <p class="leading-relaxed text-justify font-bold text-white">
+                            מקור השם: השלד נקרא "סטאן" על שמו של המגלה המקורי שזיהה את האתר לראשונה, סטאן סקריסון.
+                        </p>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="p-6 bg-black/40 rounded-2xl border border-yellow-500/20 text-sm italic">
+                            
+                            <p class="mt-4">סטאן מציג היסטוריה רפואית קשוחה: חוליות צוואר שבורות שהתאחו וחור בגולגולת משן של טי-רקס אחר. ב-2020 נמכר בסכום שיא של 31.8 מיליון דולר.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- סיבת ההכחדה -->
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-red-500 italic font-mono">04 //</span> סיבת ההכחדה: קץ המלוכה
+            </h2>
+            <div class="p-10 bg-red-900/10 rounded-[2.5rem] border border-red-900/20 text-gray-300 leading-relaxed text-lg text-justify">
+                הטי-רקס נכחד לפני 66 מיליון שנה בעקבות פגיעת האסטרואיד בצ'יקשולוב. כטורף המוחלט בקצה שרשרת המזון, הוא היה הראשון להיפגע מקריסת המערכת האקולוגית. היעלמותם של הדינוזאורים הצמחוניים הגדולים (כמו טריצרטופס) בעקבות החשכה הגלובלית, לא הותירה לטי-רקס מספיק אנרגיה להזין את גופו העצום, ושושלת המלכים נגמרה לנצח.
+            </div>
+        </section>
+
     </main>
 
-    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-sm border-t border-gray-900 mt-20">
-        <div class="flex justify-center gap-6 mb-4">
-            <span class="bg-gray-800 px-3 py-1 rounded text-[10px] tracking-widest uppercase">Paleo-Report #025</span>
-            <span class="bg-gray-800 px-3 py-1 rounded text-[10px] tracking-widest uppercase">Chief Researcher: RAM</span>
-        </div>
-        אנציקלופדיית פרה-היסטוריה | המהדורה השטוחה 2026
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
+        T-Rex Research Complete // Verified by RAM // 2026
     </footer>
 
 </body>
