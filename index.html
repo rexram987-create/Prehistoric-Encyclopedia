@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -6,197 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>אנציקלופדיית פרה-היסטוריה - שער ראשי</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .animate-fadeIn { animation: fadeIn 0.5s ease-out forwards; }
         body { background-color: #030712; color: #f3f4f6; overflow-x: hidden; font-family: system-ui, -apple-system, sans-serif; }
-        .animal-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .animal-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: block; text-decoration: none; }
         .animal-card:active { transform: scale(0.95); }
+        .locked-card { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
     </style>
 </head>
-<body>
-    <div id="root"></div>
+<body class="min-h-screen pb-24">
 
-    <script type="text/babel">
-        const { useState } = React;
-
-        // הנתיבים כאן מותאמים ב-100% לצילום המסך שלך
-        const animals = [
-          { id: 'dimetrodon', name: 'דימטרודון', era: 'Paleozoic', path: 'Paleozoic/dimetrodon.html', ready: true },
-          { id: 'tyrannosaurus-rex', name: 'טירנוזאורוס רקס', era: 'Mesozoic', path: 'Mesozoic/tyrannosaurus-rex.html', ready: true },
-          { id: 'smilodon', name: 'סמילודון', era: 'Cenozoic', path: 'Cenozoic/smilodon.html', ready: true },
-          // חיות בבנייה
-          { id: 'dunkleosteus', name: 'דנקליאוסטיוס', era: 'Paleozoic', ready: false },
-          { id: 'arthropleura', name: 'ארתרופלאורה', era: 'Paleozoic', ready: false },
-          { id: 'tiktaalik', name: 'טיקטאליק', era: 'Paleozoic', ready: false }
-        ];
-
-        const eras = [
-          { id: 'Paleozoic', name: 'פלאוזואיקון', color: 'border-blue-500', bg: 'bg-blue-500/10' },
-          { id: 'Mesozoic', name: 'מזוזואיקון', color: 'border-green-500', bg: 'bg-green-500/10' },
-          { id: 'Cenozoic', name: 'קנוזואיקון', color: 'border-yellow-500', bg: 'bg-yellow-500/10' }
-        ];
-
-        function App() {
-          const [showAboutModal, setShowAboutModal] = useState(false);
-
-          return (
-            <div className="min-h-screen pb-24">
-              {/* סרגל ניווט עליון */}
-              <nav className="bg-gray-900 border-b border-gray-800 p-5 shadow-xl mb-8">
-                <div className="max-w-6xl mx-auto flex justify-between items-center">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-blue-600 p-2 rounded-xl shadow-lg shadow-blue-900/40 text-white font-black text-xl">R</div>
-                    <h1 className="text-xl font-black tracking-tight uppercase">Paleo Archive</h1>
-                  </div>
-                  <button onClick={() => setShowAboutModal(true)} className="bg-gray-800 p-2 rounded-full border border-gray-700 active:scale-90 transition-transform">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-                  </button>
-                </div>
-              </nav>
-
-              <main className="max-w-6xl mx-auto px-5 animate-fadeIn space-y-12">
-                {eras.map(era => (
-                  <section key={era.id} className="space-y-6">
-                    <div className={`inline-block px-5 py-1 rounded-full border-r-4 ${era.color} ${era.bg}`}>
-                       <h3 className="text-lg font-black text-white">{era.name}</h3>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                      {animals.filter(a => a.era === era.id).map(animal => (
-                        <a 
-                          key={animal.id} 
-                          href={animal.ready ? animal.path : 'javascript:void(0)'}
-                          className={`animal-card block bg-gray-900 border ${animal.ready ? 'border-gray-700 shadow-lg' : 'border-gray-800 opacity-30 cursor-not-allowed'} rounded-[2rem] overflow-hidden p-1`}
-                        >
-                          <div className="aspect-square bg-gray-800/40 rounded-[1.7rem] flex items-center justify-center p-4 relative overflow-hidden">
-                            <img 
-                              src={`./images/${animal.id}.png`} 
-                              alt={animal.name} 
-                              className="max-w-full max-h-full object-contain drop-shadow-2xl" 
-                              onError={(ev) => { 
-                                ev.target.src = `./${animal.id}.png`; 
-                                ev.target.onerror = null;
-                              }} 
-                            />
-                            {!animal.ready && (
-                              <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-                                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Locked</span>
-                              </div>
-                            )}
-                          </div>
-                          <div className="p-3 text-center font-bold text-sm text-white">{animal.name}</div>
-                        </a>
-                      ))}
-                    </div>
-                  </section>
-                ))}
-              </main>
-
-              {/* מודל אודות */}
-              {showAboutModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/95 backdrop-blur-md animate-fadeIn" onClick={() => setShowAboutModal(false)}>
-                  <div className="bg-gray-900 border border-gray-700 rounded-[3rem] p-10 text-center space-y-6 max-w-sm w-full shadow-2xl relative" onClick={e => e.stopPropagation()}>
-                    <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500 mx-auto">
-                      <img src="./ram-profile.jpeg" alt="Ram" className="w-full h-full object-cover" />
-                    </div>
-                    <h2 className="text-3xl font-black text-white uppercase tracking-tighter">Chief Researcher: RAM</h2>
-                    <p className="text-gray-400 text-sm leading-relaxed font-medium">
-                      מומחה להיסטוריה ואבולוציה. כל מחקר בארכיון זה מאומת ומתועד בקפידה.
-                    </p>
-                    <button onClick={() => setShowAboutModal(false)} className="w-full bg-blue-600 text-white py-4 rounded-2xl font-black shadow-lg shadow-blue-900/40">סגור ארכיון</button>
-                  </div>
-                </div>
-              )}
+    <!-- סרגל ניווט עליון -->
+    <nav class="bg-gray-900 border-b border-gray-800 p-5 shadow-xl mb-8 relative">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-blue-600 p-2 rounded-xl shadow-lg shadow-blue-900/40 text-white font-black text-xl">R</div>
+                <h1 class="text-xl font-black tracking-tight uppercase">Paleo Archive</h1>
             </div>
-          );
-        }
+            <!-- מודל האודות נפתח עם קצת JS פשוט עכשיו -->
+            <button onclick="document.getElementById('aboutModal').classList.remove('hidden')" class="bg-gray-800 p-2 rounded-full border border-gray-700 active:scale-90 transition-transform">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            </button>
+        </div>
+    </nav>
 
-          ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-    </script>
+    <main class="max-w-6xl mx-auto px-5 animate-fadeIn space-y-12">
+        
+        <!-- פלאוזואיקון -->
+        <section class="space-y-6">
+            <div class="inline-block px-5 py-1 rounded-full border-r-4 border-blue-500 bg-blue-500/10">
+               <h3 class="text-lg font-black text-white">פלאוזואיקון (עידן החיים הקדומים)</h3>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                
+                <!-- דימטרודון (מוכן) - קישור ישיר נקי -->
+                <a href="./Paleozoic/dimetrodon.html" class="animal-card bg-gray-900 border border-gray-700 shadow-lg rounded-[2rem] overflow-hidden p-1">
+                    <div class="aspect-square bg-gray-800/40 rounded-[1.7rem] flex items-center justify-center p-4">
+                        <img src="./images/dimetrodon.png" alt="דימטרודון" class="max-w-full max-h-full object-contain drop-shadow-2xl" onerror="this.src='./dimetrodon.png'; this.onerror=null;">
+                    </div>
+                    <div class="p-3 text-center font-bold text-sm text-white">דימטרודון</div>
+                </a>
+
+                <!-- חיות נעולות פלאוזואיקון -->
+                <div class="animal-card locked-card bg-gray-900 border border-gray-800 rounded-[2rem] overflow-hidden p-1">
+                    <div class="aspect-square bg-gray-800/40 rounded-[1.7rem] flex items-center justify-center p-4 relative">
+                        <span class="absolute z-10 text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-black/60 px-2 py-1 rounded">Locked</span>
+                        <img src="./images/dunkleosteus.png" alt="דנקליאוסטיוס" class="max-w-full max-h-full object-contain opacity-50 grayscale" onerror="this.style.display='none'">
+                    </div>
+                    <div class="p-3 text-center font-bold text-sm text-gray-500">דנקליאוסטיוס</div>
+                </div>
+
+                <div class="animal-card locked-card bg-gray-900 border border-gray-800 rounded-[2rem] overflow-hidden p-1">
+                    <div class="aspect-square bg-gray-800/40 rounded-[1.7rem] flex items-center justify-center p-4 relative">
+                        <span class="absolute z-10 text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-black/60 px-2 py-1 rounded">Locked</span>
+                        <img src="./images/arthropleura.png" alt="ארתרופלאורה" class="max-w-full max-h-full object-contain opacity-50 grayscale" onerror="this.style.display='none'">
+                    </div>
+                    <div class="p-3 text-center font-bold text-sm text-gray-500">ארתרופלאורה</div>
+                </div>
+
+                <div class="animal-card locked-card bg-gray-900 border border-gray-800 rounded-[2rem] overflow-hidden p-1">
+                    <div class="aspect-square bg-gray-800/40 rounded-[1.7rem] flex items-center justify-center p-4 relative">
+                        <span class="absolute z-10 text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-black/60 px-2 py-1 rounded">Locked</span>
+                        <img src="./images/tiktaalik.png" alt="טיקטאליק" class="max-w-full max-h-full object-contain opacity-50 grayscale" onerror="this.style.display='none'">
+                    </div>
+                    <div class="p-3 text-center font-bold text-sm text-gray-500">טיקטאליק</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- מזוזואיקון -->
+        <section class="space-y-6">
+            <div class="inline-block px-5 py-1 rounded-full border-r-4 border-green-500 bg-green-500/10">
+               <h3 class="text-lg font-black text-white">מזוזואיקון (עידן הדינוזאורים)</h3>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                
+                <!-- טי-רקס (מוכן) -->
+                <a href="./Mesozoic/tyrannosaurus-rex.html" class="animal-card bg-gray-900 border border-gray-700 shadow-lg rounded-[2rem] overflow-hidden p-1">
+                    <div class="aspect-square bg-gray-800/40 rounded-[1.7rem] flex items-center justify-center p-4">
+                        <img src="./images/tyrannosaurus-rex.png" alt="טירנוזאורוס רקס" class="max-w-full max-h-full object-contain drop-shadow-2xl" onerror="this.src='./tyrannosaurus-rex.png'; this.onerror=null;">
+                    </div>
+                    <div class="p-3 text-center font-bold text-sm text-white">טירנוזאורוס רקס</div>
+                </a>
+
+                <!-- חיות נעולות מזוזואיקון -->
+                <div class="animal-card locked-card bg-gray-900 border border-gray-800 rounded-[2rem] overflow-hidden p-1">
+                    <div class="aspect-square bg-gray-800/40 rounded-[1.7rem] flex items-center justify-center p-4 relative">
+                        <span class="absolute z-10 text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-black/60 px-2 py-1 rounded">Locked</span>
+                        <img src="./images/velociraptor.png" alt="ולוצירפטור" class="max-w-full max-h-full object-contain opacity-50 grayscale" onerror="this.style.display='none'">
+                    </div>
+                    <div class="p-3 text-center font-bold text-sm text-gray-500">ולוצירפטור</div>
+                </div>
+
+                <div class="animal-card locked-card bg-gray-900 border border-gray-800 rounded-[2rem] overflow-hidden p-1">
+                    <div class="aspect-square bg-gray-800/40 rounded-[1.7rem] flex items-center justify-center p-4 relative">
+                        <span class="absolute z-10 text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-black/60 px-2 py-1 rounded">Locked</span>
+                        <img src="./images/triceratops.png" alt="טריצרטופס" class="max-w-full max-h-full object-contain opacity-50 grayscale" onerror="this.style.display='none'">
+                    </div>
+                    <div class="p-3 text-center font-bold text-sm text-gray-500">טריצרטופס</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- קנוזואיקון -->
+        <section class="space-y-6">
+            <div class="inline-block px-5 py-1 rounded-full border-r-4 border-yellow-500 bg-yellow-500/10">
+               <h3 class="text-lg font-black text-white">קנוזואיקון (עידן היונקים)</h3>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                
+                <!-- סמילודון (מוכן) -->
+                <a href="./Cenozoic/smilodon.html" class="animal-card bg-gray-900 border border-gray-700 shadow-lg rounded-[2rem] overflow-hidden p-1">
+                    <div class="aspect-square bg-gray-800/40 rounded-[1.7rem] flex items-center justify-center p-4">
+                        <img src="./images/smilodon.png" alt="סמילודון" class="max-w-full max-h-full object-contain drop-shadow-2xl" onerror="this.src='./smilodon.png'; this.onerror=null;">
+                    </div>
+                    <div class="p-3 text-center font-bold text-sm text-white">סמילודון</div>
+                </a>
+
+                <!-- חיות נעולות קנוזואיקון -->
+                <div class="animal-card locked-card bg-gray-900 border border-gray-800 rounded-[2rem] overflow-hidden p-1">
+                    <div class="aspect-square bg-gray-800/40 rounded-[1.7rem] flex items-center justify-center p-4 relative">
+                        <span class="absolute z-10 text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-black/60 px-2 py-1 rounded">Locked</span>
+                        <img src="./images/woolly-mammoth.png" alt="ממותה צמרית" class="max-w-full max-h-full object-contain opacity-50 grayscale" onerror="this.style.display='none'">
+                    </div>
+                    <div class="p-3 text-center font-bold text-sm text-gray-500">ממותה צמרית</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- מודל אודות (מוסתר כברירת מחדל) -->
+    <div id="aboutModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/95 backdrop-blur-md animate-fadeIn">
+        <div class="bg-gray-900 border border-gray-700 rounded-[3rem] p-10 text-center space-y-6 max-w-sm w-full shadow-2xl relative">
+            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500 mx-auto shadow-[0_0_40px_rgba(59,130,246,0.5)]">
+                <img src="./ram-profile.jpeg" alt="Ram" class="w-full h-full object-cover">
+            </div>
+            <h2 class="text-3xl font-black text-white uppercase tracking-tighter">Chief Researcher: RAM</h2>
+            <p class="text-gray-400 text-sm leading-relaxed font-medium">
+                מומחה להיסטוריה ואבולוציה. כל מחקר בארכיון זה מאומת ומתועד בקפידה.
+            </p>
+            <button onclick="document.getElementById('aboutModal').classList.add('hidden')" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black shadow-lg shadow-blue-900/40">סגור ארכיון</button>
+        </div>
+    </div>
+
 </body>
 </html>
-
-```
-          { id: 'Paleozoic', name: 'פלאוזואיקון', color: 'border-blue-500', bg: 'bg-blue-500/10' },
-          { id: 'Mesozoic', name: 'מזוזואיקון', color: 'border-green-500', bg: 'bg-green-500/10' },
-          { id: 'Cenozoic', name: 'קנוזואיקון', color: 'border-yellow-500', bg: 'bg-yellow-500/10' }
-        ];
-
-        function App() {
-          const [showAboutModal, setShowAboutModal] = useState(false);
-
-          return (
-            <div className="min-h-screen pb-24">
-              <nav className="bg-gray-900 border-b border-gray-800 p-5 shadow-xl mb-8">
-                <div className="max-w-6xl mx-auto flex justify-between items-center">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-blue-600 p-2 rounded-xl shadow-lg shadow-blue-900/40 text-white font-black text-xl">R</div>
-                    <h1 className="text-xl font-black tracking-tight">ארכיון פרה-היסטוריה</h1>
-                  </div>
-                  <button onClick={() => setShowAboutModal(true)} className="bg-gray-800 p-2 rounded-full border border-gray-700 active:scale-90 transition-transform">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-                  </button>
-                </div>
-              </nav>
-
-              <main className="max-w-6xl mx-auto px-5 animate-fadeIn space-y-12">
-                {eras.map(era => (
-                  <section key={era.id} className="space-y-6">
-                    <div className={`inline-block px-5 py-1 rounded-full border-r-4 ${era.color} ${era.bg}`}>
-                       <h3 className="text-lg font-black text-white">{era.name}</h3>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                      {animals.filter(a => a.era === era.id).map(animal => (
-                        <a 
-                          key={animal.id} 
-                          href={animal.ready ? animal.path : '#'}
-                          className={`animal-card block bg-gray-900 border ${animal.ready ? 'border-gray-700 shadow-lg' : 'border-gray-800 opacity-30 cursor-not-allowed'} rounded-3xl overflow-hidden p-1`}
-                          onClick={(e) => { if(!animal.ready) e.preventDefault(); }}
-                        >
-                          <div className="aspect-square bg-gray-800/40 rounded-2xl flex items-center justify-center p-4 relative">
-                            <img 
-                              src={`./images/${animal.id}.png`} 
-                              alt={animal.name} 
-                              className="max-w-full max-h-full object-contain drop-shadow-2xl" 
-                              onError={(ev) => { 
-                                ev.target.style.display = 'none';
-                                ev.target.nextSibling.style.display = 'block';
-                              }} 
-                            />
-                            <div className="hidden text-gray-600 text-[10px] font-bold uppercase text-center">{animal.name}<br/>(אין תמונה)</div>
-                          </div>
-                          <div className="p-3 text-center font-bold text-sm text-white">{animal.name}</div>
-                        </a>
-                      ))}
-                    </div>
-                  </section>
-                ))}
-              </main>
-
-              {showAboutModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/90 backdrop-blur-md animate-fadeIn" onClick={() => setShowAboutModal(false)}>
-                  <div className="bg-gray-900 border border-gray-700 rounded-[2.5rem] p-10 text-center space-y-6 max-w-sm w-full shadow-2xl relative" onClick={e => e.stopPropagation()}>
-                    <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500 mx-auto shadow-[0_0_30px_rgba(59,130,246,0.3)]">
-                      <img src="./ram-profile.jpeg" alt="Ram" className="w-full h-full object-cover" />
-                    </div>
-                    <h2 className="text-3xl font-black text-white">רם</h2>
-                    <p className="text-gray-400 text-sm">חוקר ראשי | היסטוריה ואבולוציה</p>
-                    <button onClick={() => setShowAboutModal(false)} className="w-full bg-blue-600 text-white py-4 rounded-2xl font-black">חזרה</button>
-                  </div>
-                </div>
-              )}
-            </div>
-          );
-        }
-
-        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-    </script>
-</body>
-</html>
-
-```
