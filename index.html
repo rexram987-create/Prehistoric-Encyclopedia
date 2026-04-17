@@ -22,16 +22,22 @@
     <script type="text/babel">
         const { useState } = React;
 
-        // נתיבים שטוחים וישירים - עוקף את בעיית התיקיות של גיטהאב ומפנה ישירות לשורש
+        // רשימת החיות המעודכנת לפי סדר כרונולוגי ומצב מוכנות
         const animals = [
-          { id: 'dimetrodon', name: 'דימטרודון', era: 'Paleozoic', path: './dimetrodon.html', ready: true },
-          { id: 'tyrannosaurus-rex', name: 'טירנוזאורוס רקס', era: 'Mesozoic', path: './tyrannosaurus-rex.html', ready: true },
-          { id: 'smilodon', name: 'סמילודון', era: 'Cenozoic', path: './smilodon.html', ready: true },
-          // חיות בבנייה (נעולות כרגע)
-          { id: 'dunkleosteus', name: 'דנקליאוסטיוס', era: 'Paleozoic', ready: false },
-          { id: 'arthropleura', name: 'ארתרופלאורה', era: 'Paleozoic', ready: false },
+          // פלאוזואיקון
+          { id: 'anomalocaris', name: 'אנומלוקאריס', era: 'Paleozoic', path: './anomalocaris.html', ready: true },
+          { id: 'dunkleosteus', name: 'דנקליאוסטיוס', era: 'Paleozoic', path: './dunkleosteus.html', ready: false }, // בשיפוץ
           { id: 'tiktaalik', name: 'טיקטאליק', era: 'Paleozoic', ready: false },
+          { id: 'arthropleura', name: 'ארתרופלאורה', era: 'Paleozoic', ready: false },
+          { id: 'dimetrodon', name: 'דימטרודון', era: 'Paleozoic', path: './dimetrodon.html', ready: true },
+          
+          // מזוזואיקון
+          { id: 'tyrannosaurus-rex', name: 'טירנוזאורוס רקס', era: 'Mesozoic', path: './tyrannosaurus-rex.html', ready: true },
           { id: 'velociraptor', name: 'ולוצירפטור', era: 'Mesozoic', ready: false },
+          { id: 'triceratops', name: 'טריצרטופס', era: 'Mesozoic', ready: false },
+          
+          // קנוזואיקון
+          { id: 'smilodon', name: 'סמילודון', era: 'Cenozoic', path: './smilodon.html', ready: true },
           { id: 'woolly-mammoth', name: 'ממותה צמרית', era: 'Cenozoic', ready: false }
         ];
 
@@ -83,7 +89,7 @@
                                 ev.target.style.display = 'none';
                               }} 
                             />
-                            {/* תווית נעילה לחיות שעוד לא יצרנו */}
+                            {/* תווית נעילה */}
                             {!animal.ready && (
                               <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
                                 <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest border border-gray-600 px-2 py-1 rounded-full bg-gray-900/80">Locked</span>
