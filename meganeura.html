@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>אנציקלופדיה פלאונטולוגית: מחקר מגאנורה (Meganeura) אולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #e5e7eb; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(6, 182, 212, 0.3); /* Cyan border */
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%); /* Cyan to Blue gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-box {
+            border-right: 4px solid #06b6d4;
+            background: rgba(6, 182, 212, 0.05);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 1rem;
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.3);
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body class="antialiased pb-24 text-justify">
+
+    <!-- Modal Element -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <!-- ניווט סטטי -->
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="./index.html" class="flex items-center gap-3 text-cyan-500 hover:text-cyan-400 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-extrabold text-xl tracking-tight text-white">ארכיון האנציקלופדיה</span>
+            </a>
+            <div class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.2em]">Carboniferous Sky // File: MEG-ULTIMATE</div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-20">
+        
+        <!-- כותרת ראשית -->
+        <header class="text-center space-y-6 pt-10">
+            <div class="inline-block px-4 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                החרק המעופף הגדול בהיסטוריה
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient tracking-tighter">מגאנורה</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Giant Griffinfly: Meganeura monyi</p>
+            
+            <div class="relative mt-12 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-500 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[3rem] p-6 border border-gray-800 overflow-hidden shadow-2xl">
+                    
+                    <img src="./images/meganeura.png" alt="מגאנורה" onclick="openModal(this.src)" class="w-full max-h-[550px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105 mt-6 cursor-pointer hover:opacity-90" onerror="this.style.display='none'" title="לחץ להגדלת התמונה">
+                </div>
+            </div>
+        </header>
+
+        <!-- תעודת זהות מחקרית (Dossier) -->
+        <section class="glass-card rounded-[3rem] p-10 md:p-14 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-10 flex items-center gap-4">
+                <span class="w-2 h-10 bg-cyan-500 rounded-full"></span>
+                תיק מחקר: נתונים פיזיולוגיים
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-right">
+                <div class="space-y-3">
+                    <h4 class="text-cyan-400 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">305 עד 299 מיליון שנה</p>
+                    <p class="text-sm text-gray-500 italic">שלהי תור הקרבון</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-cyan-400 text-xs font-bold uppercase tracking-widest">מסה ומשקל</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">100 עד 150 גרם</p>
+                    <p class="text-sm text-gray-500 italic">מסה אדירה בעולם החרקים שדרשה כוח עילוי עצום</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-cyan-400 text-xs font-bold uppercase tracking-widest">מוטת כנפיים</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">65 עד 71 סנטימטרים</p>
+                    <p class="text-sm text-gray-500 italic">רוחב השקול לעיט קטן בן ימינו</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-cyan-400 text-xs font-bold uppercase tracking-widest">מיקום גיאוגרפי</h4>
+                    <p class="text-2xl font-medium text-cyan-400 font-bold underline">אירופה (צרפת, אנגליה)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">שליטת השחקים של יערות הגשם בסופר-יבשת הקדומה פנגיאה.</p>
+                </div>
+                <div class="space-y-3 lg:col-span-2 text-right">
+                    <h4 class="text-cyan-400 text-xs font-bold uppercase tracking-widest">סיווג טקסונומי קריטי</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">חרק מסדרת הגריפנפלייס (Meganisoptera)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed font-bold">חשוב להדגיש: היא אינה שפירית אמיתית (Odonata). מדובר בשושלת קדומה ונכחדת שהקדימה את השפיריות המודרניות.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- אטימולוגיה מפורטת -->
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-cyan-500 italic font-mono">01 //</span> ניתוח אטימולוגי נרחב
+            </h2>
+            <div class="overflow-hidden rounded-[2.5rem] border border-gray-800 bg-gray-900/50 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
+                            <th class="p-8 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-8 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-8 border-b border-gray-700">פירוש ומשמעות היסטורית</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200">
+                        <tr class="hover:bg-cyan-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-cyan-500 font-black text-3xl" dir="ltr">Mega-</td>
+                            <td class="p-8 font-bold text-blue-400">יוונית (μέγας)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">גדול / עצום</span>
+                                תיאור ישיר לממדיה המפלצתיים, ששברו כל מוסכמה מדעית לגבי גודל של חרקים באותה תקופה.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-cyan-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-cyan-500 font-black text-3xl" dir="ltr">-neura</td>
+                            <td class="p-8 font-bold text-blue-400">יוונית (νεῦρον)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">עורק / גיד</span>
+                                הלחם מלא: **"בעלת העורקים הענקיים"**. מתייחס לרשת העורקים (Venation) הצפופה שרישתה את כנפיה והשתמרה בצורה מושלמת באבן. השם ניתן על ידי שארל ברוניאר (1885).
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-cyan-500/5 transition-colors">
+                            <td class="p-8 font-mono text-cyan-500 font-black text-3xl" dir="ltr">monyi</td>
+                            <td class="p-8 font-bold text-blue-400">הוקרה אישית</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">מר מוני (Mony)</span>
+                                הוקרה למנהל הכללי של מכרות הפחם שמנע את השמדת המאובנים על ידי הכורים, ודאג להעביר אותם למדענים.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- תולדות הגילוי ושפירית בולסובר -->
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-cyan-500 italic font-mono">02 //</span> תולדות הגילוי: אוצרות המכרות
+            </h2>
+            
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-gray-300">
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-cyan-400 text-right">הגילוי בקומנטרי (1880)</h4>
+                        <p class="leading-relaxed text-right">
+                            במרכז צרפת, בעיירת הכורים קומנטרי, כורים שחפרו עמוק אל שכבות הפחם נתקלו בהטבעות ענקיות באבן בוץ עדינה (Shale). הממצאים נשלחו לפריז אל שארל ברוניאר, שהדהים את העולם ב-1885 כשהכריז על גילויו של חרק ממעופף בממדים של ציפור טרף.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-cyan-400 text-right">הדרמה בדרבישייר (1978)</h4>
+                        <p class="leading-relaxed text-right">
+                            במשך מאה שנה זה נחשב לתופעה צרפתית בלבד. עד שב-1978, במכרה בולסובר באנגליה, התגלתה תגלית מדהימה. המאובן ("שפירית בולסובר") נמצא על ידי כורים בעומק אדיר של **570 מטרים מתחת לקרקע**.
+                            <br><span class="text-xs italic mt-2 block text-gray-400"></span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900/80 p-8 rounded-[2rem] border border-gray-700 mt-6">
+                    <h4 class="text-xl font-bold text-white text-right mb-4 border-b border-gray-800 pb-2">משמעות ממצאי בולסובר</h4>
+                    <p class="text-sm leading-relaxed text-right text-gray-300 mb-4">
+                        למרות שה"שפירית" הבריטית הייתה קטנה מעט מהצרפתית (מוטת כנפיים של כ-25 ס"מ), חשיבותה הייתה קריטית למדע:
+                    </p>
+                    <ul class="space-y-4 text-sm text-gray-400 leading-relaxed text-right">
+                        <li><strong class="text-blue-400">1. תפוצה גלובלית:</strong> זה הוכיח שהמפלצות המעופפות היו טורפות-העל האוויריות בכל רחבי סופר-יבשת פנגיאה ולא אנומליה מקומית.</li>
+                        <li><strong class="text-blue-400">2. חותם העורקים:</strong> הממצא מאנגליה נחשב לאחד השמורים בהיסטוריה. בעוד קרום הכנף התפורר, רשת העורקים מקשיחת הכיטין השאירה חותם תלת-ממדי מושלם בסלע העמוק.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- חידת החמצן -->
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden">
+            <h3 class="text-4xl font-black text-white text-center mb-12 uppercase tracking-tighter">ביומכניקה והאנומליה הפיזיקלית</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8 text-gray-300">
+                    <div class="highlight-box p-8 rounded-l-[2rem]">
+                        <h4 class="text-cyan-400 font-bold mb-4 uppercase text-xs tracking-widest">איך שוברים את מגבלת הגודל?</h4>
+                        <p class="text-sm leading-relaxed text-right mb-4">
+                            מבנה הגוף של המגאנורה (71 ס"מ מוטת כנפיים ו-150 גרם משקל) סותר את האווירודינמיקה ומערכת הנשימה של חרקים בני ימינו.
+                        </p>
+                        <h4 class="text-cyan-400 font-bold mb-2 uppercase text-xs tracking-widest">מלכודת הטרכאות</h4>
+                        <p class="text-sm leading-relaxed text-right">
+                            חרקים נושמים דרך צינוריות דקות (טרכאות) בדיפוזיה פסיבית. בעולם מודרני של 21% חמצן, חרק בגודל כזה היה נחנק מיד, כי החמצן פשוט לא היה מצליח לחדור עמוק אל שרירי התעופה העצומים שלו בקצב הנדרש.
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-8 bg-gray-900/60 p-10 rounded-[2.5rem] border border-gray-800 shadow-xl">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tighter text-right">הפתרון: שיא החמצן האטמוספרי</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right mb-4">
+                        המגאנורה פרחה אך ורק בזכות תנאים חריגים: רמות החמצן בקרבון הגיעו לשיא של **30% עד 35%**. האוויר "הסמיך" התגבר על מגבלת הנשימה וסיפק לשרירים דלק תמידי לפעולה.
+                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right">
+                        בנוסף, מציאת המאובן בעומק המכרות באנגליה אימתה את התיאוריה: העובדה שהן נמצאו בדיוק בשכבות גיאולוגיות שיצרו את הפחם (עידן של יערות שוקעי פחמן שיצרו כמויות אדירות של חמצן), הפכה את תיאוריית החמצן לעובדה מוגמרת.
+                        <br><span class="text-xs italic mt-2 block text-gray-500"></span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- אקולוגיה והכחדה -->
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-cyan-500 italic font-mono">03 //</span> אקולוגיה וגורל השושלת
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="glass-card p-10 rounded-[3rem] space-y-6">
+                    <h3 class="text-2xl font-bold text-white text-right">טורף-העל האווירי</h3>
+                    <p class="text-gray-400 text-sm text-right leading-relaxed">
+                        עם עיני תשבץ ענקיות (ראיית 360 מעלות) ולסתות מרסקות, המגאנורה צדה חרקים מעופפים אחרים כמו תיקנים וזבובי ענק. חוקרים מעריכים כי בשל גודלה ויכולת הנשיאה שלה, היא הייתה מסוגלת לחטוף ולטרוף אפילו זוחלים מוקדמים (כמו הילונומוס) או דו-חיים קטנים מבין הענפים.
+                    </p>
+                </div>
+                <div class="glass-card p-10 rounded-[3rem] space-y-6 border-blue-500/30">
+                    <h3 class="text-2xl font-bold text-blue-400 text-right">חנק אבולוציוני</h3>
+                    <p class="text-gray-400 text-sm text-right leading-relaxed">
+                        בסוף תור הקרבון, האקלים התייבש ויערות השרכים העצומים שמייצרי החמצן קרסו (אירוע CRC). משאב הזהב של המגאנורה – 35% חמצן – צנח בהדרגה חזרה ל-21%. שרירי הכנפיים שלה פשוט נחנקו באוויר הדליל. במקביל, גם המזון שלה נעלם. השושלת דעכה ופינתה מקום לשפיריות קטנות ויעילות יותר.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
+        Meganeura Research Phase // Verified by RAM // 2026
+    </footer>
+
+    <!-- סקריפט לחלון הצף (Modal) -->
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // מניעת גלילה של הדף האחורי
+        }
+
+        function closeModal(event) {
+            // סגירה רק אם לוחצים על הרקע המוחשך או על ה-X, ולא על התמונה עצמה
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto'; // החזרת הגלילה
+            }
+        }
+
+        // סגירה עם מקש Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
