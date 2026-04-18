@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>אנציקלופדיה פלאונטולוגית: מחקר אדפוזאורוס (Edaphosaurus) אולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #e5e7eb; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(163, 230, 53, 0.3); /* Lime/Olive border */
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #a3e635 0%, #ca8a04 100%); /* Lime to Yellow/Gold gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-box {
+            border-right: 4px solid #a3e635;
+            background: rgba(163, 230, 53, 0.05);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 1rem;
+            box-shadow: 0 0 30px rgba(163, 230, 53, 0.3);
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body class="antialiased pb-24 text-justify">
+
+    <!-- Modal Element -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <!-- ניווט סטטי -->
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="./index.html" class="flex items-center gap-3 text-lime-500 hover:text-lime-400 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-extrabold text-xl tracking-tight text-white">ארכיון האנציקלופדיה</span>
+            </a>
+            <div class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.2em]">The First Herbivore // File: EDA-ULTIMATE</div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-20">
+        
+        <!-- כותרת ראשית -->
+        <header class="text-center space-y-6 pt-10">
+            <div class="inline-block px-4 py-1 rounded-full bg-lime-500/10 border border-lime-500/30 text-lime-400 text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(163,230,53,0.2)]">
+                הצמחוני הענק הראשון בהיסטוריה
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient tracking-tighter">אדפוזאורוס</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Pavement Lizard: Edaphosaurus</p>
+            
+            <div class="relative mt-12 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-lime-600 to-yellow-500 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[3rem] p-6 border border-gray-800 overflow-hidden shadow-2xl">
+                    
+                    <img src="./images/edaphosaurus.png" alt="אדפוזאורוס" onclick="openModal(this.src)" class="w-full max-h-[550px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105 mt-6 cursor-pointer hover:opacity-90" onerror="this.style.display='none'" title="לחץ להגדלת התמונה">
+                </div>
+            </div>
+        </header>
+
+        <!-- תעודת זהות מחקרית (Dossier) -->
+        <section class="glass-card rounded-[3rem] p-10 md:p-14 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-10 flex items-center gap-4">
+                <span class="w-2 h-10 bg-lime-500 rounded-full"></span>
+                תיק מחקר: נתונים אבולוציוניים
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-right">
+                <div class="space-y-3">
+                    <h4 class="text-lime-400 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">318 עד 280 מיליון שנה</p>
+                    <p class="text-sm text-gray-500 italic">שלהי תור הקרבון עד תחילת הפרם</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-lime-400 text-xs font-bold uppercase tracking-widest">מסה ומשקל</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">כ-300 קילוגרם</p>
+                    <p class="text-sm text-gray-500 italic">המיני הגדולים המאוחרים</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-lime-400 text-xs font-bold uppercase tracking-widest">ממדים (אורך)</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">כ-3.5 מטרים</p>
+                    <p class="text-sm text-gray-500 italic">מבנה גוף רחב דמוי חבית</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-lime-400 text-xs font-bold uppercase tracking-widest">מיקום גיאוגרפי</h4>
+                    <p class="text-2xl font-medium text-lime-400 font-bold underline">אמריקה הצפונית ואירופה</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">ממצאים בולטים בטקסס, אוקלהומה, ניו מקסיקו, וכן בגרמניה וצ'כיה, סביב קו המשווה של פנגיאה.</p>
+                </div>
+                <div class="space-y-3 lg:col-span-2 text-right">
+                    <h4 class="text-lime-400 text-xs font-bold uppercase tracking-widest">סיווג טקסונומי קריטי</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">סינאפסיד (Synapsid) מהפליקוזאורים</p>
+                    <p class="text-sm text-gray-500 leading-relaxed font-bold">למרות המראה, הוא אינו דינוזאור ואינו זוחל. הוא שייך לשושלת שממנה יתפתחו היונקים.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- אטימולוגיה מפורטת -->
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-lime-500 italic font-mono">01 //</span> ניתוח אטימולוגי נרחב
+            </h2>
+            <div class="overflow-hidden rounded-[2.5rem] border border-gray-800 bg-gray-900/50 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
+                            <th class="p-8 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-8 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-8 border-b border-gray-700">פירוש ומשמעות היסטורית</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200">
+                        <tr class="hover:bg-lime-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-lime-500 font-black text-3xl" dir="ltr">Edaphos-</td>
+                            <td class="p-8 font-bold text-yellow-400">יוונית (ἔδαφος)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">קרקע / אדמה / ריצוף</span>
+                                קופ בחר בשם זה מכיוון שעל החיך ובלסת של היצור היו משטחים צפופים של שיניים קטנות ושטוחות שנראו כמו אבני מדרכה.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-lime-500/5 transition-colors">
+                            <td class="p-8 font-mono text-lime-500 font-black text-3xl" dir="ltr">-sauros</td>
+                            <td class="p-8 font-bold text-yellow-400">יוונית (σαῦρος)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">לטאה</span>
+                                הלחם מלא: **"לטאת הריצוף"**. השם הוענק ב-1882 על ידי הפלאונטולוג אדוארד דרינקר קופ.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- תולדות הגילוי -->
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-lime-500 italic font-mono">02 //</span> נסיבות הגילוי והממצאים: שברים, כסף ומירוץ המוזיאונים
+            </h2>
+            
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-gray-300">
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-lime-400 text-right">הגילוי המקורי בטקסס (1882)</h4>
+                        <p class="leading-relaxed text-right">
+                            המאובנים הראשונים של האדפוזאורוס נמצאו ב"שכבות האדומות" (Red Beds) של טקסס על ידי אדוארד דרינקר קופ. הממצאים היו שבריריים וחלקיים – בעיקר גולגולות מעוכות וכמה חוליות שדרה שמהן בלטו עמודי עצם עם מוטות רוחב מוזרים. קופ, בתחילה, לא הבין שהגולגולת והחוליות המוזרות שייכות לאותה חיה, והעניק לחוליות המפרש שם נפרד (*Naosaurus*).
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-3xl font-black text-yellow-400 text-right underline decoration-lime-500 underline-offset-8">מירוץ המוזיאונים ומציאת השלד השלם (1910)</h4>
+                        <p class="leading-relaxed text-right mt-6">
+                            בתחילת המאה ה-20, המוזיאונים הגדולים להיסטוריה של הטבע בארה"ב היו שקועים ב"מירוץ תצוגה", וחיפשו שלדים שלמים ומרהיבים. ב-1910, צייד המאובנים המקצועי צ'ארלס שטרנברג יצא למשלחת ממוקדת יחד עם בניו לאזורים הנידחים של צפון-מרכז טקסס.
+                            <br><span class="text-xs italic mt-2 block text-gray-400"></span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900/80 p-8 rounded-[2rem] border border-gray-700 mt-6">
+                    <h4 class="text-xl font-bold text-white text-right mb-4 border-b border-gray-800 pb-2">תגלית הזהב של שטרנברג</h4>
+                    <p class="text-sm leading-relaxed text-right text-gray-300 mb-4">
+                        המאמץ הכלכלי-מדעי הזה השתלם בענק באתר היסטורי המכונה **תצורת קליר פורק (Clear Fork Formation)**, וספציפית ב**מחוז ביילור (Baylor County)**, טקסס.
+                    </p>
+                    <p class="text-sm text-gray-400 leading-relaxed text-right">
+                        שם, בתוך סלעי הבוץ האדומים, גילה שטרנברג את ה-**"Craddock bonebed"** – אתר שהפך למקור המרכזי בעולם לשלדים השלמים של האדפוזאורוס. הוא חילץ משם **שלד מחובר ושלם כמעט לחלוטין (Articulated skeleton)** של *Edaphosaurus pogonias*. השלד הזה, שבו כל חוליות המפרש המטורפות שלו נשמרו במקומן המדויק, הוכיח סופית את הקישור בין הגולגולת למפרש, ואפשר להבין את ממדי החיה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- פיזיולוגיה וביומכניקה -->
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden">
+            <h3 class="text-4xl font-black text-white text-center mb-12 uppercase tracking-tighter">האתגר הביומכני: חלוץ הצמחונות</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8 text-gray-300">
+                    <div class="highlight-box p-8 rounded-l-[2rem]">
+                        <h4 class="text-lime-400 font-bold mb-4 uppercase text-xs tracking-widest">ממדים: חבית עם מפרש</h4>
+                        <p class="text-sm leading-relaxed text-right mb-4">
+                            הגולגולת שלו הייתה זעירה להחריד ביחס לגופו העצום. בקדמת הפה שיניים דמויות-יתד לתלישת צמחייה, ומאחור "שיני הריצוף" לטחינה. בניגוד לגוף הצר של הדימטרודון, גופו של האדפוזאורוס היה רחב ונפוח מאוד.
+                        </p>
+                        <h4 class="text-lime-400 font-bold mb-2 uppercase text-xs tracking-widest">מערכת תא התססה</h4>
+                        <p class="text-sm leading-relaxed text-right">
+                            עיכול של תאית נוקשה דרש פתרון. הוא פיתח מערכת עיכול פאסיבית: הגוף דמוי-החבית שלו אכלס מעיים ענקיים שפעלו כמו תא התססה (Fermentation vat). הוא בלע כמויות צמחייה ונתן לה להרקיב לאט בתוך הבטן העצומה. לכן הגולגולת הייתה קטנה – הוא היה צריך רק "מסוע" לעלים, ולא שרירי נשיכה.
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-8 bg-gray-900/60 p-10 rounded-[2.5rem] border border-gray-800 shadow-xl">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tighter text-right">חידת המפרש ומוטות הרוחב</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right mb-4">
+                        בניגוד לדימטרודון, עמודי העצם של האדפוזאורוס היו מצוידים ב**מוטות רוחב קטנים (Cross-bars)** שבלטו הצידה, כמו תורן של ספינה עם זרועות צולבות.
+                    </p>
+                    <ul class="text-gray-400 text-sm leading-relaxed text-right list-disc list-inside space-y-2">
+                        <li>**ויסות חום:** המפרש שימש כקולט שמש. כאוכל עשב כבד, היה עליו להתחמם מהר בבוקר כדי להתחיל לעכל. מוטות הרוחב הגדילו את שטח הפנים או יצרו מערבולות קירור.</li>
+                        <li>**תמיכה לשומן:** ייתכן שהמפרש עגן רקמות שומן, כמו גבנון גמל, לאגירת אנרגיה.</li>
+                        <li>**הרתעה:** המוטות אולי מנעו מדימטרודון נשיכה בגב.</li>
+                    </ul>
+                    <span class="text-xs italic mt-2 block text-gray-500"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- הכחדה -->
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-lime-500 italic font-mono">03 //</span> סיבת ההיעלמות: אקלים משתנה
+            </h2>
+            <div class="p-10 bg-lime-900/10 rounded-[2.5rem] border border-lime-900/20 text-gray-300 leading-relaxed text-lg text-justify">
+                האדפוזאורוס שגשג במשך כ-30 מיליון שנה, אך נכחד לקראת אמצע תור הפרם. היעלמותו נבעה משינויי אקלים: כדור הארץ הפך לחם ויבש יותר. צמחיית הביצות השופעת שעליה התבסס הוחלפה בצמחייה מדברית קשה לעיכול. במקביל, הופיעו צמחוניים חדשים ומתקדמים יותר (כמו הקאסידיים) שדחקו את רגליו והיו יעילים ממנו בניצול המשאבים הדלים.
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
+        Edaphosaurus Research Phase // Verified by RAM // 2026
+    </footer>
+
+    <!-- סקריפט לחלון הצף (Modal) -->
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // מניעת גלילה של הדף האחורי
+        }
+
+        function closeModal(event) {
+            // סגירה רק אם לוחצים על הרקע המוחשך או על ה-X, ולא על התמונה עצמה
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto'; // החזרת הגלילה
+            }
+        }
+
+        // סגירה עם מקש Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
