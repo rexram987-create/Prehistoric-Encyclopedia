@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>אנציקלופדיה פלאונטולוגית: מחקר ארתרופלאורה (Arthropleura) אולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #e5e7eb; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(16, 185, 129, 0.3); /* Emerald border */
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%); /* Emerald gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-box {
+            border-right: 4px solid #10b981;
+            background: rgba(16, 185, 129, 0.05);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 1rem;
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body class="antialiased pb-24 text-justify">
+
+    <!-- Modal Element -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <!-- ניווט סטטי -->
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="./index.html" class="flex items-center gap-3 text-emerald-500 hover:text-emerald-400 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-extrabold text-xl tracking-tight text-white">ארכיון האנציקלופדיה</span>
+            </a>
+            <div class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.2em]">Carboniferous Giant // File: ART-ULTIMATE</div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-20">
+        
+        <!-- כותרת ראשית -->
+        <header class="text-center space-y-6 pt-10">
+            <div class="inline-block px-4 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                פרוק-הרגליים הגדול בהיסטוריה
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient tracking-tighter">ארתרופלאורה</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Giant Millipede: Arthropleura</p>
+            
+            <div class="relative mt-12 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-green-500 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[3rem] p-6 border border-gray-800 overflow-hidden shadow-2xl">
+                    
+                    <img src="./images/arthropleura.png" alt="ארתרופלאורה" onclick="openModal(this.src)" class="w-full max-h-[550px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105 mt-6 cursor-pointer hover:opacity-90" onerror="this.style.display='none'" title="לחץ להגדלת התמונה">
+                </div>
+            </div>
+        </header>
+
+        <!-- תעודת זהות מחקרית (Dossier) -->
+        <section class="glass-card rounded-[3rem] p-10 md:p-14 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-10 flex items-center gap-4">
+                <span class="w-2 h-10 bg-emerald-500 rounded-full"></span>
+                תיק מחקר: נתונים פיזיולוגיים
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-right">
+                <div class="space-y-3">
+                    <h4 class="text-emerald-400 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">345 עד 290 מיליון שנה</p>
+                    <p class="text-sm text-gray-500 italic">תור הקרבון עד תחילת הפרם</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-emerald-400 text-xs font-bold uppercase tracking-widest">מסה ומשקל</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">כ-50 קילוגרם</p>
+                    <p class="text-sm text-gray-500 italic">מסה כבירה ליצור חסר שלד פנימי</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-emerald-400 text-xs font-bold uppercase tracking-widest">ממדים (אורך)</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">2.5 עד 2.6 מטרים</p>
+                    <p class="text-sm text-gray-500 italic">רוחב גוף של כחצי מטר</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-emerald-400 text-xs font-bold uppercase tracking-widest">מיקום גיאוגרפי</h4>
+                    <p class="text-2xl font-medium text-emerald-400 font-bold underline">סופר-פנגיאה (קו המשווה)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">ממצאים התגלו בעיקר באירופה (גרמניה, סקוטלנד, אנגליה) ובאמריקה הצפונית.</p>
+                </div>
+                <div class="space-y-3 lg:col-span-2 text-right">
+                    <h4 class="text-emerald-400 text-xs font-bold uppercase tracking-widest">סיווג טקסונומי קריטי</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">פרוק-רגליים (Arthropoda)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed font-bold">ממחלקת מרבי-הרגליים (Myriapoda). פרוק הרגליים היבשתי הגדול ביותר הידוע למדע בכל תולדות כדור הארץ.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- אטימולוגיה מפורטת -->
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-emerald-500 italic font-mono">01 //</span> ניתוח אטימולוגי נרחב
+            </h2>
+            <div class="overflow-hidden rounded-[2.5rem] border border-gray-800 bg-gray-900/50 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
+                            <th class="p-8 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-8 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-8 border-b border-gray-700">פירוש ומשמעות היסטורית</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200">
+                        <tr class="hover:bg-emerald-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-emerald-500 font-black text-3xl" dir="ltr">Arthro-</td>
+                            <td class="p-8 font-bold text-green-400">יוונית (ἄρθρον)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">מפרק</span>
+                                מתאר את המבנה השריוני המורכב מעשרות מקטעים המחוברים במפרקים גמישים (כמו במילה Arthropod).
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-emerald-500/5 transition-colors">
+                            <td class="p-8 font-mono text-emerald-500 font-black text-3xl" dir="ltr">-pleura</td>
+                            <td class="p-8 font-bold text-green-400">יוונית (πλευρά)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">צלע / צד</span>
+                                הלחם מלא: **"צלעות מפרקיות"**. מתאר את הבליטות דמויות הצלעות שבלטו מצידי המקטעים שלו כדי להגן על רגליו החשופות מלמטה. השם הוענק ב-1853 על ידי הרמן פון מאייר.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- תולדות הגילוי ושאלת המחקר על חיבור הממצאים -->
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-emerald-500 italic font-mono">02 //</span> תולדות הגילוי: מהמכרות אל חוף הים
+            </h2>
+            
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-gray-300">
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-emerald-400 text-right">הגילויים הראשונים במכרות (1853)</h4>
+                        <p class="leading-relaxed text-right">
+                            בתקופת המהפכה התעשייתית, כורים בגרמניה ובסקוטלנד שחפרו במכרות פחם נתקלו בלוחות שריון מוזרים באבן. הפלאונטולוג **הרמן פון מאייר** חקר אותם ב-1853. אלו היו רק מקטעי גוף בודדים, והוא זיהה אותם כפרוקי-רגליים ענקיים.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-emerald-400 text-right">הגילוי הדרמטי של 2018 (חוף האוויק)</h4>
+                        <p class="leading-relaxed text-right">
+                            בינואר 2018, ד"ר **ניל דייוויס** וצוותו טיילו בחוף האוויק באנגליה בעקבות סערה. הם מצאו גוש אבן חול עצום שקרס ונשבר. בפנים נחשף מאובן עצום של ארתרופלאורה (76 ס"מ רק עבור חלקיק מהגוף). המאובן היה כה כבד עד שנדרשו ארבעה אנשים לשאתו.
+                            <br><span class="text-xs italic mt-2 block text-gray-400"></span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900/80 p-8 rounded-[2rem] border border-gray-700 mt-6">
+                    <h4 class="text-xl font-bold text-white text-right mb-4 border-b border-gray-800 pb-2">שאלת המחקר: איך ידעו לקשר בין הממצא מ-1853 לממצא ב-2018?</h4>
+                    <p class="text-sm leading-relaxed text-right text-gray-300 mb-4">
+                        כאשר מוצאים חלקי שלד בהפרש של מעל 150 שנה ובמרחק של אלפי קילומטרים, מסתמכים על "טביעת אצבע" מורפולוגית:
+                    </p>
+                    <ul class="space-y-4 text-sm text-gray-400 leading-relaxed text-right">
+                        <li><strong class="text-green-400">1. עיצוב המקטעים (Tergites & Pleurae):</strong> כל מקטע גוף מורכב משלושה חלקים: לוחיות מרכזיות שטוחות ושתי "כנפיים" צידיות. מאובן הענק מ-2018 הראה את אותה תבנית גיאומטרית מדויקת שאייר פון מאייר ב-1853, רק בקנה מידה מפלצתי.</li>
+                        <li><strong class="text-green-400">2. מרקם מיקרוסקופי (Ornamentation):</strong> פני השריון אינם חלקים, אלא מכוסים בבליטות (Tubercles) זעירות שיוצרות דפוס של "גומי מחוספס". דפוס זהה נמצא גם בגרמניה וגם באנגליה.</li>
+                        <li><strong class="text-green-400">3. ההקשר הגיאולוגי:</strong> שני הממצאים התגלו בסלעי משקע של יערות הביצה מתור הקרבון. למרות שהם נמצאו במדינות שונות כיום, בתור הקרבון, גרמניה ואנגליה היו מחוברות יחד ביבשת פנגיאה באזור קו המשווה.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- אנטומיה ואקולוגיה -->
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden">
+            <h3 class="text-4xl font-black text-white text-center mb-12 uppercase tracking-tighter">אנטומיה וביומכניקה: חידת החמצן</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8 text-gray-300">
+                    <div class="highlight-box p-8 rounded-l-[2rem]">
+                        <h4 class="text-emerald-400 font-bold mb-4 uppercase text-xs tracking-widest">מבנה גוף ורגליים</h4>
+                        <p class="text-sm leading-relaxed text-right mb-4">
+                            גופו היה מורכב מכ-30 עד 32 מקטעים שריוניים. תחת כל מקטע היו שני זוגות של רגליים זעירות אך חזקות, כך שבסך הכל היו לו כ-**64 רגליים**. השריון העבה שלו (הקיוטיקולה) הגן עליו מדו-חיים ענקיים שחלקו איתו את הביצה.
+                        </p>
+                        <h4 class="text-emerald-400 font-bold mb-2 uppercase text-xs tracking-widest">תזונה (צמחוני או טורף?)</h4>
+                        <p class="text-sm leading-relaxed text-right">
+                            ניתוח של קופרוליטים (צואה מאובנת) בסקוטלנד חשף שרידי נבגים של שרכים. מסקנה: הוא היה **צמחוני / אוכל-רקב (Detritivore)**.
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-8 bg-gray-900/60 p-10 rounded-[2.5rem] border border-gray-800 shadow-xl">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tighter text-right">איך חרק הגיע לממדים כאלו?</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right mb-4">
+                        התשובה טמונה בשיא החמצן האטמוספרי. יערות הגשם העבותים של הקרבון שאבו פחמן דו-חמצני ושחררו כמויות אדירות של חמצן, מה שהקפיץ את הרמה ל-**30% עד 35%** (לעומת 21% כיום).
+                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right">
+                        לפרוקי רגליים אין ריאות; הם נושמים דרך צינוריות דקות (טרכאות) המכניסות אוויר בדיפוזיה. בעולם של 21% חמצן, חרק אינו יכול לגדול מעבר לגודל מסוים, אך באטמוספירה העשירה של הקרבון, הארתרופלאורה יכול היה לצמוח לאורך 2.5 מטרים מבלי להיחנק מאי הגעת חמצן למרכז גופו.
+                        <br><span class="text-xs italic mt-2 block text-gray-500"></span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- פתרון תעלומת הראש (2024) -->
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-emerald-500 italic font-mono">03 //</span> שלמות המאובנים: פתרון תעלומת הראש (2024!)
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="glass-card p-10 rounded-[3rem] space-y-6">
+                    <h3 class="text-2xl font-bold text-white text-right">למה מצאו רק גופות?</h3>
+                    <p class="text-gray-400 text-sm text-right leading-relaxed">
+                        במשך 170 שנה לא מצאו מאובן עם ראש. הסיבה היא שהרוב המוחלט של המאובנים שנמצאו אינם פגרים, אלא **נשלים (Exuviae)** – השריון הישן שהחיה השילה מגופה כשהיא גדלה. כשהם משילים את השריון, הראש נשבר ומתפורר לחלוטין.
+                    </p>
+                </div>
+                <div class="glass-card p-10 rounded-[3rem] space-y-6 border-green-500/30">
+                    <h3 class="text-2xl font-bold text-green-400 text-right">פריצת הדרך (אוקטובר 2024)</h3>
+                    <p class="text-gray-400 text-sm text-right leading-relaxed">
+                        חוקרים מאוניברסיטת קלוד ברנאר סרקו בסורקי מיקרו-CT מאובנים של ארתרופלאורות צעירות שנשמרו במגירות מאז שנות ה-80. הסריקות חשפו לראשונה את **הראש השלם**: ראש עגול ודמוי-פעמון עם מחושים קצרים, עיניים עם חיישנים מרובים ולסתות חזקות שנועדו ללעוס קליפות עצים ועלים. תגלית זו חתמה את הוויכוח על תזונתו הצמחונית.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- סיכום והכחדה -->
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-emerald-500 italic font-mono">04 //</span> סיבת ההכחדה: קריסת יערות הגשם
+            </h2>
+            <div class="p-10 bg-emerald-900/10 rounded-[2.5rem] border border-emerald-900/20 text-gray-300 leading-relaxed text-lg text-justify">
+                הארתרופלאורה נפל קורבן ל"קריסת יערות הגשם של הקרבון" (Carboniferous Rainforest Collapse). לקראת תחילת תור הפרם, תנועת היבשות הפכה את האקלים ליבש וקריר יותר. יערות הביצה התייבשו, ורמות החמצן צנחו בחזרה לכ-21%. מערכת הנשימה של הארתרופלאורה לא יכלה לספק חמצן לגוף באורך כזה, והוא מת בחנק אבולוציוני וברעב עקב היעלמות הצמחייה המרקיבה.
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
+        Arthropleura Research Phase // Verified by RAM // 2026
+    </footer>
+
+    <!-- סקריפט לחלון הצף (Modal) -->
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // מניעת גלילה של הדף האחורי
+        }
+
+        function closeModal(event) {
+            // סגירה רק אם לוחצים על הרקע המוחשך או על ה-X, ולא על התמונה עצמה
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto'; // החזרת הגלילה
+            }
+        }
+
+        // סגירה עם מקש Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
