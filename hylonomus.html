@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>אנציקלופדיה פלאונטולוגית: מחקר הילונומוס (Hylonomus) אולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #e5e7eb; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(217, 119, 6, 0.3); /* Amber border */
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%); /* Amber gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-box {
+            border-right: 4px solid #f59e0b;
+            background: rgba(217, 119, 6, 0.05);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 1rem;
+            box-shadow: 0 0 30px rgba(217, 119, 6, 0.3);
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body class="antialiased pb-24 text-justify">
+
+    <!-- Modal Element -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <!-- ניווט סטטי -->
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="./index.html" class="flex items-center gap-3 text-amber-500 hover:text-amber-400 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-extrabold text-xl tracking-tight text-white">ארכיון האנציקלופדיה</span>
+            </a>
+            <div class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.2em]">The First Reptile // File: HYL-ULTIMATE</div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-20">
+        
+        <!-- כותרת ראשית -->
+        <header class="text-center space-y-6 pt-10">
+            <div class="inline-block px-4 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(217,119,6,0.2)]">
+                הזוחל האמיתי הראשון בעולם
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient tracking-tighter">הילונומוס</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Forest Dweller: Hylonomus lyelli</p>
+            
+            <div class="relative mt-12 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-amber-600 to-orange-500 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[3rem] p-6 border border-gray-800 overflow-hidden shadow-2xl">
+                    
+                    <img src="./images/hylonomus.png" alt="הילונומוס" onclick="openModal(this.src)" class="w-full max-h-[550px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105 mt-6 cursor-pointer hover:opacity-90" onerror="this.style.display='none'" title="לחץ להגדלת התמונה">
+                </div>
+            </div>
+        </header>
+
+        <!-- תעודת זהות מחקרית (Dossier) -->
+        <section class="glass-card rounded-[3rem] p-10 md:p-14 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-10 flex items-center gap-4">
+                <span class="w-2 h-10 bg-amber-500 rounded-full"></span>
+                תיק מחקר: נתונים אבולוציוניים
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-right">
+                <div class="space-y-3">
+                    <h4 class="text-amber-400 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">לפני כ-312 מיליון שנה</p>
+                    <p class="text-sm text-gray-500 italic">תור הקרבון המאוחר (פנסילבנית)</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-amber-400 text-xs font-bold uppercase tracking-widest">מסה ומשקל</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">גרמים בודדים</p>
+                    <p class="text-sm text-gray-500 italic">לטאה קטנה בעולם של ענקים</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-amber-400 text-xs font-bold uppercase tracking-widest">ממדים (אורך)</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">כ-20 סנטימטרים</p>
+                    <p class="text-sm text-gray-500 italic">כולל זנב ארוך ודק</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-amber-400 text-xs font-bold uppercase tracking-widest">מיקום גיאוגרפי</h4>
+                    <p class="text-2xl font-medium text-amber-400 font-bold underline">צוקי ג'וגינס, קנדה</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">אזור בפרובינציית נובה סקוטיה שבו נחשפים צוקים עתיקים על ידי גאות ושפל קיצוניים.</p>
+                </div>
+                <div class="space-y-3 lg:col-span-2 text-right">
+                    <h4 class="text-amber-400 text-xs font-bold uppercase tracking-widest">סיווג טקסונומי קריטי</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">הזוחל (Reptile) הראשון הידוע למדע</p>
+                    <p class="text-sm text-gray-500 leading-relaxed font-bold">בעל השפיר (Amniote) הקדום ביותר. החולייתן הראשון בהיסטוריה שהיה מותאם לחלוטין לחיים על היבשה ללא תלות במים.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- אטימולוגיה מפורטת -->
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-amber-500 italic font-mono">01 //</span> ניתוח אטימולוגי נרחב
+            </h2>
+            <div class="overflow-hidden rounded-[2.5rem] border border-gray-800 bg-gray-900/50 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
+                            <th class="p-8 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-8 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-8 border-b border-gray-700">פירוש ומשמעות היסטורית</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200">
+                        <tr class="hover:bg-amber-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-amber-500 font-black text-3xl" dir="ltr">Hylo-</td>
+                            <td class="p-8 font-bold text-orange-400">יוונית (ὕλη)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">עץ / יער</span>
+                                התייחסות ישירה למקום שבו הוא חי וגם לקבר העץ (הגזע החלול) שבו התגלה.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-amber-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-amber-500 font-black text-3xl" dir="ltr">-nomus</td>
+                            <td class="p-8 font-bold text-orange-400">יוונית (νομός)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">שוכן / רועה</span>
+                                הפירוש הוא "השוכן בתוך". הלחם של השם הפרטי יוצר את המשמעות **"שוכן היערות"**.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-amber-500/5 transition-colors">
+                            <td class="p-8 font-mono text-amber-500 font-black text-3xl" dir="ltr">lyelli</td>
+                            <td class="p-8 font-bold text-orange-400">לטיניזציה</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">לזכרו של צ'ארלס לייל</span>
+                                שם שהוענק על ידי ג'ון ויליאם דוסון (1860) כהוקרה לשותפו לתגלית, סר צ'ארלס לייל – הגיאולוג האגדי ומורו של צ'ארלס דרווין.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- תולדות הגילוי ומלכודות הגזעים -->
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-amber-500 italic font-mono">02 //</span> תולדות הגילוי: מלכודות הגזעים בג'וגינס
+            </h2>
+            
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-gray-300">
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-amber-400 text-right">הסיבה למשלחת של לייל ודוסון</h4>
+                        <p class="leading-relaxed text-right">
+                            ב-1852, סר צ'ארלס לייל הגיע לקנדה כדי לחקור את תצורות הפחם יחד עם עמיתו ג'ון ויליאם דוסון. הם הגיעו ל**צוקי ג'וגינס**, שם גאות ושפל אדירים שוחקים את הסלעים וחושפים את העבר. הם הבחינו במאובנים של עצי ליקופודים שעמדו **זקופים** באבן.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-amber-400 text-right">מלכודת המוות הקדומה</h4>
+                        <p class="leading-relaxed text-right">
+                            החוקרים הבינו שהעצים הללו מתו בהצפות, הליבה הרכה שלהם נרקבה, והם הפכו ל**צינורות עץ חלולים** ועמוקים שניצבו בבוץ. ההילונומוס הזעיר נפל פנימה כמו לתוך בור מלכודת, לא יכל לטפס החוצה – וגווע שם ברעב. הגזע שהתמלא בבוץ שימר את עצמותיו בתוכו.
+                            <br><span class="text-xs italic mt-2 block text-gray-400"></span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900/80 p-8 rounded-[2rem] border border-gray-700 mt-6">
+                    <h4 class="text-xl font-bold text-white text-right mb-4 border-b border-gray-800 pb-2">מצב הממצאים: שלמות מוחלטת בתוך העץ</h4>
+                    <ul class="space-y-4 text-sm text-gray-400 leading-relaxed text-right">
+                        <li><strong class="text-orange-400">כמה פרטים נמצאו?</strong> מאז המאה ה-19 ועד היום, נמצאו שרידים של **עשרות פרטים שונים** של הילונומוס בתוך הגזעים החלולים בג'וגינס.</li>
+                        <li><strong class="text-orange-400">האם נמצא שלד שלם?</strong> **כן, בהחלט.** בניגוד לחיות ביצה רבות, מלכודת העץ סיפקה תנאי שימור הרמטיים. כשהחיה נלכדה ומתה, עצמותיה לא התפזרו בזרמי מים ולא נאכלו על ידי טורפים. כתוצאה מכך נמצאו **שלדים שלמים ומחוברים לחלוטין (Articulated)**, מקופלים בקרקעית הגזע, כולל חוליות הזנב ואצבעות הרגליים.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- הישג אבולוציוני ותעלומת הביצה -->
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden">
+            <h3 class="text-4xl font-black text-white text-center mb-12 uppercase tracking-tighter">אבולוציה: המצאת ביצת השפיר</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8 text-gray-300">
+                    <p class="text-xl leading-relaxed text-right mb-4">
+                        ההישג הגדול ביותר של ההילונומוס אינו בשלד שלו, אלא בדרך שבה התרבה. הוא ניתק את השלשלאות שקשרו את בעלי החיים למים.
+                    </p>
+                    <div class="highlight-box p-8 rounded-l-[2rem]">
+                        <h4 class="text-amber-400 font-bold mb-4 uppercase text-xs tracking-widest">לשאת את הבריכה ליבשה</h4>
+                        <p class="text-sm leading-relaxed text-right mb-4">
+                            עד אליו, דו-חיים היו חייבים להטיל ביצים רכות במים כדי שלא יתייבשו. ההילונומוס המציא את **ביצת השפיר (Amniotic egg)**: ביצה בעלת קרומים פנימיים וקליפה שאטמה את המים בפנים אך איפשרה לחמצן להיכנס. בזכות ה"טכנולוגיה" הזו, הוא יכל לנדוד הרחק מהביצות.
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-8 bg-gray-900/60 p-10 rounded-[2.5rem] border border-gray-800 shadow-xl">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tighter text-right">חידת הביצים שלא נמצאו</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right mb-4">
+                        למרות החשיבות העצומה שלה, **מעולם לא נמצאה ביצה מאובנת של הילונומוס.** </p>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right">
+                        למה לא מצאו? בניגוד לדינוזאורים מאוחרים, לביצים של הזוחלים הראשונים הייתה קליפה **גלדנית (Leathery, דמוית עור)**, כמו לנחשים וצבים. קליפה כזו נרקבת מהר ואינה הופכת לאבן. עם זאת, המדע בטוח בהמצאתה בשל האנטומיה ההשוואתית, האגן שלו, והיותו אב קדמון ישיר לשושלת שאינה יכולה לעבור שלב מימי (כראשן).
+                        <br><span class="text-xs italic mt-2 block text-gray-500"></span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- אנטומיה והכחדה -->
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-amber-500 italic font-mono">03 //</span> אקולוגיה וגורל השושלת
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="glass-card p-10 rounded-[3rem] space-y-6">
+                    <h3 class="text-2xl font-bold text-white text-right">ביומכניקה ותזונה</h3>
+                    <p class="text-gray-400 text-sm text-right leading-relaxed">
+                        בניגוד לדו-חיים כבדים, להילונומוס היו מפרקי קרסול שאפשרו ריצה בפרצי מהירות (Sprinting). עורו כוסה קשקשים שמנעו התייבשות. גולגולתו הייתה ללא פתחים (Anapsid) ושיניו המחודדות היו מושלמות ללעיסת החרקים ועקרבי הקרבון הקדומים.
+                    </p>
+                </div>
+                <div class="glass-card p-10 rounded-[3rem] space-y-6 border-orange-500/30">
+                    <h3 class="text-2xl font-bold text-orange-400 text-right">מקפצת ההכחדה (CRC)</h3>
+                    <p class="text-gray-400 text-sm text-right leading-relaxed">
+                        כשאירוע ההכחדה "קריסת יערות הגשם של הקרבון" התרחש והביצות התייבשו, ענקי תור הקרבון מתו. אך עבור ההילונומוס, שיכל לשאת את הביצים שלו ולחיות בעור מוגן-התייבשות, הקריסה הייתה ההזדמנות הגדולה. הוא שרד, כבש את היבשת, והפך לאבי כל הזוחלים, הדינוזאורים והעופות.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
+        Hylonomus Research Phase // Verified by RAM // 2026
+    </footer>
+
+    <!-- סקריפט לחלון הצף (Modal) -->
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // מניעת גלילה של הדף האחורי
+        }
+
+        function closeModal(event) {
+            // סגירה רק אם לוחצים על הרקע המוחשך או על ה-X, ולא על התמונה עצמה
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto'; // החזרת הגלילה
+            }
+        }
+
+        // סגירה עם מקש Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
