@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>אנציקלופדיה פלאונטולוגית: מחקר דיפלוקאולוס (Diplocaulus) אולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #e5e7eb; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(45, 212, 191, 0.3); /* Teal border */
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #2dd4bf 0%, #0d9488 100%); /* Teal to Dark Teal */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-box {
+            border-right: 4px solid #2dd4bf;
+            background: rgba(45, 212, 191, 0.05);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 1.5rem;
+            box-shadow: 0 0 40px rgba(45, 212, 191, 0.3);
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body class="antialiased pb-24 text-justify">
+
+    <!-- Modal Element -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <!-- ניווט סטטי -->
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="./index.html" class="flex items-center gap-3 text-teal-400 hover:text-teal-300 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-extrabold text-xl tracking-tight text-white font-sans">PALEONTOLOGY ARCHIVE</span>
+            </a>
+            <div class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.2em]">Permian Freshwater // File: DIPLO-ULTIMATE</div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-24">
+        
+        <!-- כותרת ראשית -->
+        <header class="text-center space-y-6 pt-10">
+            <div class="inline-block px-4 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(45,212,191,0.2)]">
+                הבומרנג החי של הנהרות הקדומים
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient tracking-tighter">דיפלוקאולוס</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Boomerang Head: Diplocaulus magnicornis</p>
+            
+            <div class="relative mt-12 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-teal-600 to-blue-500 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[3rem] p-6 border border-gray-800 overflow-hidden shadow-2xl">
+                    <img src="./images/diplocaulus.png" alt="דיפלוקאולוס" onclick="openModal(this.src)" class="w-full max-h-[550px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105 mt-6 cursor-pointer hover:opacity-90" onerror="this.style.display='none'" title="לחץ להגדלת התמונה">
+                </div>
+            </div>
+        </header>
+
+        <!-- תעודת זהות מחקרית (Dossier) -->
+        <section class="glass-card rounded-[3rem] p-10 md:p-14 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-10 flex items-center gap-4">
+                <span class="w-2 h-10 bg-teal-500 rounded-full"></span>
+                תיק מחקר: נתונים אבולוציוניים
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-right">
+                <div class="space-y-3">
+                    <h4 class="text-teal-400 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">299 עד 251 מיליון שנה</p>
+                    <p class="text-sm text-gray-500 italic">שלהי הקרבון עד סוף תור הפרם</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-teal-400 text-xs font-bold uppercase tracking-widest">מסה גופנית (משקל)</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">5 עד 10 קילוגרם</p>
+                    <p class="text-sm text-gray-500 italic">משקל קל יחסית המותאם לעילוי הידרודינמי</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-teal-400 text-xs font-bold uppercase tracking-widest">ממדים (אורך)</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">כ-1.0 מטר</p>
+                    <p class="text-sm text-gray-500 italic">רוחב הראש לבדו הגיע לעד 50 ס"מ</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-teal-400 text-xs font-bold uppercase tracking-widest">מיקום גיאוגרפי</h4>
+                    <p class="text-2xl font-medium text-teal-400 font-bold underline">אמריקה הצפונית</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">בעיקר בטקסס ואוקלהומה. ממצאים בודדים ממרוקו.</p>
+                </div>
+                <div class="space-y-3 lg:col-span-2 text-right">
+                    <h4 class="text-teal-400 text-xs font-bold uppercase tracking-widest">סיווג טקסונומי קריטי</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">דו-חי מקבוצת הלפוסינופונדילים (Lepospondyli)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed font-bold">קבוצת דו-חיים קדומים המאופיינים במבנה חוליות פשוט. הדיפלוקאולוס היה הגדול והמפורסם שבהם.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- אטימולוגיה מפורטת -->
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-teal-500 italic font-mono">01 //</span> ניתוח אטימולוגי נרחב
+            </h2>
+            <div class="overflow-hidden rounded-[2.5rem] border border-gray-800 bg-gray-900/50 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
+                            <th class="p-8 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-8 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-8 border-b border-gray-700">פירוש ומשמעות</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200">
+                        <tr class="hover:bg-teal-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-teal-400 font-black text-3xl" dir="ltr">Diplo-</td>
+                            <td class="p-8 font-bold text-teal-300">יוונית (διπλόος)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">כפול</span>
+                                מתייחס למבנה הייחודי של החוליות (Diplospondyly) המעניק גמישות.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-teal-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-teal-400 font-black text-3xl" dir="ltr">-caulus</td>
+                            <td class="p-8 font-bold text-teal-300">יוונית (καυλός)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">גבעול / ציר</span>
+                                תיאור של ציר עמוד השדרה. השם הוענק ב-1877 על ידי א.ד. קופ.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-teal-500/5 transition-colors">
+                            <td class="p-8 font-mono text-teal-400 font-black text-3xl" dir="ltr">Magnicornis</td>
+                            <td class="p-8 font-bold text-teal-300">לטינית</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">גדול-קרן</span>
+                                תיאור של ה"בומרנג" המורכב מקרני עצם מוארכות המסתעפות מצדי הגולגולת.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- תולדות הגילוי ושבית הקברות -->
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-teal-500 italic font-mono">02 //</span> תולדות הגילוי: אוצרות מחוז ביילור
+            </h2>
+            
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 text-gray-300">
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-teal-400 text-right">הפאזל של קופ (1877)</h4>
+                        <p class="leading-relaxed text-right">
+                            אדוארד דרינקר קופ גילה את השרידים הראשונים ב"שכבות האדומות" (Red Beds) של טקסס. הממצאים היו חלקיים וכללו בעיקר חוליות. בשל רוחבו הבלתי הגיוני של הראש, בתחילה סברו החוקרים שמדובר במספר חיות שונות שנמחצו יחד לכדי מסה אחת.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-teal-400 text-right">המשלחות של אלפרד רומר</h4>
+                        <p class="leading-relaxed text-right">
+                            הפריצה המשמעותית התרחשה בשנות ה-30. הפלאונטולוג אלפרד רומר (Alfred Romer) מהרווארד הוביל משלחות ל**מחוז ביילור (Baylor County)** בטקסס. הם חשפו ריכוז מאובנים אדיר בתצורת Arroyo, שזכה לכינוי **"בית הקברות של הדיפלוקאולוס"**.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-8 bg-teal-500/5 border border-teal-500/20 rounded-[2rem] text-right">
+                    <h4 class="text-xl font-bold text-white mb-4">מספר הפריטים ומצב השימור</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        באתר החפירה התגלו **למעלה מ-30 שלדים משמעותיים**, רבים מהם **שלמים ומחוברים (Articulated)** ברמה של כמעט 100%. השימור היה כה מושלם, שהגולגולות הרחבות נותרו שטוחות ומושלמות בתוך שכבות הבוץ שהתקשה במהירות כתוצאה מהתייבשות אגנים עונתיים.
+                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        **גילוי האלומטריה:** מציאת שלדי צעירים לצד בוגרים הוכיחה שהדיפלוקאולוס נולד עם ראש עגול, וצורת הבומרנג התפתחה רק בשלב הבגרות.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ביומכניקה ופיזיולוגיה -->
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden">
+            <h3 class="text-4xl font-black text-white text-center mb-12 uppercase tracking-tighter">ביומכניקה: הבומרנג ההידרודינמי</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8 text-gray-300">
+                    <div class="highlight-box p-8 rounded-l-[2rem]">
+                        <h4 class="text-teal-400 font-bold mb-4 uppercase text-xs tracking-widest">עילוי הידרודינמי (Hydrofoil)</h4>
+                        <p class="text-sm leading-relaxed text-right">
+                            ניסויים במנהרות רוח הוכיחו שראשו של הדיפלוקאולוס פעל ככנף מטוס. בזרם מים, מבנה הראש יצר כוח עילוי חזק שהרים את החיה מהקרקעית לעבר טרפה במהירות שיא וללא מאמץ שרירי רב.
+                        </p>
+                    </div>
+                    <div class="highlight-box p-8 rounded-l-[2rem]">
+                        <h4 class="text-teal-400 font-bold mb-4 uppercase text-xs tracking-widest">מבנה ה"לביבה"</h4>
+                        <p class="text-sm leading-relaxed text-right">
+                            גופו השטוח ועיניו הממוקמות בחלק העליון איפשרו לו להסתתר בבוץ הקרקעית תוך תצפית אל עבר המים שמעליו.
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-8 bg-gray-900/60 p-10 rounded-[2.5rem] border border-gray-800 shadow-xl">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tighter text-right">מנגנון הגנה פסיבי</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right mb-4">
+                        רוחב הראש המוגזם הפך אותו לבלתי ניתן לבליעה עבור טורפים כמו האריופס או הדימטרודון. ה"בומרנג" פשוט הפך ל"עצם בגרון" עבור כל מי שניסה לבלוע אותו בשלמותו.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- הכחדה -->
+        <section class="space-y-12 pb-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-teal-500 italic font-mono">03 //</span> סוף עידן המים: התייבשות פנגיאה
+            </h2>
+            <div class="p-10 bg-teal-900/10 rounded-[2.5rem] border border-teal-900/20 text-gray-300 leading-relaxed text-lg text-justify">
+                הדיפלוקאולוס נכחד לקראת סוף תור הפרם. כדו-חי התלוי לחלוטין במים קבועים, הוא לא שרד את שינויי האקלים הדרמטיים של פנגיאה. האקלים הפך למדברי וצחיח, והנהרות בטקסס הפכו למלחות יבשות. ללא מרחב מחיה מימי, גוועה השושלת המפוארת של הלפוסינופונדילים יחד עם הבומרנג החי האחרון.
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
+        Diplocaulus Research Phase // Verified by RAM // 2026
+    </footer>
+
+    <!-- סקריפט לחלון הצף (Modal) -->
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeModal(event) {
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto'; 
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
