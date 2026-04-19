@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>אנציקלופדיה פלאונטולוגית: מחקר אמונייט (Ammonite) אולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #020617; 
+            color: #f1f5f9; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .spiral-bg {
+            background-image: radial-gradient(circle at center, rgba(34, 211, 238, 0.05) 0%, transparent 70%);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            max-width: 95%;
+            max-height: 90%;
+            border-radius: 1.5rem;
+            box-shadow: 0 0 50px rgba(34, 211, 238, 0.3);
+        }
+        .close-modal {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="antialiased pb-24 text-justify spiral-bg">
+
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <nav class="bg-gray-950/80 border-b border-cyan-900/50 p-6 shadow-2xl sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="./index.html" class="flex items-center gap-4 text-cyan-400 hover:text-cyan-300 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-black text-2xl tracking-tighter text-white">ארכיון המזוזואיקון</span>
+            </a>
+            <div class="text-cyan-800 font-mono text-[10px] uppercase tracking-[0.3em] hidden md:block italic font-bold">Oceanic Fossil Record // AMMON-745</div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-24">
+        
+        <header class="text-center space-y-8 pt-10">
+            <div class="inline-block px-6 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-black uppercase tracking-[0.2em] mb-4 shadow-[0_0_20px_rgba(34,211,238,0.2)]">
+                מאובן המנחה של האוקיינוסים הקדומים
+            </div>
+            <h1 class="text-7xl md:text-9xl font-black accent-gradient tracking-tighter leading-none">אמונייט</h1>
+            <p class="text-2xl md:text-4xl text-gray-400 font-light italic" dir="ltr">The Spiral Architect: Ammonoidea</p>
+            
+            <div class="relative mt-16 group">
+                <div class="absolute -inset-2 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-[3rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-950 rounded-[4rem] p-8 border border-cyan-900/30 overflow-hidden shadow-2xl">
+                    <img src="./images/ammonite.png" alt="אמונייט שוחה באוקיינוס המזוזואיקון" onclick="openModal(this.src)" class="w-full max-h-[600px] object-contain rounded-3xl transform transition duration-1000 group-hover:scale-105 mt-4 cursor-pointer" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </header>
+
+        <section class="glass-card rounded-[4rem] p-10 md:p-16 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-32 h-32 bg-cyan-500/5 rounded-full -translate-x-16 -translate-y-16"></div>
+            <h2 class="text-4xl font-black text-white mb-12 flex items-center gap-5">
+                <span class="w-3 h-12 bg-cyan-500 rounded-full"></span>
+                Dossier // תעודת זהות מחקרית
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-right">
+                <div class="p-6 bg-white/5 rounded-3xl border border-white/10">
+                    <h4 class="text-cyan-400 text-xs font-black uppercase tracking-widest mb-2">תקופת פעילות</h4>
+                    <p class="text-2xl font-bold text-gray-100 leading-tight">409 עד 66 מיליון שנה</p>
+                    <p class="text-sm text-gray-500 mt-2 italic">מהדבון ועד סוף הקרטיקון</p>
+                </div>
+                <div class="p-6 bg-white/5 rounded-3xl border border-white/10">
+                    <h4 class="text-cyan-400 text-xs font-black uppercase tracking-widest mb-2">סיווג טקסונומי</h4>
+                    <p class="text-2xl font-bold text-gray-100 leading-tight">רכיכות: סילוניות (Cephalopoda)</p>
+                    <p class="text-sm text-gray-500 mt-2 italic">תת-מחלקה: Ammonoidea</p>
+                </div>
+                <div class="p-6 bg-white/5 rounded-3xl border border-white/10">
+                    <h4 class="text-cyan-400 text-xs font-black uppercase tracking-widest mb-2">ממדים (קוטר)</h4>
+                    <p class="text-2xl font-bold text-gray-100 leading-tight">מ-1 ס"מ ועד 2.5 מטרים</p>
+                    <p class="text-sm text-gray-500 mt-2 italic">מגוון הגדלים המרשים ביותר בטבע</p>
+                </div>
+                <div class="lg:col-span-3 p-8 bg-cyan-950/20 rounded-3xl border border-cyan-500/20">
+                    <h4 class="text-cyan-400 text-xs font-black uppercase tracking-widest mb-3 text-center">הערה אקולוגית קריטית</h4>
+                    <p class="text-gray-300 text-lg leading-relaxed text-center font-medium">
+                        האמונייטים אינם קרובי משפחה ישירים של הנאוטילוס המודרני כפי שחשבו בעבר. מחקרים גנטיים קובעים שהם קרובים בהרבה ל**תמנונים ולדיונונים** של ימינו, למרות הקונכייה החיצונית.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-12">
+            <h2 class="text-5xl font-black text-white flex items-center gap-6">
+                <span class="text-cyan-500 italic font-mono text-3xl">01 //</span> ניתוח אטימולוגי נרחב
+            </h2>
+            <div class="overflow-hidden rounded-[3rem] border border-cyan-900/30 bg-gray-950 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-cyan-900/20 text-cyan-400 text-[11px] uppercase tracking-[0.3em] font-black">
+                            <th class="p-8 border-b border-cyan-900/30">רכיב השם</th>
+                            <th class="p-8 border-b border-cyan-900/30">שפת מקור</th>
+                            <th class="p-8 border-b border-cyan-900/30">פירוש, מקור ומשמעות היסטורית</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-300">
+                        <tr class="hover:bg-cyan-500/5 transition-colors border-b border-gray-900">
+                            <td class="p-8 font-mono text-cyan-400 font-black text-4xl" dir="ltr">Ammon</td>
+                            <td class="p-8 font-bold text-blue-400">יוונית / מצרית (Ἄμμων)</td>
+                            <td class="p-8 leading-relaxed">
+                                <span class="block font-black text-white mb-2 uppercase text-xs">אל השמש והבריאה המצרי</span>
+                                מבוסס על האל **אמון (Amun-Ra)**. באמנות, האל הוצג עם **קרני איל (Ram horns)** מפותלות. פליניוס הזקן כינה אותם בלטינית *Ammonis cornua* ("קרני אמון").
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-cyan-500/5 transition-colors">
+                            <td class="p-8 font-mono text-cyan-400 font-black text-4xl" dir="ltr">-ite</td>
+                            <td class="p-8 font-bold text-blue-400">יוונית (itēs)</td>
+                            <td class="p-8 leading-relaxed">
+                                <span class="block font-black text-white mb-2 uppercase text-xs">אבן / מינרל / מאובן</span>
+                                סיומת המשמשת במדעי הטבע לתיאור עצמים מאובנים או מינרלים.
+                                <br><span class="text-white font-bold block mt-3">הפירוש המלא: "אבן קרן אמון" – בשל הדמיון לסלסול קרני האיל המיתולוגיות.</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="glass-card rounded-[4rem] p-12 md:p-16 shadow-2xl border-l-8 border-l-cyan-500">
+            <h2 class="text-4xl font-black text-white mb-10 text-center uppercase tracking-tighter">המדען ומסע הגילוי: ז'אן-גיום ברוגייר</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8">
+                    <div class="bg-gray-900/50 p-8 rounded-[2.5rem] border border-gray-800">
+                        <h4 class="text-cyan-400 text-xs font-black uppercase tracking-widest mb-4 italic">ילדות ורקע (1750–1798)</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            ז'אן-גיום ברוגייר נולד במונפלייה, צרפת, למשפחת רופאים אמידה. למרות שלמד רפואה כצו המשפחה, תשוקתו האמיתית הייתה איסוף ותיעוד של רכיכות ימיות. הוא זנח את הרפואה כדי להקדיש את חייו למדעי הטבע ולהבנת האבולוציה המוקדמת.
+                        </p>
+                    </div>
+                    <div class="bg-gray-900/50 p-8 rounded-[2.5rem] border border-gray-800">
+                        <h4 class="text-cyan-400 text-xs font-black uppercase tracking-widest mb-4 italic">אידאולוגיה והישגים</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            ברוגייר היה איש ה"נאורות". הוא האמין שרק קטלוג שיטתי ומדעי של כל היצורים (החיים והנכחדים) יאפשר להבין את חוקי הטבע. הישגו הגדול ביותר היה הגדרת הסוג המדעי **Ammonites** בשנת 1789, צעד שהפך את המאובנים האלו מ"סקרנות דתית" לנושא מחקר ביולוגי רציני.
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <div class="relative rounded-3xl overflow-hidden border border-gray-800 shadow-2xl bg-gray-900 p-6 text-center">
+                        <img src="./images/bruguiere.png" alt="המדען ז'אן גיום ברוגייר" class="w-full rounded-2xl mb-4 grayscale hover:grayscale-0 transition-all duration-700" onerror="this.style.display='none'">
+                        <p class="text-xs text-gray-500 italic">ברוגייר מת בפרס במהלך מסע מחקר ב-1798, כשהוא מותיר אחריו אלפי תיאורי רכיכות שהיוו את הבסיס לפלאונטולוגיה המודרנית.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-12">
+            <h2 class="text-5xl font-black text-white flex items-center gap-6">
+                <span class="text-cyan-500 italic font-mono text-3xl">02 //</span> בלשות רקמות: איך יודעים את צורת הגוף?
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="glass-card p-10 rounded-[3rem] space-y-6 border-cyan-500/20 shadow-cyan-900/20 shadow-xl">
+                    <h3 class="text-2xl font-black text-white flex items-center gap-3">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-cyan-400"><path d="M12 2v10l4.5 4.5"/><circle cx="12" cy="12" r="10"/></svg>
+                        עדות "צלקות השריר"
+                    </h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        בתוך קונכיות שנשמרו היטב, מדענים גילו **צלקות שריר (Muscle Scars)** – נקודות חיבור זעירות שבהן רקמות הגוף הרכות היו מעוגנות לעצם. המיפוי של הנקודות הללו איפשר לחוקרים לבנות מודל תלת-ממדי של גוף החיה, כיוון הזרועות ומיקום האיברים הפנימיים.
+                    </p>
+                </div>
+                <div class="glass-card p-10 rounded-[3rem] space-y-6 border-cyan-500/20 shadow-cyan-900/20 shadow-xl">
+                    <h3 class="text-2xl font-black text-white flex items-center gap-3">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-cyan-400"><path d="M2 12h20"/><path d="M12 2v20"/><path d="m4.93 4.93 14.14 14.14"/><path d="m4.93 19.07 14.14-14.14"/></svg>
+                        מאובני רקמה נדירים
+                    </h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        באתרים בודדים (כמו סולנהופן בגרמניה), הבוץ שימר צלליות של זרועות (8-10 במספר), שקי דיו ואפילו את ה**סיפונקול** – הצינור שחיבר בין המדורים. הוכח כי לאמונייט היו עיניים מפותחות מאוד ומקור דמוי-תוכי.
+                        <br><span class="text-xs italic mt-2 block text-cyan-600"></span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-12">
+            <h2 class="text-5xl font-black text-white flex items-center gap-6">
+                <span class="text-cyan-500 italic font-mono text-3xl">03 //</span> טבלת ממדים: ממיקרו ועד ענקי העל
+            </h2>
+            <div class="overflow-hidden rounded-[3rem] border border-cyan-900/30 bg-gray-950 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-cyan-900/30 text-cyan-400 text-xs uppercase tracking-widest font-black">
+                            <th class="p-8 border-b border-cyan-900/30">קטגוריית גודל</th>
+                            <th class="p-8 border-b border-cyan-900/30">קוטר הקונכייה</th>
+                            <th class="p-8 border-b border-cyan-900/30">דוגמה למין / פרט</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-300">
+                        <tr class="hover:bg-cyan-500/5 transition-colors border-b border-gray-900">
+                            <td class="p-8 font-bold">מיקרו-אמונייטים</td>
+                            <td class="p-8 font-mono">1 ס"מ עד 5 ס"מ</td>
+                            <td class="p-8 italic">Cadoceras (פרטים צעירים)</td>
+                        </tr>
+                        <tr class="hover:bg-cyan-500/5 transition-colors border-b border-gray-900">
+                            <td class="p-8 font-bold">ממוצע (הנפוץ ביותר)</td>
+                            <td class="p-8 font-mono">10 ס"מ עד 30 ס"מ</td>
+                            <td class="p-8 italic">Hildoceras</td>
+                        </tr>
+                        <tr class="hover:bg-cyan-500/5 transition-colors border-b border-gray-900">
+                            <td class="p-8 font-bold">גדולים</td>
+                            <td class="p-8 font-mono">50 ס"מ עד 1.0 מטר</td>
+                            <td class="p-8 italic">Asteroceras</td>
+                        </tr>
+                        <tr class="bg-cyan-500/10 hover:bg-cyan-500/20 transition-colors">
+                            <td class="p-8 font-black text-cyan-400 text-2xl uppercase">שיא עולמי (ענקי העל)</td>
+                            <td class="p-8 font-mono text-cyan-400 text-2xl">2.0 עד 2.5 מטרים</td>
+                            <td class="p-8 italic font-bold">Parapuzosia seppenradensis</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="highlight-box p-10 rounded-l-[3rem] text-right space-y-4">
+                <h4 class="text-2xl font-black text-white underline decoration-cyan-500">נתוני ה-Parapuzosia (ענק גרמניה, 1895)</h4>
+                <p class="text-gray-400 leading-relaxed text-lg">
+                    הקונכייה הגדולה ביותר הגיעה לקוטר של **2.55 מטרים**. אורך החיה כולל הזרועות הגיע ל-**4 עד 5 מטרים** ומשקלה עמד על כ-**1,450 קילוגרם**. כדי להישאר בציפה נייטרלית, 90% מנפח הקונכייה היה גז (חנקן), והחיה חיה רק ב"מדורי המגורים" האחרונים.
+                </p>
+                <span class="text-xs italic block text-cyan-600"></span>
+            </div>
+        </section>
+
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8 order-2 md:order-1">
+                    <h3 class="text-4xl font-black text-white uppercase tracking-tighter">הצוללת הסילונית</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center shrink-0 text-cyan-400 font-bold">1</div>
+                            <p class="text-gray-300 text-sm leading-relaxed">**הסיפונקול (Siphuncle):** צינור דק שעבר בכל המדורים ואיפשר הזרקת גז לשליטה בציפה.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center shrink-0 text-cyan-400 font-bold">2</div>
+                            <p class="text-gray-300 text-sm leading-relaxed">**הנעה סילונית:** פליטת מים בעוצמה דרך משפך (Hyponome) לדחיפת הקונכייה קדימה או אחורה.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center shrink-0 text-cyan-400 font-bold">3</div>
+                            <p class="text-gray-300 text-sm leading-relaxed">**תזונה:** טורפים פעילים שצדו דגים וסרטנים בעזרת המקור החזק שלהם.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <div class="bg-gray-950 p-6 rounded-3xl border border-cyan-900/30">
+                        <img src="./images/ammonite-internal.png" alt="מבנה פנימי של קונכיית אמונייט" class="w-full rounded-xl" onerror="this.style.display='none'">
+                        <p class="text-[10px] text-gray-500 mt-4 text-center italic"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-12 pb-20">
+            <h2 class="text-5xl font-black text-white flex items-center gap-6">
+                <span class="text-cyan-500 italic font-mono text-3xl">04 //</span> סיבת ההיעלמות: הסוף בקרטיקון
+            </h2>
+            <div class="p-12 bg-cyan-950/20 rounded-[4rem] border border-cyan-500/20 text-gray-300 leading-relaxed text-xl text-justify shadow-2xl">
+                האמונייטים שרדו הכחדות רבות לאורך 350 מיליון שנה, אך נמחקו לחלוטין ב**הכחדת קרטיקון-פלאוגן (K-Pg)** לפני 66 מיליון שנה. בעוד הדינוזאורים נעלמו ביבשה, האמונייטים נעלמו בגלל שצאצאיהם חיו כפלנקטון בשכבות המים העליונות – אזור שנפגע ראשון מקריסת שרשרת המזון בעקבות פגיעת האסטרואיד. בני דודם, הנאוטילוסים, שרדו במעמקים בזכות ביצים גדולות ועמידות יותר.
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-800 text-[10px] uppercase tracking-[0.5em] font-mono border-t border-cyan-950 mt-20">
+        Ammonite Research Protocol // Verified by RAM // 2026
+    </footer>
+
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
