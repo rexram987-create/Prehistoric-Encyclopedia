@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>אנציקלופדיה פלאונטולוגית: מחקר פוסטוסוכוס (Postosuchus) אולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #e5e7eb; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(239, 68, 68, 0.3); /* Red border for Apex Predator */
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #ef4444 0%, #991b1b 100%); /* Red gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-box {
+            border-right: 4px solid #ef4444;
+            background: rgba(239, 68, 68, 0.05);
+        }
+        
+        /* Modal Styles - חלון צף לתמונה */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 1rem;
+            box-shadow: 0 0 40px rgba(239, 68, 68, 0.4);
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body class="antialiased pb-24 text-justify">
+
+    <!-- Modal Element - אלמנט החלון הצף -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <!-- ניווט סטטי (ללא קיבוע) -->
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="./index.html" class="flex items-center gap-3 text-red-500 hover:text-red-400 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-extrabold text-xl tracking-tight text-white">ארכיון האנציקלופדיה</span>
+            </a>
+            <div class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.2em]">The Triassic Apex // File: POST-ULTIMATE</div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-20">
+        
+        <!-- כותרת ראשית -->
+        <header class="text-center space-y-6 pt-10">
+            <div class="inline-block px-4 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(239,68,68,0.2)]">
+                טורף-העל של תור הטריאס
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient tracking-tighter">פוסטוסוכוס</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Triassic Apex: Postosuchus kirkpatricki</p>
+            
+            <div class="relative mt-12 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-red-600 to-orange-600 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[3rem] p-6 border border-gray-800 overflow-hidden shadow-2xl">
+                    <!-- קריאה לתמונה המדויקת מגיטהאב והפעלת החלון הצף -->
+                    <img src="./images/postosuchus.png" alt="פוסטוסוכוס" onclick="openModal(this.src)" class="w-full max-h-[550px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105 mt-6 cursor-pointer hover:opacity-90" onerror="this.style.display='none'" title="לחץ להגדלת התמונה">
+                </div>
+            </div>
+        </header>
+
+        <!-- תעודת זהות מחקרית (Dossier) -->
+        <section class="glass-card rounded-[3rem] p-10 md:p-14 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-10 flex items-center gap-4">
+                <span class="w-2 h-10 bg-red-500 rounded-full"></span>
+                תיק מחקר: נתונים אבולוציוניים
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-right">
+                <div class="space-y-3">
+                    <h4 class="text-red-400 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">לפני כ-221 עד 203 מיליון שנה</p>
+                    <p class="text-sm text-gray-500 italic">תור הטריאס המאוחר</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-red-400 text-xs font-bold uppercase tracking-widest">מסה ומשקל</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">250 עד 300 קילוגרם</p>
+                    <p class="text-sm text-gray-500 italic">מפלצת שרירית מסיבית, נועדה להכריע טרף כבד</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-red-400 text-xs font-bold uppercase tracking-widest">ממדים (אורך)</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">4 עד 5 מטרים</p>
+                    <p class="text-sm text-gray-500 italic">כולל גולגולת אימתנית באורך של כחצי מטר</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-red-400 text-xs font-bold uppercase tracking-widest">מיקום גיאוגרפי</h4>
+                    <p class="text-2xl font-medium text-red-400 font-bold underline">אמריקה הצפונית</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">טקסס, אריזונה, וניו מקסיקו (ארה"ב). התגלית המקורית התבצעה במחצבת פוסט (Post Quarry) שבטקסס.</p>
+                </div>
+                <div class="space-y-3 lg:col-span-2 text-right">
+                    <h4 class="text-red-400 text-xs font-bold uppercase tracking-widest">סיווג טקסונומי קריטי</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">ארכוזאור מקו-התנינאים (Pseudosuchia / Rauisuchidae)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed font-bold">שליט היבשה הבלתי מעורער של הטריאס. בניגוד לטעות הנפוצה, הפוסטוסוכוס **אינו דינוזאור**, אלא קרוב משפחה רחוק ועתיק של התנינים המודרניים שניסה לתפוס את נישת טורף-העל לפני הדינוזאורים.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- אטימולוגיה מפורטת -->
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-red-500 italic font-mono">01 //</span> ניתוח אטימולוגי נרחב
+            </h2>
+            <div class="overflow-hidden rounded-[2.5rem] border border-gray-800 bg-gray-900/50 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
+                            <th class="p-8 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-8 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-8 border-b border-gray-700">פירוש ומשמעות היסטורית</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200">
+                        <tr class="hover:bg-red-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-red-500 font-black text-3xl" dir="ltr">Posto-</td>
+                            <td class="p-8 font-bold text-orange-400">אנגלית/טופונימי (מבוסס מקום)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">העיירה פוסט (Post)</span>
+                                מתייחס לעיירה פוסט במחוז גארזה שבטקסס, ארה"ב. בסמוך אליה נמצאת המחצבה (Post Quarry) שבה התגלו המאובנים הראשונים והמרשימים ביותר של החיה.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-red-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-red-500 font-black text-3xl" dir="ltr">-suchus</td>
+                            <td class="p-8 font-bold text-orange-400">יוונית עתיקה (σοῦχος - souchos)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">תנין</span>
+                                המילה היוונית נגזרה משמו של "סובק" (Sobek), אל התנין המצרי. סיומת זו ניתנת לרבות מהחיות הפרהיסטוריות השייכות לקו האבולוציוני של התנינים או מדמות אותם.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-red-500/5 transition-colors">
+                            <td class="p-8 font-mono text-red-500 font-black text-3xl" dir="ltr">kirkpatricki</td>
+                            <td class="p-8 font-bold text-orange-400">לטיניזציה של שם משפחה</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">לזכרו של ג'ק קירקפטריק</span>
+                                שם המין (Species) הוענק בשנת 1985 כאות כבוד לג'ק קירקפטריק, אשר סייע רבות לחוקר סנקר צ'טרג'י בעבודות החפירה הקשות בטקסס, ואף תמך בפרויקט בדרכים שונות.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- תולדות הגילוי והמחקר -->
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-red-500 italic font-mono">02 //</span> תולדות הגילוי: אוצרות מחצבת פוסט
+            </h2>
+            
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-gray-300">
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-red-400 text-right">הסיבה למשלחת: פענוח שחר הדינוזאורים</h4>
+                        <p class="leading-relaxed text-right">
+                            בשנות ה-80 המוקדמות, השאלה כיצד הדינוזאורים החלו את עלייתם לשלטון הייתה אחת התעלומות הגדולות בפלאונטולוגיה. הפלאונטולוג **סנקר צ'טרג'י** (Sankar Chatterjee) מאוניברסיטת טקסס טק יצא למדבר הקשה של טקסס עם מטרה ברורה: לחקור את תצורות קניון קופר (Cooper Canyon Formation). הוא קיווה למצוא מאובנים שישפכו אור על המערכת האקולוגית של סוף תור הטריאס ויעזרו להבין אילו בעלי חיים קדמו לדינוזאורים ושלטו ביבשת לפניהם. 
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-red-400 text-right">נסיבות הגילוי המדויקות</h4>
+                        <p class="leading-relaxed text-right">
+                            תחת שמש קופחת במחצבה הסמוכה לעיירה פוסט, החלה להתגלות התמונה המלאה. הצוות נתקל ב"מיטת עצמות" (Bonebed) – עדויות לאירוע חריף של שיטפון בזק (Flash flood) קדום שסחף וקבר יחד מגוון עצום של בעלי חיים באבן חול. תוך כדי חפירה זהירה, נחשפה לפתע גולגולת עצומה ומרתיעה באורך של כחצי מטר. תחילה, מבנה המלתעות החדות הזכיר גולגולת של טירנוזאורוס רקס קטן. אולם, בחינה מדוקדקת של פתחי הגולגולת (Fenestrae) ומבנה הקרסול הוכיחה לחוקרים את הבלתי ייאמן: זו לא הייתה תגלית של דינוזאור.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900/80 p-8 rounded-[2rem] border border-gray-700 mt-6">
+                    <h4 class="text-xl font-bold text-white text-right mb-4 border-b border-gray-800 pb-2">מצב הממצאים: ריבוי שלדים וחידה אנטומית</h4>
+                    <ul class="space-y-4 text-sm text-gray-400 leading-relaxed text-right">
+                        <li><strong class="text-orange-400">חשיפת המפלצת:</strong> הגילוי של הגולגולת, לצד שרידי השריון (Osteoderms) שכיסו את גבה, אישר שהצוות מצא את טורף-העל של המערכת האקולוגית – התנינאי היבשתי הקטלני שנקרא ב-1985 על שם המחצבה, פוסטוסוכוס.</li>
+                        <li><strong class="text-orange-400">עושר הממצאים:</strong> בזכות אותו שיטפון בזק, מחצבת פוסט הניבה עשרות מאובנים שמורים היטב. חלק מהשלדים היו שלמים ומחוברים (Articulated), המאפשרים בניית מודלים מדויקים. ההתכנסות האבולוציונית (Convergent Evolution) של הגולגולת הדמוית-תרופוד אך שייכת לתנינאי ממשיכה להדהים חוקרים עד היום.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- אקולוגיה, ביומכניקה וחידת ההליכה -->
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden border-orange-500/30">
+            <h3 class="text-4xl font-black text-white text-center mb-12 uppercase tracking-tighter">אקולוגיה וחידת ההליכה (Biomechanics)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8 text-gray-300">
+                    <p class="text-xl leading-relaxed text-right mb-4">
+                        הפוסטוסוכוס היה אימת תור הטריאס. בניגוד לתנינים המודרניים האורבים במים, הוא היה זוחל יבשתי מובהק שרץ וצד בשטחים הפתוחים וביערות השרכים. 
+                    </p>
+                    <div class="highlight-box p-8 rounded-l-[2rem]">
+                        <h4 class="text-red-400 font-bold mb-4 uppercase text-xs tracking-widest">טורף של ענקים</h4>
+                        <p class="text-sm leading-relaxed text-right mb-4">
+                            בתור טורף-העל במערכת האקולוגית שלו, הוא ניזון מזוחלים צמחוניים גדולים כמו הפלסריאס (Placerias - זוחל דמוי-יונק כבד) ומראשוני הדינוזאורים שהיו קטנים יחסית בתקופה זו. עוצמת הנשיכה שלו יכלה למחוץ עצמות ללא מאמץ.
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-8 bg-gray-900/60 p-10 rounded-[2.5rem] border border-gray-800 shadow-xl">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tighter text-right">על שתיים או על ארבע? (הדיבייט המדעי)</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right mb-4">
+                        אחת התעלומות הגדולות לגבי הפוסטוסוכוס קשורה לביומכניקה שלו. כשהשלד הורכב לראשונה, התברר שגפיו הקדמיות קצרות באופן דרמטי (פחות ממחצית האורך) מגפיו האחוריות הארוכות והשריריות.
+                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right">
+                        בתחילה סברו שהוא הלך על ארבע רוב הזמן (Quadrupedal). אולם מחקרים אנטומיים מודרניים על מרכז הכובד ומיקום עמוד השדרה מציעים תיאוריה מדהימה: הפוסטוסוכוס עשוי היה להיות חיה הולכת על שתיים (Bipedal) לחלוטין, או לכל הפחות נעמד על שתי רגליים אחוריות בזמן ריצה והסתערות, כשהוא משתמש בזנבו הכבד כמשקולת איזון - בדומה לטירנוזאורוס רקס.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- נפילת המלכים ועליית הדינוזאורים -->
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-red-500 italic font-mono">03 //</span> סוף השלטון (אירוע ההכחדה טריאס-יורה)
+            </h2>
+            
+            <div class="glass-card p-10 rounded-[3rem] space-y-6">
+                <p class="text-gray-300 text-lg text-right leading-relaxed font-medium">
+                    לאורך הטריאס המאוחר, ארכוזאורים מקו-התנינאים כמו הפוסטוסוכוס דיכאו לחלוטין את התפתחות הדינוזאורים. הדינוזאורים חיו בצילם, כשהם קטנים וזריזים, מנסים לחמוק ממלתעותיהם.
+                </p>
+                <div class="bg-gray-900/50 p-6 rounded-2xl border-r-4 border-red-500 mt-4">
+                    <p class="text-gray-400 text-sm text-right leading-relaxed">
+                        לפני כ-201 מיליון שנה התרחש אירוע ההכחדה טריאס-יורה, שנגרם ככל הנראה עקב פעילות געשית אדירה ששינתה את האקלים. מפלצות-העל הכבדות כמו הפוסטוסוכוס, שדרשו כמויות עצומות של בשר, קרסו ומתו. הכחדתם פינתה את נישת "טורפי-העל" והותירה ואקום אקולוגי. הוואקום הזה נוצל במהירות על ידי הדינוזאורים התרופודים, שזינקו בגודלם והפכו לשליטי היבשה הבלתי מעורערים לאורך המזוזואיקון, שעה שקרובי משפחתו של הפוסטוסוכוס שרדו רק כשהם הופכים לתנינים האמפיביים (שוכני מים) שאנו מכירים היום.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
+        Postosuchus Research Phase // Verified by RAM // 2026
+    </footer>
+
+    <!-- סקריפט לחלון הצף (Modal) המאפשר הגדלת תמונה -->
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // מניעת גלילת הרקע בזמן שהתמונה פתוחה
+        }
+
+        function closeModal(event) {
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto'; // החזרת הגלילה לרקע
+            }
+        }
+
+        // סגירת התמונה בלחיצה על מקש Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
