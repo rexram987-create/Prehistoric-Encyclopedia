@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>אנציקלופדיה פלאונטולוגית: מחקר צינוגנתוס (Cynognathus) – המהדורה המורחבת</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #f1f5f9; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-box {
+            border-right: 6px solid #f59e0b;
+            background: rgba(245, 158, 11, 0.08);
+            padding: 1.5rem;
+            border-radius: 0 1rem 1rem 0;
+        }
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 100; opacity: 0; pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-content { max-width: 95%; max-height: 90%; border-radius: 1.5rem; box-shadow: 0 0 50px rgba(245, 158, 11, 0.4); }
+        .close-modal { position: absolute; top: 1.5rem; right: 2rem; color: white; font-size: 3rem; cursor: pointer; }
+    </style>
+</head>
+<body class="antialiased pb-24 text-justify">
+
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <nav class="bg-gray-900/95 border-b border-amber-900/40 p-6 shadow-2xl sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="../../index.html" class="flex items-center gap-4 text-amber-500 hover:text-amber-400 transition-all group">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="group-hover:-translate-x-2 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-black text-2xl tracking-tighter text-white uppercase">Mesozoic Archive</span>
+            </a>
+            <div class="text-amber-700 font-mono text-xs uppercase tracking-[0.4em] font-bold hidden md:block">Triassic Predator // CYNO-DEEP-762</div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-12 space-y-28">
+        
+        <header class="text-center space-y-8 pt-12">
+            <div class="inline-block px-6 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-500 text-sm font-black uppercase tracking-[0.2em] mb-4 animate-pulse">
+                החוליה המקשרת המכריעה באבולוציה
+            </div>
+            <h1 class="text-7xl md:text-9xl font-black accent-gradient tracking-tighter leading-none">צינוגנתוס</h1>
+            <p class="text-2xl md:text-4xl text-gray-500 font-light italic" dir="ltr">The Triassic Wolf: Cynognathus crateronotus</p>
+            
+            <div class="relative mt-16 group">
+                <div class="absolute -inset-2 bg-gradient-to-r from-amber-600 to-orange-700 rounded-[3rem] blur opacity-20 group-hover:opacity-50 transition duration-1000"></div>
+                <div class="relative bg-gray-950 rounded-[4rem] p-8 border border-amber-900/30 overflow-hidden shadow-2xl">
+                    <img src="../../assets/images/cynognathus.png" alt="צינוגנתוס בסביבתו הטבעית" onclick="openModal(this.src)" class="w-full max-h-[600px] object-contain rounded-3xl transform transition duration-1000 group-hover:scale-105 cursor-pointer" onerror="this.style.display='none'">
+                    <p class="text-[10px] text-gray-600 mt-4 italic"></p>
+                </div>
+            </div>
+        </header>
+
+        <section class="glass-card rounded-[4rem] p-10 md:p-16 shadow-2xl relative">
+            <h2 class="text-4xl font-black text-white mb-12 flex items-center gap-6">
+                <span class="w-3 h-12 bg-amber-500 rounded-full"></span>
+                Dossier // נתונים פיזיולוגיים וטקסונומיים
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 text-right">
+                <div class="space-y-4">
+                    <h4 class="text-amber-500 text-xs font-black uppercase tracking-widest border-b border-amber-900/50 pb-2">תקופת פעילות (Geological Era)</h4>
+                    <p class="text-3xl font-bold text-gray-100 leading-tight">247 עד 237 מיליון שנה</p>
+                    <p class="text-sm text-gray-500 italic">תור הטריאס (Triassic) – תחתון עד תיכון</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-amber-500 text-xs font-black uppercase tracking-widest border-b border-amber-900/50 pb-2">מסה גופנית (Weight)</h4>
+                    <p class="text-3xl font-bold text-gray-100 leading-tight">25 עד 40 קילוגרם</p>
+                    <p class="text-sm text-gray-500 italic">המסה של טורף יבשתי בינוני-גדול (כמו זאב מצוי)</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-amber-500 text-xs font-black uppercase tracking-widest border-b border-amber-900/50 pb-2">ממדים (Length)</h4>
+                    <p class="text-3xl font-bold text-gray-100 leading-tight">1.2 עד 1.5 מטרים</p>
+                    <p class="text-sm text-gray-500 italic">מחרטום ועד קצה הזנב – גוף דחוס ושרירי</p>
+                </div>
+                <div class="space-y-4 lg:col-span-1">
+                    <h4 class="text-amber-500 text-xs font-black uppercase tracking-widest border-b border-amber-900/50 pb-2">תפוצה גיאוגרפית (Pangea)</h4>
+                    <p class="text-2xl font-bold text-amber-500">דרום אפריקה, ארגנטינה, אנטארקטיקה</p>
+                    <p class="text-sm text-gray-500 leading-relaxed text-right mt-2">הוכחה מרכזית לקיומה של יבשת-העל גונדוואנה (Gondwana).</p>
+                </div>
+                <div class="space-y-4 lg:col-span-2 text-right">
+                    <h4 class="text-amber-500 text-xs font-black uppercase tracking-widest border-b border-amber-900/50 pb-2">סיווג אבולוציוני (Phylogeny)</h4>
+                    <p class="text-2xl font-bold text-gray-100">סינאפסיד: קבוצת הצינודונטים (Cynodontia)</p>
+                    <p class="text-sm text-gray-400 leading-relaxed font-bold mt-2">הצינודונטים הם הקבוצה הישירה ממנה התפתחו היונקים. הצינוגנתוס מייצג את שיא השכלול הטורף של שלב המעבר הזה.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-12">
+            <h2 class="text-5xl font-black text-white flex items-center gap-6">
+                <span class="text-amber-500 italic font-mono text-3xl">01 //</span> ניתוח אטימולוגי נרחב ומעמיק
+            </h2>
+            <div class="overflow-hidden rounded-[3rem] border border-amber-900/30 bg-gray-950 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-amber-900/20 text-amber-500 text-xs uppercase tracking-[0.3em] font-black">
+                            <th class="p-10 border-b border-amber-900/30">רכיב השם</th>
+                            <th class="p-10 border-b border-amber-900/30">שפת מקור</th>
+                            <th class="p-10 border-b border-amber-900/30">פירוש, מקור ומשמעות מורחבת</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-300">
+                        <tr class="hover:bg-amber-500/5 transition-colors border-b border-gray-900">
+                            <td class="p-10 font-mono text-amber-500 font-black text-4xl" dir="ltr">Cyno-</td>
+                            <td class="p-10 font-bold text-orange-400">יוונית עתיקה (κύων - kyōn)</td>
+                            <td class="p-10 leading-relaxed text-right">
+                                <span class="block font-black text-white mb-3 uppercase text-xs">כלב / דמוי-כלב</span>
+                                מציין את הדמיון המורפולוגי המדהים של הגולגולת לזו של טורפים יונקיים מודרניים. לראשונה נראית "לסת של כלב" בתוך שלד של יצור פרה-היסטורי.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-amber-500/5 transition-colors border-b border-gray-900">
+                            <td class="p-10 font-mono text-amber-500 font-black text-4xl" dir="ltr">-gnathus</td>
+                            <td class="p-10 font-bold text-orange-400">יוונית עתיקה (γνάθος - gnathos)</td>
+                            <td class="p-10 leading-relaxed text-right">
+                                <span class="block font-black text-white mb-3 uppercase text-xs">לסת</span>
+                                מתייחס למבנה הלסת החזק והמתוחכם ששינה את הבנת האבולוציה של מערכת הלעיסה בטבע.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-amber-500/5 transition-colors">
+                            <td class="p-10 font-mono text-amber-500 font-black text-4xl" dir="ltr">crateronotus</td>
+                            <td class="p-10 font-bold text-orange-400">יוונית עתיקה</td>
+                            <td class="p-10 leading-relaxed text-right">
+                                <span class="block font-black text-white mb-3 uppercase text-xs">גב חסון / חזק מאוד</span>
+                                הלחם של *Krateros* (עוצמתי/חסון) ו-*Notos* (גב). תיאור של עמוד השדרה המסיבי והשרירי שתמך ביכולת הריצה והזינוק של הטורף.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="glass-card p-12 md:p-20 rounded-[5rem] shadow-2xl relative overflow-hidden border-l-8 border-amber-600">
+            <h2 class="text-4xl font-black text-white mb-12 text-center uppercase tracking-tighter italic underline decoration-amber-600">המשלחת המדעית: הארי גוביאר סילי (1889)</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start text-gray-300">
+                <div class="space-y-10">
+                    <div class="highlight-box">
+                        <h4 class="text-amber-500 font-black mb-4 uppercase text-xs tracking-widest">מטרות וסיבת המשלחת</h4>
+                        <p class="text-base leading-relaxed text-right font-medium">
+                            הארי גוביאר סילי יצא לדרום אפריקה בשנת 1889 תחת מימון יוקרתי של ה-**Royal Society** (החברה המלכותית הבריטית). המשימה המדעית הייתה ברורה ונועזת: למצוא את "החוליה החסרה" (Missing Link) שתחבר בין זוחלים קדומים לבין מחלקת היונקים. סילי האמין שאגן הקארו מחזיק את המפתח להבנת התפתחות הלסת והדם החם, והוא יצא להוכיח זאת דרך ניתוח שלדים בשטח.
+                        </p>
+                    </div>
+                    <div class="bg-gray-950/40 p-10 rounded-[3rem] border border-gray-800 space-y-4 shadow-xl">
+                        <h4 class="text-amber-500 font-black uppercase text-xs tracking-widest">נסיבות הגילוי בליידי פרר</h4>
+                        <p class="text-sm leading-relaxed text-right">
+                            התגלית המשמעותית ביותר התרחשה באזור הצחיח והמרוחק של **ליידי פרר (Lady Frere)**. סילי וצוותו פעלו תחת חום כבד ותנאי שטח קשים, תוך שהם סורקים את תצורות הסלע של הטריאס. שם הם חשפו גוש סלע חול (Sandstone) מסיבי שהכיל אוצר פלאונטולוגי.
+                        </p>
+                        <p class="text-sm leading-relaxed text-right mt-4">
+                            **מספר הפריטים ומצבם:** המשלחת חשפה **שלד אחד כמעט מושלם ומחובר לחלוטין (Articulated)** – נדיר ביותר עבור צינודונטים – וכן **לפחות 3 גולגולות נוספות** ברמות שימור שונות. העצמות היו כלואות בתוך סלע קשה כפלדה, מה שחייב משלוח של טונות של אבן ללונדון לצורך עבודת חילוץ שנמשכה חודשים בעזרת אזמלים עדינים.
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-10">
+                    <div class="relative rounded-[3rem] overflow-hidden border border-amber-900/30 shadow-2xl bg-gray-950 p-8 text-center group">
+                        <img src="../../assets/images/seeley-work.png" alt="הארי גוביאר סילי בעבודה" class="w-full rounded-2xl mb-6 opacity-70 group-hover:opacity-100 transition-opacity duration-700" onerror="this.style.display='none'">
+                        <p class="text-[11px] text-gray-500 italic leading-relaxed">
+                            סילי היה הראשון שהבין שהצינוגנתוס הוא המפתח למעבר ליונקים. ב-1895 הוא פרסם את תיאורו המדעי, שבו הדגיש את המבנה ההיברידי של השלד – גוף של זוחל עם ראש ושיניים של יונק.
+                        </p>
+                        <p class="text-[10px] text-amber-700 mt-4 font-mono"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-16">
+            <h2 class="text-5xl font-black text-white flex items-center gap-6">
+                <span class="text-amber-500 italic font-mono text-3xl">02 //</span> תזונה וביומכניקה: טורף העל של הטריאס
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="glass-card p-12 rounded-[4rem] border-amber-500/10 shadow-xl space-y-8">
+                    <h3 class="text-3xl font-bold text-amber-500 text-right underline decoration-amber-900/50">מכונת ההרג והלעיסה</h3>
+                    <p class="text-gray-300 leading-relaxed text-right">
+                        הצינוגנתוס מילא את הגומחה האקולוגית של "זאב הערבות" של הטריאס. הוא היה טורף אקטיבי (Carnivore) שהתבסס על מהירות וזריזות. 
+                        <br><br>
+                        **הטרודונטיה (שיניים מבדלות):** בניגוד לזוחלים, מערכת השיניים שלו הייתה מגוונת:
+                        <ul class="list-disc list-inside space-y-2 mt-4 text-sm text-gray-400">
+                            <li>**ניבים (Canines):** ארוכים וחדים להפליא לנעיצה בטרף ושיתוקו.</li>
+                            <li>**שיניים טוחנות (Post-canines):** בעלות בליטות מורכבות ("תלוליות") שאפשרו לו **לחתוך וללעוס** את הבשר – מהפכה שקיצרה את זמן העיכול.</li>
+                        </ul>
+                    </p>
+                    <p class="text-gray-300 text-sm leading-relaxed text-right italic font-bold">
+                        **טרף מועדף:** הוא ניזון בעיקר מדיצינודונטים (כמו ה*קנמייריה*) שהיו איטיים ממנו, דו-חיים גדולים וזוחלים קטנים.
+                    </p>
+                    <span class="text-[10px] text-amber-900 font-mono block text-center mt-4"></span>
+                </div>
+                <div class="glass-card p-12 rounded-[4rem] border-amber-500/10 shadow-xl space-y-8">
+                    <h3 class="text-3xl font-bold text-amber-500 text-right underline decoration-amber-900/50">מהפכת הנשימה: החיך המשני</h3>
+                    <p class="text-gray-300 leading-relaxed text-right">
+                        אחד הגילויים המדהימים בשלד של סילי היה ה**חיך המשני (Secondary Palate)**. זוהי מחיצת עצם המפרידה באופן מוחלט בין חלל האף לבין חלל הפה.
+                        <br><br>
+                        **המשמעות הביולוגית:** תכונה זו איפשרה לצינוגנתוס **לאכול ולנשום בו-זמנית**. לזוחלים רגילים אין את היכולת הזו (הם מפסיקים לנשום כשהם בולעים). יכולת זו היא עדות ישירה לקצב חילוף חומרים גבוה (Endothermic) ולצורך באספקת חמצן רציפה – סימן מובהק ל**דם חם** ולמעבר ליונקים.
+                    </p>
+                    <span class="text-[10px] text-amber-900 font-mono block text-center mt-4"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-12 pb-20">
+            <h2 class="text-5xl font-black text-white flex items-center gap-6">
+                <span class="text-amber-500 italic font-mono text-3xl">03 //</span> סיבת ההיעלמות: הדחייה על ידי הארכוזאורים
+            </h2>
+            <div class="p-14 bg-amber-950/10 rounded-[5rem] border border-amber-900/20 text-gray-300 leading-relaxed text-xl text-justify shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-5">
+                    <svg width="200" height="200" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/></svg>
+                </div>
+                הצינוגנתוס נכחד לקראת סוף תור הטריאס התיכון כתוצאה מתחרות אקולוגית אגרסיבית מול ה**ארכוזאורים** (Archosauria) – האבות הקדומים של הדינוזאורים והתנינים. הדינוזאורים המוקדמים פיתחו יציבה זקופה לחלוטין שאפשרה להם לרוץ מהר יותר ולמרחקים ארוכים יותר תוך חיסכון באנרגיה. הצינוגנתוס, שנשאר קטן יחסית ולא הצליח להתחרות במהירות הריצה וביעילות המכנית של הטורפים החדשים, נדחק הצידה. צאצאיו, הצינודונטים הקטנים, שרדו רק על ידי הקטנת ממדיהם ומעבר לאורח חיים לילי במחילות – מסלול שהוביל בסופו של דבר להופעת היונקים הראשונים.
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-800 text-[10px] uppercase tracking-[0.6em] font-mono border-t border-amber-950/30 mt-20">
+        Cynognathus Deep Research Protocol // Verified by RAM // 2026
+    </footer>
+
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+        }
+        function closeModal(event) {
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto'; 
+            }
+        }
+    </script>
+</body>
+</html>
