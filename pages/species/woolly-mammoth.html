@@ -3,64 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>אנציקלופדיה פלאונטולוגית: ממותה צמרית (Mammuthus primigenius)</title>
+    <title>אנציקלופדיה פלאונטולוגית: מחקר ממותה צמרירית (Woolly Mammoth) אולטימטיבי</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700;800&display=swap');
-        body { background:#030712; color:#e5e7eb; font-family:'Assistant',sans-serif; }
-        .glass{ background:rgba(17,24,39,.7); border:1px solid rgba(14,165,233,.3); backdrop-filter: blur(8px); }
-        .accent{ background:linear-gradient(135deg,#38bdf8,#2563eb); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #e5e7eb; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #7dd3fc 0%, #1e3a8a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-box {
+            border-right: 4px solid #7dd3fc;
+            background: rgba(125, 211, 252, 0.05);
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 1rem;
+            box-shadow: 0 0 40px rgba(125, 211, 252, 0.4);
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
     </style>
 </head>
-<body class="pb-24 antialiased">
-    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 sticky top-0 z-50">
+
+<body class="antialiased pb-24 text-justify">
+
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl">
         <div class="max-w-5xl mx-auto flex items-center justify-between">
-            <a href="../../index.html" class="flex items-center gap-3 text-sky-400 hover:text-sky-300">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-                <span class="font-extrabold text-xl text-white">ארכיון האנציקלופדיה</span>
+            <a href="../../index.html" class="flex items-center gap-3 text-sky-300 hover:text-sky-200 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-extrabold text-xl tracking-tight text-white">ארכיון האנציקלופדיה</span>
             </a>
-            <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase">Pleistocene // MM-WOOL</span>
+            <div class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.2em]">The Ice Age Titan // File: MAMMOTH-ULTIMATE</div>
         </div>
     </nav>
 
-    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-16">
-        <header class="text-center space-y-6 pt-8">
-            <h1 class="text-5xl md:text-7xl font-black accent">ממותה צמרית</h1>
-            <p class="text-xl text-gray-400 italic" dir="ltr">Mammuthus primigenius</p>
-            <div class="bg-gray-900 rounded-[2.5rem] border border-gray-800 p-6">
-                <img src="../../assets/images/woolly-mammoth.png" alt="ממותה צמרית" class="w-full max-h-[520px] object-contain" onerror="this.style.display='none'">
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-20">
+        
+        <header class="text-center space-y-6 pt-10">
+            <div class="inline-block px-4 py-1 rounded-full bg-sky-300/10 border border-sky-300/30 text-sky-300 text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(125,211,252,0.2)]">
+                ענק הקרח של ערבות הממותה
+            </div>
+
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient tracking-tighter">ממותה צמרירית</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Woolly Mammoth: Mammuthus primigenius</p>
+            
+            <div class="relative mt-12 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-sky-300 to-blue-900 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[3rem] p-6 border border-gray-800 overflow-hidden shadow-2xl">
+                    <img src="../../assets/images/woolly-mammoth.png" alt="ממותה צמרירית" onclick="openModal(this.src)" class="w-full max-h-[550px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105 mt-6 cursor-pointer hover:opacity-90" onerror="this.style.display='none'" title="לחץ להגדלת התמונה">
+                </div>
             </div>
         </header>
 
-        <section class="glass rounded-[2.5rem] p-8 md:p-12">
-            <h2 class="text-3xl font-extrabold mb-8">תעודת זהות מחקרית</h2>
-            <div class="grid md:grid-cols-2 gap-8 text-lg">
-                <div><strong class="text-sky-400">טווח זמן:</strong> לפני כ-400,000 עד 4,000 שנה.</div>
-                <div><strong class="text-sky-400">בית גידול:</strong> ערבות קרות ("Mammoth Steppe") באירואסיה וצפון אמריקה.</div>
-                <div><strong class="text-sky-400">גובה כתף:</strong> 2.7–3.4 מטר בממוצע (זכרים גדולים יותר).</div>
-                <div><strong class="text-sky-400">מסה:</strong> לרוב 4–6 טונות.</div>
+        <section class="glass-card rounded-[3rem] p-10 md:p-14 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-10 flex items-center gap-4">
+                <span class="w-2 h-10 bg-sky-300 rounded-full"></span>
+                תיק מחקר: נתונים אבולוציוניים
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-right">
+                <div class="space-y-3">
+                    <h4 class="text-sky-300 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">פליסטוקן עד הולוקן מוקדם</p>
+                    <p class="text-sm text-gray-500 italic">התפתחה לפני מאות אלפי שנים; אוכלוסיות אחרונות שרדו באי וראנגל עד לפני כ-4,000 שנה.</p>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-sky-300 text-xs font-bold uppercase tracking-widest">מסה ומשקל</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">כ-5.5 עד 7.3 טונות</p>
+                    <p class="text-sm text-gray-500 italic">דומה בגודלה לפילים מודרניים גדולים, אך מותאמת לקור קיצוני באמצעות פרווה ושומן.</p>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-sky-300 text-xs font-bold uppercase tracking-widest">ממדים</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">כ-3 עד 3.7 מטרים בכתף</p>
+                    <p class="text-sm text-gray-500 italic">חטים ארוכים ומעוקלים, גולגולת גבוהה, גב קמור ומבנה גוף דחוס להפחתת איבוד חום.</p>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-sky-300 text-xs font-bold uppercase tracking-widest">מיקום גיאוגרפי</h4>
+                    <p class="text-2xl font-medium text-sky-300 font-bold underline">צפון אירואסיה וצפון אמריקה</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">נפוצה בערבות הקרות של חצי הכדור הצפוני, מסיביר ואירופה ועד אלסקה וקנדה.</p>
+                </div>
+
+                <div class="space-y-3 lg:col-span-2 text-right">
+                    <h4 class="text-sky-300 text-xs font-bold uppercase tracking-widest">סיווג טקסונומי קריטי</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">יונק חדקאי — Elephantidae / Mammuthus</p>
+                    <p class="text-sm text-gray-500 leading-relaxed font-bold">
+                        הממותה הצמרירית הייתה קרובת משפחה של הפיל האסייתי, ולא "דינוזאור". היא הייתה אחת המגפאונות המפורסמות ביותר של עידן הקרח, ומוכרת למדע ברמת פירוט נדירה בזכות שלדים, שיניים, חטים, ציורי מערות וגופות קפואות מן הפרמפרוסט.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <section class="space-y-6">
-            <h2 class="text-3xl font-black">אקולוגיה והתאמות לקור קיצוני</h2>
-            <div class="glass rounded-3xl p-8 space-y-4 leading-relaxed text-gray-300">
-                <p>לממותה הצמרית הייתה מעטפת בידוד מרשימה: שכבת שומן תת-עורית עבה, פרווה דו-שכבתית, ואוזניים קטנות ביחס לפילי ימינו להפחתת איבוד חום.</p>
-                <p>השיניים הטוחנות הרחבות והמקומטות מעידות על תזונה עשבונית קשה: עשבים קפואים, סדג'ים וצמחיית טונדרה. שחיקת השיניים הייתה מגבלה ביולוגית קריטית בחיי הפרט.</p>
-                <p>הניבים המעוקלים שימשו כנראה גם לחפירה בשלג, גם להצגת כוח חברתי וגם להגנה.</p>
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-sky-300 italic font-mono">01 //</span> ניתוח אטימולוגי נרחב
+            </h2>
+
+            <div class="overflow-hidden rounded-[2.5rem] border border-gray-800 bg-gray-900/50 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
+                            <th class="p-8 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-8 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-8 border-b border-gray-700">פירוש ומשמעות היסטורית</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="text-gray-200">
+                        <tr class="hover:bg-sky-600/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-sky-300 font-black text-3xl" dir="ltr">Mammuthus</td>
+                            <td class="p-8 font-bold text-cyan-200">לטינית מדעית / מקור צפוני עתיק</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">ממותה / חיה ענקית</span>
+                                שם הסוג Mammuthus מתייחס לקבוצת הממותות. המילה "ממותה" התגלגלה לשפות אירופיות ממקורות צפוניים, כנראה מאזור רוסיה וסיביר, שם נמצאו חטים ועצמות עצומים באדמה הקפואה הרבה לפני שהמדע הבין שמדובר בקרובי משפחה נכחדים של פילים.
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-sky-600/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-sky-300 font-black text-3xl" dir="ltr">primigenius</td>
+                            <td class="p-8 font-bold text-cyan-200">לטינית</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">ראשוני / קדום / מן ההתחלה</span>
+                                שם המין מדגיש את תחושת הקדמות של בעל החיים. כאשר חוקרים אירופים החלו לתאר ממותות, הן נתפסו כשרידים של עולם עתיק מאוד, כמעט מיתולוגי. המשמעות המדעית בקירוב היא **"הממותה הקדומה"**.
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-sky-600/5 transition-colors">
+                            <td class="p-8 font-mono text-sky-300 font-black text-3xl" dir="ltr">Woolly</td>
+                            <td class="p-8 font-bold text-cyan-200">אנגלית תיאורית</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">צמרירי / מכוסה פרווה</span>
+                                הכינוי העממי מתאר את אחד מסימני ההיכר הברורים ביותר שלה: מעטה שיער ארוך ועבה, שכבת צמר תחתונה ושכבת שומן מבודדת. אלה אפשרו לה לשרוד בסביבות קרות מאוד, יבשות וסוערות של עידן הקרח.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
-        <section class="grid md:grid-cols-2 gap-8">
-            <article class="glass rounded-3xl p-8 space-y-4">
-                <h3 class="text-2xl font-bold text-sky-400">יחסי אדם–ממותה</h3>
-                <p class="text-gray-300 leading-relaxed">באתרים פלאוליתיים רבים נמצאו עצמות ממותה לצד כלי צור, עדויות לשימוש בבשר, בעצמות, ואפילו בבניית מחסות. המין היה חלק מרכזי בכלכלת ציידים-לקטים באזורי קרח.</p>
-            </article>
-            <article class="glass rounded-3xl p-8 space-y-4">
-                <h3 class="text-2xl font-bold text-sky-400">למה נכחדה?</h3>
-                <p class="text-gray-300 leading-relaxed">הקונצנזוס משלב שינוי אקלימי מהיר בסוף הפלייסטוקן עם לחץ ציד אנושי באזורים מסוימים. אוכלוסיות שריד התקיימו באיים מבודדים (כמו Wrangel) עד ההולוקן המאוחר.</p>
-            </article>
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-sky-300 italic font-mono">02 //</span> תולדות הגילוי: מן החטים הקפואים אל הגנום
+            </h2>
+            
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-gray-300">
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-sky-300 text-right">עצמות ענק מן האדמה הקפואה</h4>
+                        <p class="leading-relaxed text-right">
+                            במשך מאות שנים נמצאו בסיביר חטים ועצמות ענקיות בתוך האדמה הקפואה. לפני התפתחות הפלאונטולוגיה, ממצאים כאלה הולידו אגדות על חיות תת-קרקעיות, ענקים ויצורים מיתיים. רק בהמשך הובן שמדובר בקרוב משפחה נכחד של הפילים, שחי בערבות הקרות של עידן הקרח.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-sky-300 text-right">ממותות קפואות: חלון נדיר לעבר</h4>
+                        <p class="leading-relaxed text-right">
+                            בניגוד לרוב בעלי החיים הפרהיסטוריים, הממותה הצמרירית ידועה לעיתים מגופות שלמות או כמעט שלמות שנשמרו בפרמפרוסט. ממצאים כאלה שימרו עור, שיער, שרירים, שומן, איברים פנימיים ולעיתים חומר גנטי — ולכן מאפשרים לחקור לא רק שלד, אלא ממש ביולוגיה של יצור שנכחד.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900/80 p-8 rounded-[2rem] border border-gray-700 mt-6">
+                    <h4 class="text-xl font-bold text-white text-right mb-6 border-b border-gray-800 pb-2">מצב הממצאים: ליבה, יוקה ואוצרות הפרמפרוסט</h4>
+
+                    <p class="text-sm text-gray-400 leading-relaxed text-right mb-6">
+                        הממותה הצמרירית היא מהחיות הנכחדות המתועדות ביותר. שילוב של מאובנים רבים, גופות קפואות, ציורי מערות ו-DNA עתיק יצר תמונה מדעית עשירה במיוחד של אורח חייה, מראה החיצוני, תזונתה והכחדתה.
+                    </p>
+
+                    <ul class="space-y-5 text-sm text-gray-400 leading-relaxed text-right">
+                        <li>
+                            <strong class="text-cyan-200 text-base block mb-1">גופות קפואות של גורים ובוגרים:</strong>
+                            ממצאים מפורסמים כמו הגורה "ליבה" מסיביר אפשרו לחוקרים לראות את מבנה העור, השיער, החדק, הרגליים ואפילו תוכן פנימי שנשמר בצורה יוצאת דופן. אלה אינם רק "מאובנים", אלא קפסולות זמן ביולוגיות.
+                        </li>
+
+                        <li>
+                            <strong class="text-cyan-200 text-base block mb-1">חטים כמקלט מידע:</strong>
+                            חטי הממותה גדלו בשכבות, בדומה לטבעות עץ. בחינת שכבות הגדילה יכולה לספק מידע על גיל, תזונה, עונות שנה, מצבי לחץ ואפילו שלבי חיים. החטים היו גם כלי שימושי לחפירה בשלג, חיזור, מאבק והזזת צמחייה.
+                        </li>
+
+                        <li>
+                            <strong class="text-cyan-200 text-base block mb-1">DNA עתיק ושאלת ההחזרה לחיים:</strong>
+                            הממותה הצמרירית היא אחת הדוגמאות הידועות ביותר למחקר DNA עתיק. החומר הגנטי שנשמר בפרמפרוסט מאפשר להשוות אותה לפילים מודרניים, להבין הסתגלות לקור, ואף לעורר דיונים מדעיים ואתיים על ניסיונות עתידיים ליצירת בעלי חיים דמויי-ממותה.
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </section>
+
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden border-sky-300/30">
+            <h3 class="text-4xl font-black text-white text-center mb-12 uppercase tracking-tighter">
+                אקולוגיה וביומכניקה: מהנדסת ערבות הקרח
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8 text-gray-300">
+                    <p class="text-xl leading-relaxed text-right mb-4">
+                        הממותה הצמרירית הייתה מותאמת לאחד מבתי הגידול הקשים ביותר של הפליסטוקן: ערבות קרות, יבשות ורוחניות שנקראות לעיתים "ערבות הממותה". היא ניזונה בעיקר מעשבים, שיחים נמוכים וצמחייה קשוחה, והשתמשה בחדק ובחטים כדי לחשוף מזון מתחת לשלג.
+                    </p>
+
+                    <div class="highlight-box p-8 rounded-l-[2rem]">
+                        <h4 class="text-sky-300 font-bold mb-4 uppercase text-xs tracking-widest">מערכת בידוד ביולוגית</h4>
+                        <p class="text-sm leading-relaxed text-right mb-4">
+                            לממותה הצמרירית הייתה מעטפת הגנה מורכבת מפני קור: שיער חיצוני ארוך, שכבת צמר תחתונה, עור עבה ושכבת שומן מבודדת. יחד עם אוזניים קטנות יחסית וזנב קצר, מבנה זה צמצם איבוד חום ואפשר לה לתפקד בתנאים שבהם פילים מודרניים לא היו שורדים.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="space-y-8 bg-gray-900/60 p-10 rounded-[2.5rem] border border-gray-800 shadow-xl">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tighter text-right">הכחדה: לא ביום אחד</h4>
+
+                    <p class="text-gray-400 text-sm leading-relaxed text-right mb-4">
+                        לפני כ-20,000 שנה הממותות עדיין היו נפוצות באזורים נרחבים של חצי הכדור הצפוני, אך עם התחממות האקלים בסוף עידן הקרח, ערבות הממותה הצטמצמו והוחלפו בחלקן ביערות, ביצות ונופים לחים יותר. שינוי זה פגע במזון ובשטחי המחיה שעליהם התבססו.
+                    </p>
+
+                    <p class="text-gray-400 text-sm leading-relaxed text-right">
+                        בני אדם כנראה הוסיפו לחץ באמצעות ציד ותחרות על מרחב, אך ההכחדה הייתה תהליך מורכב: אקלים, שינויי צמחייה, בידוד אוכלוסיות ולחץ אנושי. האוכלוסיות האחרונות באיים מבודדים שרדו אלפי שנים לאחר רוב הממותות היבשתיות — עד שנעלמו סופית לפני כ-4,000 שנה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
+        Woolly Mammoth Research Phase // Verified by RAM // 2026
+    </footer>
+
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
 </body>
 </html>
