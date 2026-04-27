@@ -218,11 +218,32 @@
     "ready": true
   },
   {
+    "id": "megatherium",
+    "name": "מגתריום",
+    "era": "Cenozoic",
+    "path": "./pages/species/megatherium.html",
+    "ready": true
+  },
+  {
+    "id": "megaloceros",
+    "name": "מגלוצרוס",
+    "era": "Cenozoic",
+    "path": "./pages/species/megaloceros.html",
+    "ready": true
+  },
+  {
+    "id": "woolly-rhinoceros",
+    "name": "קרנף צמרירי",
+    "era": "Cenozoic",
+    "path": "./pages/species/woolly-rhinoceros.html",
+    "ready": true
+  },
+  {
     "id": "woolly-mammoth",
     "name": "ממותה צמרית",
     "era": "Cenozoic",
     "path": "./pages/species/woolly-mammoth.html",
-    "ready": false
+    "ready": true
   }
 ]
     </script>
@@ -230,6 +251,17 @@
     <script type="text/babel">
         const { useEffect, useState } = React;
 
+
+        const appBaseUrl = (() => {
+          const { origin, pathname } = window.location;
+          const normalizedPath = pathname.endsWith('/') ? pathname : `${pathname}/`;
+          return `${origin}${normalizedPath}`;
+        })();
+
+        function toSiteUrl(relativePath) {
+          const cleanPath = relativePath.replace(/^\.\//, '');
+          return new URL(cleanPath, appBaseUrl).toString();
+        }
         const eras = [
           { id: 'Paleozoic', name: 'פלאוזואיקון', color: 'border-blue-500', bg: 'bg-blue-500/10' },
           { id: 'Mesozoic', name: 'מזוזואיקון', color: 'border-green-500', bg: 'bg-green-500/10' },
@@ -310,13 +342,13 @@
                       {animals.filter(a => a.era === era.id).map(animal => (
                         <a
                           key={animal.id}
-                          href={animal.ready ? animal.path : '#'}
+                          href={animal.ready ? toSiteUrl(animal.path) : '#'}
                           className={`animal-card bg-gray-900 border ${animal.ready ? 'border-gray-700 shadow-lg ring-1 ring-gray-800' : 'border-gray-800 opacity-30 cursor-not-allowed'} rounded-[2rem] overflow-hidden p-1 relative group`}
                           onClick={(e) => { if(!animal.ready) e.preventDefault(); }}
                         >
                           <div className="aspect-square bg-gray-800/40 rounded-[1.7rem] flex items-center justify-center p-4 relative overflow-hidden">
                             <img
-                              src={`./assets/images/${animal.id}.png`}
+                              src={toSiteUrl(`assets/images/${animal.id}.png`)}
                               alt={animal.name}
                               className="max-w-full max-h-full object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-110"
                               onError={(ev) => {
@@ -341,7 +373,7 @@
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/95 backdrop-blur-md animate-fadeIn" onClick={() => setShowAboutModal(false)}>
                   <div className="bg-gray-900 border border-gray-700 rounded-[3rem] p-10 text-center space-y-6 max-w-sm w-full shadow-2xl relative" onClick={e => e.stopPropagation()}>
                     <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500 mx-auto shadow-[0_0_40px_rgba(59,130,246,0.4)]">
-                      <img src="./assets/images/ram-profile.jpeg" alt="Ram" className="w-full h-full object-cover" onError={(e) => { e.target.src = './assets/images/ram-profile.jpeg'; }} />
+                      <img src={toSiteUrl("assets/images/ram-profile.jpeg")} alt="Ram" className="w-full h-full object-cover" onError={(e) => { e.target.src = toSiteUrl('assets/images/ram-profile.jpeg'); }} />
                     </div>
                     <div>
                         <h2 className="text-3xl font-black text-white uppercase tracking-tighter">Chief Researcher: RAM</h2>
