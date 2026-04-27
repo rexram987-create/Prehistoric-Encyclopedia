@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -21,45 +20,7 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        const { useState } = React;
-
-        // רשימת החיות המעודכנת - מבנה שטוח
-        const animals = [
-          // פלאוזואיקון (14 נציגים)
-          { id: 'anomalocaris', name: 'אנומלוקאריס', era: 'Paleozoic', path: './anomalocaris.html', ready: true },
-          { id: 'dunkleosteus', name: 'דנקליאוסטיוס', era: 'Paleozoic', path: './dunkleosteus.html', ready: true },
-          { id: 'tiktaalik', name: 'טיקטאליק', era: 'Paleozoic', path: './tiktaalik.html', ready: true },
-          { id: 'ichthyostega', name: 'איכתיוסטגה', era: 'Paleozoic', path: './ichthyostega.html', ready: true },
-          { id: 'arthropleura', name: 'ארתרופלאורה', era: 'Paleozoic', path: './arthropleura.html', ready: true },
-          { id: 'hylonomus', name: 'הילונומוס', era: 'Paleozoic', path: './hylonomus.html', ready: true },
-          { id: 'meganeura', name: 'מגאנורה', era: 'Paleozoic', path: './meganeura.html', ready: true },
-          { id: 'diplocaulus', name: 'דיפלוקאולוס', era: 'Paleozoic', path: './diplocaulus.html', ready: true },
-          { id: 'eryops', name: 'אריופס', era: 'Paleozoic', path: './eryops.html', ready: true },
-          { id: 'edaphosaurus', name: 'אדפוזאורוס', era: 'Paleozoic', path: './edaphosaurus.html', ready: true },
-          { id: 'dimetrodon', name: 'דימטרודון', era: 'Paleozoic', path: './dimetrodon.html', ready: true },
-          { id: 'scutosaurus', name: 'סקוטוזאורוס', era: 'Paleozoic', path: './scutosaurus.html', ready: true },
-          { id: 'gorgonops', name: 'גורגונופס', era: 'Paleozoic', path: './gorgonops.html', ready: true },
-          { id: 'ammonite', name: 'אמונייט', era: 'Paleozoic', path: './ammonite.html', ready: true },
-          
-          // מזוזואיקון (כולל את הקוואצלקואטלוס! כל העידן פתוח)
-          { id: 'cynognathus', name: 'צינוגנתוס', era: 'Mesozoic', path: './cynognathus.html', ready: true },
-          { id: 'postosuchus', name: 'פוסטוסוכוס', era: 'Mesozoic', path: './postosuchus.html', ready: true },
-          { id: 'plateosaurus', name: 'פלטאוזאורוס', era: 'Mesozoic', path: './plateosaurus.html', ready: true },
-          { id: 'coelophysis', name: 'צלוזופיסיס', era: 'Mesozoic', path: './coelophysis.html', ready: true },
-          { id: 'allosaurus', name: 'אלוזאורוס', era: 'Mesozoic', path: './allosaurus.html', ready: true },
-          { id: 'brachiosaurus', name: 'ברכיוזאורוס', era: 'Mesozoic', path: './brachiosaurus.html', ready: true },
-          { id: 'diplodocus', name: 'דיפלודוקוס', era: 'Mesozoic', path: './diplodocus.html', ready: true },
-          { id: 'stegosaurus', name: 'סטגוזאורוס', era: 'Mesozoic', path: './stegosaurus.html', ready: true },
-          { id: 'archaeopteryx', name: 'ארכאופטריקס', era: 'Mesozoic', path: './archaeopteryx.html', ready: true },
-          { id: 'tyrannosaurus-rex', name: 'טירנוזאורוס רקס', era: 'Mesozoic', path: './tyrannosaurus-rex.html', ready: true },
-          { id: 'velociraptor', name: 'ולוצירפטור', era: 'Mesozoic', path: './velociraptor.html', ready: true },
-          { id: 'triceratops', name: 'טריצרטופס', era: 'Mesozoic', path: './triceratops.html', ready: true },
-          { id: 'quetzalcoatlus', name: 'קוואצלקואטלוס', era: 'Mesozoic', path: './quetzalcoatlus.html', ready: true },
-          
-          // קנוזואיקון (עידן היונקים)
-          { id: 'smilodon', name: 'סמילודון', era: 'Cenozoic', path: './smilodon.html', ready: true },
-          { id: 'woolly-mammoth', name: 'ממותה צמרית', era: 'Cenozoic', ready: false } // היעד הבא!
-        ];
+        const { useEffect, useState } = React;
 
         const eras = [
           { id: 'Paleozoic', name: 'פלאוזואיקון', color: 'border-blue-500', bg: 'bg-blue-500/10' },
@@ -69,6 +30,28 @@
 
         function App() {
           const [showAboutModal, setShowAboutModal] = useState(false);
+          const [animals, setAnimals] = useState([]);
+          const [isLoading, setIsLoading] = useState(true);
+          const [error, setError] = useState('');
+
+          useEffect(() => {
+            async function loadAnimals() {
+              try {
+                const response = await fetch('./data/animals.json');
+                if (!response.ok) {
+                  throw new Error(`Failed to load data: ${response.status}`);
+                }
+                const data = await response.json();
+                setAnimals(data);
+              } catch (err) {
+                setError('לא הצלחנו לטעון את נתוני הארכיון. נסו לרענן את הדף.');
+              } finally {
+                setIsLoading(false);
+              }
+            }
+
+            loadAnimals();
+          }, []);
 
           return (
             <div className="min-h-screen pb-24">
@@ -85,28 +68,36 @@
               </nav>
 
               <main className="max-w-6xl mx-auto px-5 animate-fadeIn space-y-12">
-                {eras.map(era => (
+                {isLoading && (
+                  <div className="text-center text-gray-400 font-bold py-12">טוען נתוני ארכיון...</div>
+                )}
+
+                {!isLoading && error && (
+                  <div className="bg-red-500/10 border border-red-500/30 text-red-300 rounded-2xl p-5 text-center font-bold">{error}</div>
+                )}
+
+                {!isLoading && !error && eras.map(era => (
                   <section key={era.id} className="space-y-6">
                     <div className={`inline-block px-5 py-1.5 rounded-full border-r-4 ${era.color} ${era.bg}`}>
                        <h3 className="text-lg font-black text-white">{era.name}</h3>
                     </div>
-                    
+
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
                       {animals.filter(a => a.era === era.id).map(animal => (
-                        <a 
-                          key={animal.id} 
+                        <a
+                          key={animal.id}
                           href={animal.ready ? animal.path : '#'}
                           className={`animal-card bg-gray-900 border ${animal.ready ? 'border-gray-700 shadow-lg ring-1 ring-gray-800' : 'border-gray-800 opacity-30 cursor-not-allowed'} rounded-[2rem] overflow-hidden p-1 relative group`}
                           onClick={(e) => { if(!animal.ready) e.preventDefault(); }}
                         >
                           <div className="aspect-square bg-gray-800/40 rounded-[1.7rem] flex items-center justify-center p-4 relative overflow-hidden">
-                            <img 
-                              src={`./images/${animal.id}.png`} 
-                              alt={animal.name} 
-                              className="max-w-full max-h-full object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-110" 
-                              onError={(ev) => { 
+                            <img
+                              src={`./images/${animal.id}.png`}
+                              alt={animal.name}
+                              className="max-w-full max-h-full object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-110"
+                              onError={(ev) => {
                                 ev.target.style.display = 'none';
-                              }} 
+                              }}
                             />
                             {!animal.ready && (
                               <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
@@ -139,7 +130,7 @@
                   </div>
                 </div>
               )}
-              
+
               <footer className="p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
                 Ram Research Group // Verified Archive // 2026
               </footer>
@@ -151,6 +142,3 @@
     </script>
 </body>
 </html>
-
-
-```
