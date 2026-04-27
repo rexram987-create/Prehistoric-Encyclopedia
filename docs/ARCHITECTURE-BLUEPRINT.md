@@ -1,94 +1,44 @@
-# Prehistoric Encyclopedia — Architecture Blueprint
+# Prehistoric Encyclopedia — Repository Architecture
 
-## Why this blueprint
-The current site already has rich content and visual quality, but scaling it to dozens/hundreds of species requires a data-first architecture. This blueprint defines a safe migration path that keeps GitHub Pages compatibility while improving maintainability, scientific traceability, and performance.
+This repository now follows a clearer, scalable folder tree.
 
----
-
-## Target architecture (v2)
-
-### 1) Content layer (single source of truth)
-- `data/animals.json` — lightweight catalog for homepage and navigation.
-- `content/animals/<id>.md` (future phase) — full research entries with structured frontmatter.
-- `data/eras.json` (future phase) — era metadata and UI labels.
-
-### 2) Presentation layer
-- Home page reads from `data/animals.json`.
-- Species pages generated from templates (future: SSG), not manually duplicated HTML.
-- Shared design tokens and reusable blocks (hero, dossier, timeline, references).
-
-### 3) Scientific metadata layer
-Each species should include:
-- `taxonomy`
-- `time_range_ma` (start/end)
-- `measurements` (length, mass, etc.)
-- `claims[]` with:
-  - `statement`
-  - `source` (DOI / museum / peer-reviewed reference)
-  - `confidence` (`consensus`, `debated`, `legacy`)
-  - `last_verified`
-
-### 4) Quality gates (CI)
-- JSON schema validation for catalog/content.
-- Link checker (internal links + image paths).
-- HTML validation (when static pages remain).
-- Optional scientific lint: warn if claim has no source.
-
----
-
-## Recommended repository structure
+## Current folder tree
 
 ```text
 .
 ├── index.html
 ├── data/
-│   ├── animals.json
-│   └── eras.json                # future
-├── content/
-│   └── animals/                 # future markdown entries
-├── templates/                   # future shared layouts/components
-├── images/
-├── docs/
-│   └── ARCHITECTURE-BLUEPRINT.md
-└── .github/
-    └── workflows/
-        ├── validate-content.yml # future
-        └── deploy.yml           # future
+│   └── animals.json
+├── pages/
+│   └── species/
+│       ├── ammonite.html
+│       ├── tyrannosaurus-rex.html
+│       └── ...
+├── assets/
+│   └── images/
+│       ├── ammonite.png
+│       ├── tyrannosaurus-rex.png
+│       └── ...
+└── docs/
+    └── ARCHITECTURE-BLUEPRINT.md
 ```
 
----
+## Design rules
 
-## Migration plan (practical)
+- `index.html` is the entry point and catalog UI.
+- All species pages live under `pages/species/`.
+- All images are centralized under `assets/images/`.
+- `data/animals.json` is the catalog source-of-truth for homepage links.
+- A species `id` must match both:
+  - page filename: `pages/species/<id>.html`
+  - image filename: `assets/images/<id>.png`
 
-### Phase 1 — now (completed in this PR)
-- Create central `data/animals.json` catalog.
-- Make `index.html` load animals from JSON instead of hardcoded array.
-- Keep existing species HTML pages unchanged for zero-risk rollout.
+## Why this is easier to use
 
-### Phase 2 — standardization
-- Remove accidental markdown fences from all affected HTML files.
-- Normalize repeated blocks (nav/footer/modal) into shared partials or templates.
-- Add `data/eras.json` and move era labels/colors there.
+- Cleaner separation between UI (`index.html`), data (`data/`), content pages (`pages/`), and static assets (`assets/`).
+- New species onboarding is predictable: add one HTML page, one image, one JSON entry.
+- Safer future migration to templates/SSG because content and assets are already grouped.
 
-### Phase 3 — scientific rigor
-- Add per-species source sections with machine-readable references.
-- Introduce confidence tags per claim.
-- Add "last updated" and "verified by" metadata.
+## Next recommended step
 
-### Phase 4 — full generation
-- Move to a static-site generator (Astro/Eleventy/Next static export).
-- Generate species pages automatically from content collection.
-- Keep GitHub Pages deployment via CI.
-
----
-
-## Non-breaking standards to adopt immediately
-- Every new species entry must be added to `data/animals.json`.
-- `id` must match image filename in `images/<id>.png`.
-- `path` must be explicit even when `ready: false` (future-proofing).
-- No direct hardcoded species arrays in UI code.
-
----
-
-## Suggested next task
-Convert one species page (e.g., `tyrannosaurus-rex`) into a template-driven page with structured metadata and references as a pilot.
+Move from manual species HTML pages to a shared template system so repeated nav/sections are no longer duplicated.
