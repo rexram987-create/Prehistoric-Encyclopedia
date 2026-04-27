@@ -1,0 +1,324 @@
+```html
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>אנציקלופדיה פלאונטולוגית: מחקר דיפלודוקוס (Diplodocus) אולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #e5e7eb; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(168, 85, 247, 0.3); /* Purple border for the Longest Dinosaur */
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #a855f7 0%, #6b21a8 100%); /* Purple gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-box {
+            border-right: 4px solid #a855f7;
+            background: rgba(168, 85, 247, 0.05);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 1rem;
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.4);
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body class="antialiased pb-24 text-justify">
+
+    <!-- Modal Element -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <!-- ניווט סטטי -->
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="../../index.html" class="flex items-center gap-3 text-purple-500 hover:text-purple-400 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-extrabold text-xl tracking-tight text-white">ארכיון האנציקלופדיה</span>
+            </a>
+            <div class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.2em]">The Longest Bridge // File: DIPL-ULTIMATE</div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-20">
+        
+        <!-- כותרת ראשית -->
+        <header class="text-center space-y-6 pt-10">
+            <div class="inline-block px-4 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                גשר תלוי של בשר ועצמות
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient tracking-tighter">דיפלודוקוס</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Double Beam: Diplodocus carnegii</p>
+            
+            <div class="relative mt-12 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-indigo-900 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[3rem] p-6 border border-gray-800 overflow-hidden shadow-2xl">
+                    <img src="../../assets/images/diplodocus.png" alt="דיפלודוקוס" onclick="openModal(this.src)" class="w-full max-h-[550px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105 mt-6 cursor-pointer hover:opacity-90" onerror="this.style.display='none'" title="לחץ להגדלת התמונה">
+                </div>
+            </div>
+        </header>
+
+        <!-- תעודת זהות מחקרית (Dossier) -->
+        <section class="glass-card rounded-[3rem] p-10 md:p-14 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-10 flex items-center gap-4">
+                <span class="w-2 h-10 bg-purple-500 rounded-full"></span>
+                תיק מחקר: נתונים אבולוציוניים משולבים
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-right">
+                <div class="space-y-3">
+                    <h4 class="text-purple-400 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">לפני כ-154 עד 152 מיליון שנה</p>
+                    <p class="text-sm text-gray-500 italic">תור היורה המאוחר (גיל הקימרידג'). שלט במישורי ההצפה העתיקים לפני היפרדות היבשות המלאה.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-purple-400 text-xs font-bold uppercase tracking-widest">מסה ומשקל</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">12 עד 16 טונות</p>
+                    <p class="text-sm text-gray-500 italic">קל משקל באופן מפתיע. האבולוציה "רוקנה" את עצמותיו מחומר ויצרה מערכת חללי אוויר (Pneumatization) המקושרת למערכת הנשימה.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-purple-400 text-xs font-bold uppercase tracking-widest">ממדים (אורך)</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">עד 27 מטרים!</p>
+                    <p class="text-sm text-gray-500 italic">זנבו וצווארו היוו למעלה מ-80% מאורכו הכולל. פרטים מסוימים מהסוג "סייסמוזאורוס" (שכיום משויך לדיפלודוקוס) הגיעו אולי ל-33 מטרים.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-purple-400 text-xs font-bold uppercase tracking-widest">מיקום גיאוגרפי ואקלים</h4>
+                    <p class="text-2xl font-medium text-purple-400 font-bold underline">המערב התיכון, ארה"ב (תצורת מוריסון)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">נמצא בעיקר בקולורדו, יוטה, ויומינג, ומונטנה. האזור התאפיין בסביבה צחיחה למחצה עם עונות רטובות ויבשות קיצוניות, מה שאילץ את עדרי הדיפלודוקוס לנדוד בחיפוש אחר מים וצמחייה.</p>
+                </div>
+                <div class="space-y-3 lg:col-span-2 text-right">
+                    <h4 class="text-purple-400 text-xs font-bold uppercase tracking-widest">סיווג טקסונומי קריטי</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">דינוזאור זאורופוד (Diplodocidae)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed font-bold">מוביל משפחת הדיפלודוקיים (הכוללת גם את האפטוזאורוס והברונטוזאורוס). מאופיין בגולגולת מוארכת דמוית-סוס, נחיריים בחלק העליון של הראש, ושיניים דמויות יתדות או עפרונות הממוקמות רק בחזית הלסת.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- אטימולוגיה מפורטת -->
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-purple-500 italic font-mono">01 //</span> ניתוח אטימולוגי נרחב
+            </h2>
+            <div class="overflow-hidden rounded-[2.5rem] border border-gray-800 bg-gray-900/50 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
+                            <th class="p-8 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-8 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-8 border-b border-gray-700">פירוש ומשמעות היסטורית</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200">
+                        <tr class="hover:bg-purple-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-purple-500 font-black text-3xl" dir="ltr">Diplo-</td>
+                            <td class="p-8 font-bold text-violet-400">יוונית עתיקה (διπλόος / diploos)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">כפול (Double)</span>
+                                מתייחס למבנה הייחודי של עצמות ה-Chevron – אלו עצמות בצורת V הממוקמות מתחת לחוליות הזנב ונועדו להגן על העצבים וכלי הדם הגדולים העוברים שם.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-purple-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-purple-500 font-black text-3xl" dir="ltr">-docus</td>
+                            <td class="p-8 font-bold text-violet-400">יוונית עתיקה (δοκός / dokos)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">קורה / קרש (Beam)</span>
+                                הוענק ב-1878 על ידי עותניאל צ'ארלס מארש (O.C. Marsh). לדיפלודוקוס היו עצמות תחתונות בזנב בעלות תצורה של *שתי* בליטות (המשתרעות קדימה ואחורה), במקום אחת כמו לרוב הזוחלים. זה העניק לזנב חוזק אדיר כשנגרר על הקרקע והפך אותו לנשק. המשמעות המלאה: **"קורה כפולה"**.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-purple-500/5 transition-colors">
+                            <td class="p-8 font-mono text-purple-500 font-black text-3xl" dir="ltr">carnegii</td>
+                            <td class="p-8 font-bold text-violet-400">לטיניזציה של שם משפחה</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">לכבודו של אנדרו קרנגי (1901)</span>
+                                מין הדגל והמפורסם ביותר נקרא על שמו של איל הפלדה האמריקאי והנדבן אנדרו קרנגי (Andrew Carnegie). לאחר שמימן את המשלחות לוויומינג שגילו את השלד השלם (Dippy), חוקריו הקדישו לו את התגלית כהוקרה על תרומתו חסרת התקדים למדע הפלאונטולוגיה.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- תולדות הגילוי והמחקר -->
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-purple-500 italic font-mono">02 //</span> תולדות הגילוי והתעלומה הבלשית
+            </h2>
+            
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-gray-300">
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-purple-400 text-right">הסיבה למשלחות: מלחמות העצמות (Bone Wars)</h4>
+                        <p class="leading-relaxed text-right">
+                            הדיפלודוקוס הראשון התגלה ב-1877 על ידי בנג'מין מאדג' ואדוארד וויליסטון תחת ניהולו של **עותניאל צ'ארלס מארש**. זו הייתה שיאה של "מלחמות העצמות" – היריבות המרה בין מארש לאדוארד דרינקר קופ. הלחץ להוציא מפלצות ענק מהר ככל האפשר הוביל לא פעם לעבודה מרושלת, הריסת ממצאים יקרים בדינמיט, וטעויות זיהוי חמורות - כפי שנראה מיד בפרשת "תעלומת הגולגולת האבודה".
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-purple-400 text-right">נסיבות הגילוי של "דיפי" וכספו של קרנגי</h4>
+                        <p class="leading-relaxed text-right">
+                            השלדים המרשימים התגלו בעזרת כספו של **אנדרו קרנגי**. בשנת 1899, משלחת במימונו חפרה באתר צ'יפ קריק בוויומינג וחשפה שלד עצום וכמעט שלם שזכה לכינוי החיבה "דיפי" (Dippy). בשנת 1902, בעת שקרנגי אירח בטירתו בסקוטלנד את מלך אנגליה אדוארד השביעי, המלך הבחין באיור של הדינוזאור ושאל "האם אוכל לקבל אחד כזה למוזיאון הבריטי?". בעקבות כך, קרנגי מימן עשרות יציקות גבס מדויקות ותרם אותן למוזיאונים מרכזיים ברחבי העולם (לונדון, פריז, ברלין, ועוד), והפך את הדיפלודוקוס ל"שגריר הפרהיסטורי הראשון".
+                        </p>
+                    </div>
+                </div>
+
+                <!-- תעלומת הגולגולת המלאה -->
+                <div class="bg-gray-900/80 p-8 rounded-[2rem] border border-gray-700 mt-6">
+                    <h4 class="text-xl font-bold text-white text-right mb-6 border-b border-gray-800 pb-2">תעלומת הגולגולת האבודה (The Skull Mystery)</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed text-right mb-6">
+                        הסיפור של "תעלומת הגולגולת" הוא סיפור בלשי היסטורי מרתק המדגים את הסכנות שב"מלחמות העצמות":
+                    </p>
+                    <ul class="space-y-5 text-sm text-gray-400 leading-relaxed text-right">
+                        <li>
+                            <strong class="text-violet-400 text-base block mb-1">1. הטעות של מארש (1870-1890):</strong>
+                            מכיוון שצוואר הזאורופודים ארוך ושברירי, הגולגולת מתנתקת מהגוף כמעט מיד לאחר המוות ונשטפת במים. מארש מצא גופות ענק ללא ראש. באותה מחצבה נחו גולגולות קופסתיות וקצרות של דינוזאור אחר (קמרזאורוס). בשל הלחץ לפרסם מהר ולנצח את יריבו, מארש הפעיל היגיון פשוט ושגוי: "גוף ענק ושמן חייב גולגולת ענקית וקצרה כמו של פיל". הוא פשוט לקח את הגולגולת השגויה והרכיב אותה על השלד. את הגולגולות הארוכות והעדינות שהיו שם הוא שייך בטעות לדינוזאורים קטנים יותר.
+                        </li>
+                        <li>
+                            <strong class="text-violet-400 text-base block mb-1">2. ההשתקה:</strong>
+                            ויליאם הולנד, מנהל מוזיאון קרנגי (שם הוצב "דיפי"), חשד די מוקדם שהגולגולת של מארש שגויה. אך מארש נחשב אז ל"אל הפלאונטולוגיה", ולתקן אותו היה בחזקת כפירה. במשך עשרות שנים, מוזיאונים ברחבי העולם העדיפו להשאיר את הגולגולות הקופסתיות השגויות על שלדי הדיפלודוקוס והאפטוזאורוס במקום להסתכן במבוכה פומבית.
+                        </li>
+                        <li>
+                            <strong class="text-violet-400 text-base block mb-1">3. הפיצוח של 1979 (הארכיונים מדברים):</strong>
+                            האמת לא התגלתה בחפירה חדשה בבוץ, אלא בחפירה בארכיונים ישנים. בשנת 1979, הפלאונטולוג **דייוויד ברמן** והפיזיקאי חובב הדינוזאורים **ג'ון מקינטוש** עברו על יומני השדה והמפות המקוריות שצוירו ביד על ידי פועלי המחצבה של מארש במאה ה-19 (במיוחד מפות של הפועל ארתור לייקס). הם הוכיחו באמצעות המפות באופן חד-משמעי: הגולגולות הארוכות, דמויות-הסוס (Peg-tooth skulls), נמצאו כשהן **מחוברות ישירות או מונחות בסמיכות אינטימית** לחוליות הצוואר של הדיפלודוקוס במחצבה. מארש פשוט התעלם מרישומי השדה של צוותו. בעקבות מחקרם, מוזיאונים בעולם נאלצו לנתק את הגולגולות השגויות ולהרכיב סוף סוף את הגולגולת המקורית והפחוסה של הדיפלודוקוס.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- אקולוגיה, ביומכניקה ותזונה עצומה -->
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden border-orange-500/30">
+            <h3 class="text-4xl font-black text-white text-center mb-12 uppercase tracking-tighter">אקולוגיה וביומכניקה: הגשר התלוי ושאיבת צמחים</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                
+                <!-- תזונה ועיכול -->
+                <div class="space-y-8 text-gray-300">
+                    <p class="text-xl leading-relaxed text-right mb-4">
+                        הדיפלודוקוס הוחזק באופן אופקי כמעט לחלוטין – כמו גשר תלוי הנתמך על ידי ארבעה עמודי רגליים איתנים. מרכז הכובד שלו היה מאוזן באופן מושלם בין הצוואר הארוך לזנב העצום.
+                    </p>
+                    <div class="highlight-box p-8 rounded-l-[2rem]">
+                        <h4 class="text-purple-400 font-bold mb-4 uppercase text-xs tracking-widest">תזונה (Diet) ומחזור העיכול</h4>
+                        <p class="text-sm leading-relaxed text-right mb-4">
+                            הדיפלודוקוס התמחה ב"גיזום" (Browsing) של צמחייה נמוכה עד בינונית, כגון שרכים ועלוות קרובות למים. שיניו היו דקות, צרות ודמויות יתדות (Peg-like teeth), מרוכזות רק בקדמת הפה.
+                        </p>
+                        <p class="text-sm leading-relaxed text-right">
+                            הוא השתמש בשיניו כמו "מסרק" כפול: הוא סגר את לסתותיו החלשות יחסית על ענף שופע, ופשוט משך את ראשו חזק אחורה באמצעות שרירי הצוואר החזקים שלו כדי לתלוש את כל העלים בבת אחת (Branch-stripping). מכיוון שלא יכל ללעוס, הוא בלע הכול שלם. בקיבתו העצומה, המזון עבר תהליך תסיסה (Fermentation) ממושך בעזרת חיידקים, בדומה לקיבות פילים או פרות כיום.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- דיבייט הצוואר ונשק הזנב -->
+                <div class="space-y-8 bg-gray-900/60 p-10 rounded-[2.5rem] border border-gray-800 shadow-xl">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tighter text-right">דיבייט הצוואר ונשק הזנב העל-קולי</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right mb-4">
+                        **ויכוח הצוואר:** בעבר ציירו אותם עומדים זקופים כמו ברבורים. אולם, מודלים תלת-ממדיים של חוליות הדיפלודוקוס הראו שהצוואר היה גמיש κυρίως פנימה ורחבה (ימינה ושמאלה), אך מוגבל מאוד בהרמה כלפי מעלה. למרות זאת, חוקרים טוענים שאם הדיפלודוקוס היה צריך להגיע לצמרת גבוהה, הוא יכול היה להיעמד על שתי רגליו האחוריות, ולהישען על זנבו השרירי כרגל שלישית של "חצובה" (Tripod stance).
+                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right">
+                        **זנב הפלא:** הזנב שלו היה פלא פיזיקלי, מורכב מ-80 חוליות שונות (כפליים מדינוזאורים אחרים). קצה הזנב היה דק כמו שוט. מודלים ממוחשבים הוכיחו כי הצלפה בזנב הזה הייתה כה מהירה שקצהו שבר את מהירות הקול (1,200 קמ"ש), ויצר "בום על-קולי" (Sonic boom) מחריש אוזניים. זה שימש לתקשורת למרחקים ולהברחת טורפים מאימים כמו האלוזאורוס.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- רבייה וגדילה -->
+        <section class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-6 border-pink-500/30">
+            <h3 class="text-3xl font-black text-white flex items-center gap-4 border-b border-gray-800 pb-4">
+                <span class="w-2 h-8 bg-pink-500 rounded-full"></span>
+                אסטרטגיית רבייה וקצב גדילה פנומנלי
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-gray-300">
+                <p class="leading-relaxed text-right">
+                    זאורופודים ענקיים כמו הדיפלודוקוס מעולם לא דגרו על ביציהם, משום שהם היו מוחצים אותן. במקום זאת, הם נקטו ב"אסטרטגיית רבייה המונית" (r-selection). נקבות הדיפלודוקוס הטילו עשרות ביצים קטנות יחסית (בגודל של אשכוליות או כדורי כדורגל) בתעלות שנחפרו באדמה או בצמחייה מרקיבה, ופשוט נטשו אותן. הבקועים הקטנים נאלצו לשרוד בכוחות עצמם מרגע לידתם בעולם אכזר מלא בטורפים.
+                </p>
+                <div class="bg-gray-900/50 p-6 rounded-2xl border-r-4 border-pink-500">
+                    <p class="text-sm leading-relaxed text-right">
+                        **מרוץ הגדילה:** הדרך היחידה של הדיפלודוקוס הצעיר להינצל מטורפים הייתה לגדול כמה שיותר מהר. מחקרי חיתוך עצם הראו שקצב הגדילה שלהם היה המהיר ביותר בתולדות החולייתנים: יצור שבקע במשקל קילוגרמים בודדים, העלה **עשרות קילוגרמים בכל חודש**, והגיע למשקל של עשרות טונות ולבגרות מינית בתוך כ-10 שנים בלבד. קצב מטאבולי אדיר זה דרש צריכת קלוריות אובססיבית ללא הפסקה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
+        Diplodocus Research Phase // Verified by RAM // 2026
+    </footer>
+
+    <!-- סקריפט לחלון הצף (Modal) המאפשר הגדלת תמונה -->
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // מניעת גלילת הרקע בזמן שהתמונה פתוחה
+        }
+
+        function closeModal(event) {
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto'; // החזרת הגלילה לרקע
+            }
+        }
+
+        // סגירת התמונה בלחיצה על מקש Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+```

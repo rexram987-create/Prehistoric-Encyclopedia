@@ -1,0 +1,274 @@
+```html
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>אנציקלופדיה פלאונטולוגית: מחקר ספינוזאורוס (Spinosaurus) אולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #e5e7eb; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(14, 165, 233, 0.3); /* Cyan/Water border for Amphibious Predator */
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%); /* Ocean/Cyan gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-box {
+            border-right: 4px solid #0ea5e9;
+            background: rgba(14, 165, 233, 0.05);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 1rem;
+            box-shadow: 0 0 40px rgba(14, 165, 233, 0.4);
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body class="antialiased pb-24 text-justify">
+
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="../../index.html" class="flex items-center gap-3 text-cyan-500 hover:text-cyan-400 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-extrabold text-xl tracking-tight text-white">ארכיון האנציקלופדיה</span>
+            </a>
+            <div class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.2em]">The River Monster // File: SPIN-ULTIMATE</div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-20">
+        
+        <header class="text-center space-y-6 pt-10">
+            <div class="inline-block px-4 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(14,165,233,0.2)]">
+                מפלצת הנהרות של הקרטיקון
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient tracking-tighter">ספינוזאורוס</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Spine Lizard: Spinosaurus aegyptiacus</p>
+            
+            <div class="relative mt-12 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-800 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[3rem] p-6 border border-gray-800 overflow-hidden shadow-2xl">
+                    <img src="../../assets/images/spinosaurus.png" alt="ספינוזאורוס" onclick="openModal(this.src)" class="w-full max-h-[550px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105 mt-6 cursor-pointer hover:opacity-90" onerror="this.style.display='none'" title="לחץ להגדלת התמונה">
+                </div>
+            </div>
+        </header>
+
+        <section class="glass-card rounded-[3rem] p-10 md:p-14 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-10 flex items-center gap-4">
+                <span class="w-2 h-10 bg-cyan-500 rounded-full"></span>
+                תיק מחקר: נתונים אבולוציוניים משולבים
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-right">
+                <div class="space-y-3">
+                    <h4 class="text-cyan-400 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">לפני כ-112 עד 93.5 מיליון שנה</p>
+                    <p class="text-sm text-gray-500 italic">תור הקרטיקון (גיל האלביאני עד הקנומני). סביבת החיים הייתה מערכת נהרות וביצות עצומה.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-cyan-400 text-xs font-bold uppercase tracking-widest">מסה ומשקל</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">7 עד 9 טונות</p>
+                    <p class="text-sm text-gray-500 italic">בניגוד לתרופודים אחרים, עצמותיו היו חסרות חללי אוויר (דחוסות מאוד) כדי לשמש כמשקולות צלילה בתוך המים.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-cyan-400 text-xs font-bold uppercase tracking-widest">ממדים (אורך)</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">14 עד 15 מטרים</p>
+                    <p class="text-sm text-gray-500 italic">הטורף היבשתי הגדול והארוך ביותר הידוע למדע אי פעם, גדול יותר מהטירנוזאורוס והגיגאנוטוזאורוס.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-cyan-400 text-xs font-bold uppercase tracking-widest">מיקום גיאוגרפי</h4>
+                    <p class="text-2xl font-medium text-cyan-400 font-bold underline">צפון אפריקה (מצרים ומרוקו)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">נמצא בעיקר בתצורת בחריה (Bahariya) במצרים ובשכבות קם-קם (Kem Kem beds) במרוקו – אזורים שהיו בעבר נהרות טרופיים שורצי דגי ענק.</p>
+                </div>
+                <div class="space-y-3 lg:col-span-2 text-right">
+                    <h4 class="text-cyan-400 text-xs font-bold uppercase tracking-widest">סיווג טקסונומי קריטי</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">דינוזאור תרופוד (Spinosauridae)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed font-bold">דינוזאור ה"צייד-דייג" (Piscivore). משפחת הספינוזאוריים פיתחה התאמות מדהימות לחיים חצי-מימיים, עם גולגולת צרה דמוית-תנין, ומפרש עצום על הגב.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-cyan-500 italic font-mono">01 //</span> ניתוח אטימולוגי נרחב
+            </h2>
+            <div class="overflow-hidden rounded-[2.5rem] border border-gray-800 bg-gray-900/50 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
+                            <th class="p-8 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-8 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-8 border-b border-gray-700">פירוש ומשמעות היסטורית</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200">
+                        <tr class="hover:bg-cyan-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-cyan-500 font-black text-3xl" dir="ltr">Spino-</td>
+                            <td class="p-8 font-bold text-sky-400">לטינית (spina)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">קוץ / שדרה (Spine/Thorn)</span>
+                                השם הוענק ב-1915 על ידי הפלאונטולוג הגרמני ארנסט שטרומר (Ernst Stromer). מתייחס ל"קוצי העצם" (Neural spines) הענקיים שצמחו מחוליות גבו ויצרו יחד מבנה של מפרש או דבשת.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-cyan-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-cyan-500 font-black text-3xl" dir="ltr">-saurus</td>
+                            <td class="p-8 font-bold text-sky-400">יוונית עתיקה (σαῦρος / sauros)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">לטאה</span>
+                                הסיומת הסטנדרטית לדינוזאורים. הלחם השם המלא: **"לטאת השדרה/המפרש"**.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-cyan-500/5 transition-colors">
+                            <td class="p-8 font-mono text-cyan-500 font-black text-3xl" dir="ltr">aegyptiacus</td>
+                            <td class="p-8 font-bold text-sky-400">לטינית של מיקום גיאוגרפי</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">ממצרים (Egyptian)</span>
+                                מציין את מקום הגילוי של ה"הולוטייפ" (הדוגמה הראשונה המקורית) – נאת המדבר בחריה במערב מצרים.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-cyan-500 italic font-mono">02 //</span> תולדות הגילוי: פאזל חוצה יבשות ועשורים
+            </h2>
+            
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-gray-300">
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-cyan-400 text-right">המשלחת של שטרומר (1912) וטרגדיית המלחמה</h4>
+                        <p class="leading-relaxed text-right">
+                            ב-1912 הפלאונטולוג **ארנסט שטרומר** חשף במצרים עצמות מוזרות: לסת תחתונה ארוכה ועצמות גב עצומות בצורת קוצים. הוא הבין שזהו טורף לא מוכר וקרא לו ספינוזאורוס. העצמות הוצגו במינכן, גרמניה. עם פרוץ מלחמת העולם השנייה, שטרומר התחנן להעבירן לבונקר, אך מנהל המוזיאון הנאצי סירב. ב-1944 הופצץ המוזיאון והעצמות נשרפו לאפר. נותרו רק השרטוטים והתמונות.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-cyan-400 text-right">האם מצאו מאובן שלם שלו? המהפכה של 2014</h4>
+                        <p class="leading-relaxed text-right">
+                            התשובה היא **לא. מעולם לא נמצא שלד שלם ב-100% של ספינוזאורוס.** השלד של שטרומר היה חלקי מאוד. פריצת הדרך הגיעה ב-2014 כשהפלאונטולוג ד"ר ניזאר איברהים מצא שלד חדש (ניאוטיפ) במרוקו, שסיפק תמונה מפורטת יותר וכלל את הרגליים האחוריות והאגן. ב-2020 נמצאו חלקים מהזנב. למרות זאת, גם השלד הזה מכיל רק כ-40% עד 60% מהחיה. המודלים המוזיאליים שאתה רואה כיום הם למעשה שילוב של פרטים שונים במרוקו יחד עם השלמות מהדמיות של קרובי משפחתו.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden border-orange-500/30">
+            <h3 class="text-4xl font-black text-white text-center mb-12 uppercase tracking-tighter">אקולוגיה וביומכניקה: חיים בתוך הנהר</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                
+                <div class="space-y-8 text-gray-300">
+                    <p class="text-xl leading-relaxed text-right mb-4">
+                        מערכת קם-קם הייתה מלאה בטורפים אדירים. התשובה של הספינוזאורוס הייתה לפנות למים.
+                    </p>
+                    <div class="highlight-box p-8 rounded-l-[2rem]">
+                        <h4 class="text-cyan-400 font-bold mb-4 uppercase text-xs tracking-widest">חידת הגולגולת: טורף באורך 1.75 מטרים</h4>
+                        <p class="text-sm leading-relaxed text-right mb-4">
+                            **האם נמצאה גולגולת שלמה? לא.** בדומה לשלד כולו, גם הגולגולת מעולם לא נמצאה בשלמותה. אולם, בשנת 2005 הפלאונטולוג כריסטיאנו דאל סאסו חקר חרטום (Snout) מדהים שהתגלה במרוקו והגיע לאורך של 98 סנטימטרים לבדו!
+                        </p>
+                        <p class="text-sm leading-relaxed text-right">
+                            על סמך ממצא זה וקרובי משפחה, החוקרים חישבו שהגולגולת המלאה הגיעה לאורך מפלצתי של בין **1.5 ל-1.75 מטרים** – גדולה יותר משל טי-רקס. הגולגולת הייתה צרה, מוארכת ודמוית-תנין, עם שיניים חרוטיות לשיפוד דגי ענק חלקלקים (כמו דג-המסור Onchopristis). על חוטמו נמצאו שקעים שהכילו חיישני לחץ, לאיתור טרף במים עכורים.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="space-y-8 bg-gray-900/60 p-10 rounded-[2.5rem] border border-gray-800 shadow-xl mt-8 md:mt-0 h-full flex flex-col justify-center">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tighter text-right">המידות המדויקות של המפרש העצום</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right mb-4">
+                        המפרש שעל גבו של הספינוזאורוס לא היה רק בליטה קטנה. הוא נתמך על ידי "קוצי שדרה" (Neural spines) עצומים. לפי הרישומים המדויקים שהותיר ארנסט שטרומר מהשלד המקורי, **קוץ השדרה הארוך ביותר (שסומן כ"Spine i") נמדד באורך של 1.65 מטרים בדיוק!**
+                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right mb-4">
+                        עם תוספת השרירים והעור, המפרש הזה התנשא ליותר מ-1.7 מטרים מעל גב החיה (גובה של אדם בוגר). מטרתו שנויה במחלוקת: מויסות חום לתצוגת חיזור בולטת מעל פני המים, ועד לתיאוריית מיעוט שזו הייתה "דבשת" שומן.
+                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right">
+                        **מנוע הנהר (תגלית 2020):** בנוסף, בשנת 2020 גילו שרידי זנב שהוכיחו שלספינוזאורוס היה זנב גמיש בצורת סנפיר/משוט (Paddle-like tail). זה סיפק את החותמת הסופית לכך שהיה שחיין פעיל שהשתמש בזנבו להנעה במים העמוקים.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
+        Spinosaurus Research Phase // Verified by RAM // 2026
+    </footer>
+
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal(event) {
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+```

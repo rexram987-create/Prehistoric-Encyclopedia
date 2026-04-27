@@ -1,0 +1,307 @@
+```html
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>אנציקלופדיה פלאונטולוגית: מחקר קוואצלקואטלוס (Quetzalcoatlus) אולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #e5e7eb; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(20, 184, 166, 0.3); /* Teal border for the Sky Giant */
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%); /* Teal gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-box {
+            border-right: 4px solid #14b8a6;
+            background: rgba(20, 184, 166, 0.05);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 1rem;
+            box-shadow: 0 0 40px rgba(20, 184, 166, 0.4);
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body class="antialiased pb-24 text-justify">
+
+    <!-- Modal Element -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <!-- ניווט סטטי -->
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="../../index.html" class="flex items-center gap-3 text-teal-500 hover:text-teal-400 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-extrabold text-xl tracking-tight text-white">ארכיון האנציקלופדיה</span>
+            </a>
+            <div class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.2em]">The Sky Giant // File: QUETZ-ULTIMATE</div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-20">
+        
+        <!-- כותרת ראשית -->
+        <header class="text-center space-y-6 pt-10">
+            <div class="inline-block px-4 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(20,184,166,0.2)]">
+                שליט השמיים של הקרטיקון
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient tracking-tighter">קוואצלקואטלוס</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Feathered Serpent: Quetzalcoatlus northropi</p>
+            
+            <div class="relative mt-12 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-teal-600 to-emerald-900 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[3rem] p-6 border border-gray-800 overflow-hidden shadow-2xl">
+                    <img src="../../assets/images/quetzalcoatlus.png" alt="קוואצלקואטלוס" onclick="openModal(this.src)" class="w-full max-h-[550px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105 mt-6 cursor-pointer hover:opacity-90" onerror="this.style.display='none'" title="לחץ להגדלת התמונה">
+                </div>
+            </div>
+        </header>
+
+        <!-- תעודת זהות מחקרית (Dossier) -->
+        <section class="glass-card rounded-[3rem] p-10 md:p-14 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-10 flex items-center gap-4">
+                <span class="w-2 h-10 bg-teal-500 rounded-full"></span>
+                תיק מחקר: נתונים אבולוציוניים משולבים
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-right">
+                <div class="space-y-3">
+                    <h4 class="text-teal-400 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">לפני כ-68 עד 66 מיליון שנה</p>
+                    <p class="text-sm text-gray-500 italic">תור הקרטיקון המאוחר (גיל המאסטריכטי). חי במקביל לטי-רקס ולטריצרטופס, עד להכחדת הדינוזאורים.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-teal-400 text-xs font-bold uppercase tracking-widest">מסה ומשקל</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">200 עד 250 קילוגרם</p>
+                    <p class="text-sm text-gray-500 italic">קל משקל באופן קיצוני ביחס לגודלו. עצמותיו היו חלולות לחלוטין ודקיקות כמו נייר (עובי של מילימטרים בודדים).</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-teal-400 text-xs font-bold uppercase tracking-widest">ממדים (מוטת כנפיים וגובה)</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">מוטת כנפיים 10-11 מטרים!</p>
+                    <p class="text-sm text-gray-500 italic">כשהיה על הקרקע ועמד על ארבע גפיו, הוא התנשא לגובה של כ-5.5 מטרים – גבוה כמו ג'ירפה מודרנית.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-teal-400 text-xs font-bold uppercase tracking-widest">מיקום גיאוגרפי</h4>
+                    <p class="text-2xl font-medium text-teal-400 font-bold underline">טקסס, אמריקה הצפונית</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">המאובנים נמצאו בתצורת הסלע Javelina בטקסס. בניגוד לפטרוזאורים אחרים שחיו ליד הים, הקוואצלקואטלוס חי עמוק ביבשה, במישורי הצפה של נהרות עתיקים.</p>
+                </div>
+                <div class="space-y-3 lg:col-span-2 text-right">
+                    <h4 class="text-teal-400 text-xs font-bold uppercase tracking-widest">סיווג טקסונומי קריטי</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">זוחל מעופף - פטרוזאור (Pterosauria / Azhdarchidae)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed font-bold">חשוב להדגיש: הקוואצלקואטלוס אינו דינוזאור, אלא בן למשפחת ה"אזדרקיים" (Azhdarchidae) - קבוצת הפטרוזאורים הענקיים והאחרונים שהתאפיינו בצוואר חסר פרופורציות, רגליים ארוכות, ומקור חסר שיניים.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- אטימולוגיה מפורטת -->
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-teal-500 italic font-mono">01 //</span> ניתוח אטימולוגי נרחב
+            </h2>
+            <div class="overflow-hidden rounded-[2.5rem] border border-gray-800 bg-gray-900/50 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
+                            <th class="p-8 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-8 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-8 border-b border-gray-700">פירוש ומשמעות היסטורית</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200">
+                        <tr class="hover:bg-teal-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-teal-500 font-black text-3xl" dir="ltr">Quetzal-</td>
+                            <td class="p-8 font-bold text-emerald-400">נאוואטל (שפת האצטקים - Quetzalli)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">נוצה צבעונית / ציפור קדושה</span>
+                                מתייחס ל"קצאל" - ציפור מרכז-אמריקאית יפהפייה.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-teal-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-teal-500 font-black text-3xl" dir="ltr">-coatlus</td>
+                            <td class="p-8 font-bold text-emerald-400">נאוואטל (Coatl)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">נחש (Serpent)</span>
+                                השם הוענק ב-1975 על ידי הפלאונטולוג דאגלס לוסון. צירוף המילים (קצאלקואטל) הוא שמו של אחד האלים החשובים ביותר במיתולוגיה האצטקית והטולטקית – **"נחש הנוצות"** (The Feathered Serpent) שהיה אל השמיים והרוח.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-teal-500/5 transition-colors">
+                            <td class="p-8 font-mono text-teal-500 font-black text-3xl" dir="ltr">northropi</td>
+                            <td class="p-8 font-bold text-emerald-400">לטיניזציה של שם משפחה</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">לכבודו של ג'ון נורת'רופ (John K. Northrop)</span>
+                                שם המין הוקדש לג'ון נורת'רופ, חלוץ תעופה אמריקאי ומייסד חברת מטוסי "נורת'רופ". הוא היה מהנדס אווירונאוטי שקידם מטוסים בעיצוב של "כנף מעופפת" בלבד, צורה שהזכירה לחוקרים את מבנה הכנפיים העצום של הפטרוזאור הזה.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- תולדות הגילוי ומצב הממצאים -->
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-teal-500 italic font-mono">02 //</span> תולדות הגילוי ומצב הממצאים: אוצרות שבירים
+            </h2>
+            
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-gray-300">
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-teal-400 text-right">התגלית של דאגלס לוסון (1971)</h4>
+                        <p class="leading-relaxed text-right">
+                            הסיפור של ענק השמיים החל בשנת 1971, בערבות הצחיחות של טקסס (בתחומי הפארק הלאומי "ביג בנד"). סטודנט צעיר בשם דאגלס לוסון סייר באזור ונתקל בעצמות מוזרות. לאחר ניקוי במעבדה, התברר שאלו עצמות כנף של זוחל מעופף בגודל שאיש לא האמין שאפשרי. גילוי זה הכפיל כמעט בבת אחת את הגודל המקסימלי הידוע של בעלי חיים מעופפים.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-teal-400 text-right">אתגר החפירה של עצמות הנייר</h4>
+                        <p class="leading-relaxed text-right">
+                            חפירת המאובנים של הקוואצלקואטלוס היא משימה מהקשות בפלאונטולוגיה. עצמותיו היו בנויות כצינורות אוויר מחוזקים במוטות פנימיים דקיקים (ליצירת חוזק ללא משקל). הדפנות החיצוניות היו בעובי של 1-2 מילימטרים בלבד! חלק מהעצמות התפוררו לאבק אם לא ייצבו אותן מיד בשטח בעזרת דבקים וכימיקלים.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900/80 p-8 rounded-[2rem] border border-gray-700 mt-6">
+                    <h4 class="text-xl font-bold text-white text-right mb-6 border-b border-gray-800 pb-2">מצב הממצאים: פתרון תעלומת השלדים והגולגולת</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed text-right mb-6">
+                        כדי להבין את האנטומיה של חיה כה ענקית ושבירה, המדענים נאלצו להסתמך על השוואות בין שני מינים שונים שנמצאו בטקסס:
+                    </p>
+                    <ul class="space-y-5 text-sm text-gray-400 leading-relaxed text-right">
+                        <li>
+                            <strong class="text-emerald-400 text-base block mb-1">1. האם נמצא מאובן שלם? (הפער בין הענק לקטן)</strong>
+                            התשובה היא **לא עבור המין הענק, אבל כן עבור מין קטן יותר**. 
+                            עבור המין הענק המפורסם (*Q. northropi* בעל מוטת 11 המטרים), מעולם לא נמצא שלד שלם; נמצאו רק עצמות זרוע וכנף, חוליות צוואר מסוימות וחלקים מרגליים, כיוון שעצמותיו הדקות נמחצו בקלות לאחר מותו.
+                            עם זאת, במרחק של כ-40 ק"מ משם, התגלתה מחצבה ובה שלדים כמעט שלמים (60%-70%) של קרוב משפחה קטן יותר בשם *Q. lawsoni* (מוטת כנפיים של כ-4.5 מטרים). המדענים מבצעים שחזור (Scaling) על בסיס השלדים השלמים של המין הקטן כדי להבין את מבנה המין הענק.
+                        </li>
+                        <li>
+                            <strong class="text-emerald-400 text-base block mb-1">2. כמות הממצאים הכוללת:</strong>
+                            המין הענק (*northropi*) נדיר מאוד – ידועות למדע **דגימות בודדות בלבד** (פחות מ-10 פרטים). אולם, מהמין הקטן יותר (*lawsoni*), נמצאו עצמות השייכות ל**למעלה מ-300 פרטים שונים**, מקובצים יחד. כמות אדירה זו מצביעה על כך שהם חיו, נדדו או קיננו בלהקות עצומות.
+                        </li>
+                        <li>
+                            <strong class="text-emerald-400 text-base block mb-1">3. מצב הגולגולת: האם מצאו אחת שלמה?</strong>
+                            גם כאן, **גולגולת שלמה של המין הענק מעולם לא נמצאה.** אך המין הקטן בא לעזרת המדע שוב: נמצאו **מספר גולגולות שלמות כמעט לחלוטין** של *Q. lawsoni*. מסריקה של גולגולות אלו אנו יודעים שהן היו צרות להפליא, ארוכות, ובעלות **מקור חד וחלק לחלוטין - ללא שיניים כלל**. בראש הגולגולת הייתה כרבולת עצם צינורית דקה. הגולגולת של המין הענק מחושבת על בסיס פרופורציות אלו, וככל הנראה הגיעה לאורך מבהיל של כמעט 3 מטרים.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- אקולוגיה, ביומכניקה ותזונה -->
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden border-orange-500/30">
+            <h3 class="text-4xl font-black text-white text-center mb-12 uppercase tracking-tighter">אקולוגיה וביומכניקה: המטוס החי והציד ביבשה</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                
+                <!-- תזונה וציד -->
+                <div class="space-y-8 text-gray-300">
+                    <p class="text-xl leading-relaxed text-right mb-4">
+                        במשך שנים חשבו שפטרוזאורים דאו מעל לאוקיינוסים וצללו לתפוס דגים. אולם, הקוואצלקואטלוס הפריך את התיאוריה הזו לחלוטין עבור משפחתו.
+                    </p>
+                    <div class="highlight-box p-8 rounded-l-[2rem]">
+                        <h4 class="text-teal-400 font-bold mb-4 uppercase text-xs tracking-widest">תזונה (Carnivore) ואורח חיים כ"חסידת אימים"</h4>
+                        <p class="text-sm leading-relaxed text-right mb-4">
+                            הוא חי במרחק עצום מהים, במישורי נהרות רחבים ויערות. צווארו היה ארוך מאוד אבל נוקשה (לא התעקל כמו של ברבור), ורגליו האחוריות היו ארוכות.
+                        </p>
+                        <p class="text-sm leading-relaxed text-right">
+                            אנטומיה זו הובילה להסכמה שהקוואצלקואטלוס צד בעיקר על הקרקע! הוא טייל לאיטו כמו **חסידת מראבו עצומה**, והשתמש במקור הענק והחד שלו כדי "לשלוף" מהקרקע ומהסבך יונקים קטנים, דו-חיים, דגים בגדות הנהר, ואפילו גורי דינוזאורים. הוא בלע את טרפו בשלמותו כיוון שלא היו לו שיניים ללעוס.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ביומכניקה ותעופה -->
+                <div class="space-y-8 bg-gray-900/60 p-10 rounded-[2.5rem] border border-gray-800 shadow-xl mt-8 md:mt-0 h-full flex flex-col justify-center">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tighter text-right">ביומכניקה של המראת המטוס</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right mb-4">
+                        החידה הגדולה הייתה: איך יצור במשקל 200 ק"ג ובגובה 5 מטרים הצליח להמריא? ציפור בגודל כזה הייתה זקוקה לשרירי חזה כה מאסיביים שלא הייתה יכולה להתקיים.
+                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right">
+                        **הפטנט: המראה ארבע-רגלית (Quadrupedal Launch).** מודלים ממוחשבים פתרו את התעלומה: הפטרוזאורים הלכו על הקרקע על כל ארבע גפיהם (כנפיים מקופלות לאחור). שרירי המנוע העיקריים שלהם היו באזור הכתפיים. כשרצו להמריא, הם השתמשו בזרועותיהם הקדמיות החזקות כ**מקלות קפיצה במוט (Pole-vaulting)**. הם דחפו את הקרקע בחוזקה עם האצבעות הקדמיות, וזינקו כמו קפיץ לשמיים, תוך פרישת הכנפיים. באוויר, הם דאו על גבי זרמים תרמיים ויכלו לחצות יבשות שלמות כמעט ללא מאמץ.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
+        Quetzalcoatlus Research Phase // Verified by RAM // 2026
+    </footer>
+
+    <!-- סקריפט לחלון הצף (Modal) המאפשר הגדלת תמונה -->
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // מניעת גלילת הרקע בזמן שהתמונה פתוחה
+        }
+
+        function closeModal(event) {
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto'; // החזרת הגלילה לרקע
+            }
+        }
+
+        // סגירת התמונה בלחיצה על מקש Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+```

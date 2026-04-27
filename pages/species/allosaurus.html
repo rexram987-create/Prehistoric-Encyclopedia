@@ -1,0 +1,299 @@
+```html
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>אנציקלופדיה פלאונטולוגית: מחקר אלוזאורוס (Allosaurus) אולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #e5e7eb; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(225, 29, 72, 0.3); /* Rose/Crimson border for Apex Predator */
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #e11d48 0%, #881337 100%); /* Crimson gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-box {
+            border-right: 4px solid #e11d48;
+            background: rgba(225, 29, 72, 0.05);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 1rem;
+            box-shadow: 0 0 40px rgba(225, 29, 72, 0.4);
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body class="antialiased pb-24 text-justify">
+
+    <!-- Modal Element -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <!-- ניווט סטטי -->
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="../../index.html" class="flex items-center gap-3 text-rose-600 hover:text-rose-500 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-extrabold text-xl tracking-tight text-white">ארכיון האנציקלופדיה</span>
+            </a>
+            <div class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.2em]">The Jurassic Apex // File: ALLO-ULTIMATE</div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-20">
+        
+        <!-- כותרת ראשית -->
+        <header class="text-center space-y-6 pt-10">
+            <div class="inline-block px-4 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-500 text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(225,29,72,0.2)]">
+                טורף-העל של תור היורה
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient tracking-tighter">אלוזאורוס</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Different Lizard: Allosaurus fragilis</p>
+            
+            <div class="relative mt-12 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-rose-600 to-red-900 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[3rem] p-6 border border-gray-800 overflow-hidden shadow-2xl">
+                    <img src="../../assets/images/allosaurus.png" alt="אלוזאורוס" onclick="openModal(this.src)" class="w-full max-h-[550px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105 mt-6 cursor-pointer hover:opacity-90" onerror="this.style.display='none'" title="לחץ להגדלת התמונה">
+                </div>
+            </div>
+        </header>
+
+        <!-- תעודת זהות מחקרית (Dossier) -->
+        <section class="glass-card rounded-[3rem] p-10 md:p-14 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-10 flex items-center gap-4">
+                <span class="w-2 h-10 bg-rose-600 rounded-full"></span>
+                תיק מחקר: נתונים אבולוציוניים
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-right">
+                <div class="space-y-3">
+                    <h4 class="text-rose-500 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">לפני כ-155 עד 145 מיליון שנה</p>
+                    <p class="text-sm text-gray-500 italic">תור היורה המאוחר (גיל הקימרידג'י עד הטיטוני).</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-rose-500 text-xs font-bold uppercase tracking-widest">מסה ומשקל</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">1.5 עד 2 טונות</p>
+                    <p class="text-sm text-gray-500 italic">זריז וקל יותר בהשוואה לתרופודים מאוחרים כמו הטי-רקס. פרטי ענק (Epanterias) הגיעו גם ל-4 טונות.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-rose-500 text-xs font-bold uppercase tracking-widest">ממדים (אורך)</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">8.5 עד 12 מטרים</p>
+                    <p class="text-sm text-gray-500 italic">כלל זנב ארוך ושרירי שאיזן את פלג גופו הקדמי והגולגולת הכבדה שלו.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-rose-500 text-xs font-bold uppercase tracking-widest">מיקום גיאוגרפי</h4>
+                    <p class="text-2xl font-medium text-rose-500 font-bold underline">אמריקה הצפונית ואירופה</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">היה הטורף הנפוץ ביותר בתצורת מוריסון (ארה"ב). שרידים נמצאו גם בפורטוגל.</p>
+                </div>
+                <div class="space-y-3 lg:col-span-2 text-right">
+                    <h4 class="text-rose-500 text-xs font-bold uppercase tracking-widest">סיווג טקסונומי קריטי</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">דינוזאור תרופוד (Theropoda / Allosauridae)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed font-bold">השליט המוחלט של סוף תור היורה. צד באופן פעיל אוכלי-צמחים ענקיים כמו הדיפלודוקוס והסטגוזאורוס, והתבסס על מהירות וגמישות במקום על עוצמת לסת מרסקת עצמות.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- אטימולוגיה מפורטת -->
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-rose-600 italic font-mono">01 //</span> ניתוח אטימולוגי נרחב
+            </h2>
+            <div class="overflow-hidden rounded-[2.5rem] border border-gray-800 bg-gray-900/50 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
+                            <th class="p-8 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-8 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-8 border-b border-gray-700">פירוש ומשמעות היסטורית</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200">
+                        <tr class="hover:bg-rose-600/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-rose-500 font-black text-3xl" dir="ltr">Allo-</td>
+                            <td class="p-8 font-bold text-red-400">יוונית עתיקה (ἄλλος / allos)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">שונה / אחר</span>
+                                הוענק לו בשנת 1877 על ידי הפלאונטולוג המפורסם עותניאל צ'ארלס מארש (O.C. Marsh). השם נבחר מכיוון שחוליות עמוד השדרה שלו היו קעורות וייחודיות מאוד, ושונות מכל חוליות הדינוזאורים שהיו מוכרות למדע עד אותה עת.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-rose-600/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-rose-500 font-black text-3xl" dir="ltr">-saurus</td>
+                            <td class="p-8 font-bold text-red-400">יוונית עתיקה (σαῦρος / sauros)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">לטאה</span>
+                                הסיומת הסטנדרטית לזוחלים. הלחם השם יוצר את המשמעות המלאה: **"הלטאה השונה"**.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-rose-600/5 transition-colors">
+                            <td class="p-8 font-mono text-rose-500 font-black text-3xl" dir="ltr">fragilis</td>
+                            <td class="p-8 font-bold text-red-400">לטינית</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">שביר / עדין</span>
+                                המין הוענק משום שעצמותיו (ובמיוחד החוליות) היו מלאות בחללי אוויר שהפכו אותן לקלות משקל באופן מפתיע עבור חיה כה עצומה, מה ששיווה להן מראה "שביר" לחוקרי המאה ה-19.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- תולדות הגילוי והמחקר - מעודכן עם גילוי הגולגולות -->
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-rose-600 italic font-mono">02 //</span> תולדות הגילוי: מחצבת המוות ושפע הגולגולות
+            </h2>
+            
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-gray-300">
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-rose-500 text-right">משלחות החפירה ו"מלחמות העצמות"</h4>
+                        <p class="leading-relaxed text-right">
+                            האלוזאורוס התגלה ב-1877 בתקופה הסוערת ביותר בתולדות הפלאונטולוגיה – **מלחמות העצמות (The Bone Wars)**. זה היה מאבק יוקרה אכזרי בין המדענים מארש וקופ. מארש קיבל לידיו עצמות מקולורדו וזיהה מיד טורף חדש, בעוד קופ מצא עצמות דומות וקרא להן בשמות אחרים. הבלבול הטקסונומי הזה דרש עשרות שנים כדי להתאחד תחת השם Allosaurus.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-rose-500 text-right">מלכודת הטורפים של קליבלנד-לויד</h4>
+                        <p class="leading-relaxed text-right">
+                            אחת מתגליות הפלאונטולוגיה המדהימות בהיסטוריה התרחשה במחצבת קליבלנד-לויד ביוטה (Cleveland-Lloyd Dinosaur Quarry). חוקרים חשפו "מלכודת מוות" קדומה – בור בוץ רעיל שאליו נמשכו דינוזאורים. התגלו שם עצמותיהם של **למעלה מ-46 פרטים שונים של אלוזאורוס** מעורבבים יחד, מגורים ועד בוגרים זקנים. הטורפים הללו נמשכו לריח הנבלות ששקעו בבוץ, נלכדו בעצמם, והפכו לפיתיון לבאים אחריהם.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- תוספת חדשה ומפורטת על גילויי הגולגולות של האלוזאורוס -->
+                <div class="bg-gray-900/80 p-8 rounded-[2rem] border border-gray-700 mt-6">
+                    <h4 class="text-xl font-bold text-white text-right mb-6 border-b border-gray-800 pb-2">מצב הממצאים: שפע נדיר של גולגולות קטלניות</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed text-right mb-6">
+                        בניגוד גמור לזאורופודים הצמחוניים (כמו הדיפלודוקוס והברכיוזאורוס, שראשיהם הקטנים התנתקו ונשטפו במים לאחר המוות), מציאת גולגולות של אלוזאורוס הייתה סיפור שונה לחלוטין:
+                    </p>
+                    <ul class="space-y-5 text-sm text-gray-400 leading-relaxed text-right">
+                        <li>
+                            <strong class="text-red-400 text-base block mb-1">האנטומיה לטובת המדע:</strong>
+                            הגולגולות של תרופודים (טורפים) הן מסיביות, חזקות, ומחוברות היטב לצוואר שרירי ועבה באמצעות מפרקים קשיחים. עובדה זו מנעה מהן להתנתק בקלות וללכת לאיבוד, ולכן גולגולות אלוזאורוס השתמרו יחד עם השלד לעיתים קרובות מאוד.
+                        </li>
+                        <li>
+                            <strong class="text-red-400 text-base block mb-1">אוצר הגולגולות של קליבלנד-לויד:</strong>
+                            ב"מלכודת המוות" שבמחצבת קליבלנד-לויד, נמצאו עשרות גולגולות אלוזאורוס בשלמותן, על כל שיניהן המשוננות, קרני הגבות (Lacrimal horns) הייחודיות שלהן ופתחי הגולגולת הענקיים שנועדו להקל על משקלן. 
+                        </li>
+                        <li>
+                            <strong class="text-red-400 text-base block mb-1">השלמות של "ביג אל" (Big Al):</strong>
+                            פריצת הדרך האולטימטיבית התרחשה ב-1991, במחצבת האו (Howe Quarry) בויומינג. שם התגלה שלד מפורסם בכינוי "ביג אל" – אלוזאורוס צעיר שהשתמר ברמת שלמות של כ-95%. החשוב מכל: הגולגולת שלו הייתה מושלמת לחלוטין ומחוברת לשלד. סריקות CT של גולגולות אלו הן שאפשרו לחוקרים לבצע הדמיות מחשב מדויקות ולפצח את תיאוריית "נשיכת הגרזן" הייחודית של טורף זה.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ביומכניקה ואקולוגיה -->
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden border-orange-500/30">
+            <h3 class="text-4xl font-black text-white text-center mb-12 uppercase tracking-tighter">אקולוגיה וביומכניקה: נשיכת הגרזן ומאבקי איתנים</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8 text-gray-300">
+                    <p class="text-xl leading-relaxed text-right mb-4">
+                        למרות גודלו, לאלוזאורוס הייתה אנטומיה שונה מאוד משל הטי-רקס. הוא לא נשען על לסתות מרסקות עצמות, אלא על מהירות, גמישות וטקטיקת ציד ייחודית.
+                    </p>
+                    <div class="highlight-box p-8 rounded-l-[2rem]">
+                        <h4 class="text-rose-500 font-bold mb-4 uppercase text-xs tracking-widest">תיאוריית "נשיכת הגרזן"</h4>
+                        <p class="text-sm leading-relaxed text-right mb-4">
+                            מבדיקות ביומכניות (שנעשו אפשריות בזכות הגולגולות המושלמות שנמצאו) עולה שעוצמת הנשיכה (Bite force) שלו הייתה חלשה יחסית לגודלו. אולם, הגולגולת עצמה הייתה חזקה להפליא ויכלה לעמוד בלחצים קיצוניים מלמעלה למטה. החוקרים מאמינים שהוא השתמש בלסת העליונה שלו כמו **גרזן** – הוא פער את פיו בזווית רחבה, והטיח את שיניו המשוננות כפגיון לתוך בשר הטרף כדי לגרום לדימום מסיבי והלם, ואז נסוג והמתין לקריסת הקורבן.
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-8 bg-gray-900/60 p-10 rounded-[2.5rem] border border-gray-800 shadow-xl">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tighter text-right">מלחמות הסטגוזאורוס</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right mb-4">
+                        האלוזאורוס צד בקביעות את ענקי תור היורה כמו הברכיוזאורוס והדיפלודוקוס. אולם, היריב המושבע והמפורסם ביותר שלו היה הסטגוזאורוס המשוריין.
+                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right">
+                        יש בידי המדע **עדויות פורנזיות ישירות** לקרבות האלה: נמצאו לוחיות גב של סטגוזאורוס עם סימני נשיכה שמתאימים בדיוק לשיניו ולצורת הלסת של האלוזאורוס. במקביל, נמצאו חוליות זנב ועצמות אגן של אלוזאורוס שנוקבו ורוסקו בצורה מושלמת על ידי "התגומייזר" – זוג הדורבנות הקטלניים שבקצה זנב הסטגוזאורוס. מדובר במאבקי הישרדות מהברוטליים והמתועדים ביותר בהיסטוריה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
+        Allosaurus Research Phase // Verified by RAM // 2026
+    </footer>
+
+    <!-- סקריפט לחלון הצף (Modal) המאפשר הגדלת תמונה -->
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // מניעת גלילת הרקע בזמן שהתמונה פתוחה
+        }
+
+        function closeModal(event) {
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto'; // החזרת הגלילה לרקע
+            }
+        }
+
+        // סגירת התמונה בלחיצה על מקש Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+```

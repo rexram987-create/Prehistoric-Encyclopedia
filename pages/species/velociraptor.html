@@ -1,0 +1,299 @@
+```html
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>אנציקלופדיה פלאונטולוגית: מחקר ולוצירפטור (Velociraptor) אולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #e5e7eb; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(249, 115, 22, 0.3); /* Orange border for the Desert Hunter */
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #f97316 0%, #b91c1c 100%); /* Orange/Red gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-box {
+            border-right: 4px solid #f97316;
+            background: rgba(249, 115, 22, 0.05);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 1rem;
+            box-shadow: 0 0 40px rgba(249, 115, 22, 0.4);
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body class="antialiased pb-24 text-justify">
+
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="../../index.html" class="flex items-center gap-3 text-orange-500 hover:text-orange-400 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-extrabold text-xl tracking-tight text-white">ארכיון האנציקלופדיה</span>
+            </a>
+            <div class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.2em]">The Desert Ghost // File: VELO-ULTIMATE</div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-20">
+        
+        <header class="text-center space-y-6 pt-10">
+            <div class="inline-block px-4 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-500 text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(249,115,22,0.2)]">
+                השודד המהיר של מדבר גובי
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient tracking-tighter">ולוצירפטור</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Swift Plunderer: Velociraptor mongoliensis</p>
+            
+            <div class="relative mt-12 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-orange-600 to-red-900 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[3rem] p-6 border border-gray-800 overflow-hidden shadow-2xl">
+                    <img src="../../assets/images/velociraptor.png" alt="ולוצירפטור" onclick="openModal(this.src)" class="w-full max-h-[550px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105 mt-6 cursor-pointer hover:opacity-90" onerror="this.style.display='none'" title="לחץ להגדלת התמונה">
+                </div>
+            </div>
+        </header>
+
+        <section class="glass-card rounded-[3rem] p-10 md:p-14 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-10 flex items-center gap-4">
+                <span class="w-2 h-10 bg-orange-500 rounded-full"></span>
+                תיק מחקר: נתונים אבולוציוניים משולבים
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-right">
+                <div class="space-y-3">
+                    <h4 class="text-orange-400 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">לפני כ-75 עד 71 מיליון שנה</p>
+                    <p class="text-sm text-gray-500 italic">תור הקרטיקון המאוחר (גיל הקמפן). חי בסביבה מדברית וצחיחה עם דיונות חול נודדות.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-orange-400 text-xs font-bold uppercase tracking-widest">מסה ומשקל האמיתי</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">כ-15 קילוגרם בלבד!</p>
+                    <p class="text-sm text-gray-500 italic">בניגוד למיתוס ההוליוודי, הולוצירפטור היה קל משקל, בערך בגודלו של תרנגול הודו גדול או כלב זאב קטן.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-orange-400 text-xs font-bold uppercase tracking-widest">ממדים (אורך וגובה)</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">אורך כ-2 מטרים, גובה חצי מטר</p>
+                    <p class="text-sm text-gray-500 italic">מרבית האורך הורכב מזנב נוקשה במיוחד ששימש כהגה לאיזון בפניות חדות.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-orange-400 text-xs font-bold uppercase tracking-widest">מיקום גיאוגרפי</h4>
+                    <p class="text-2xl font-medium text-orange-400 font-bold underline">מדבר גובי, מונגוליה וסין</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">המאובנים התגלו בתצורות דג'דוכטה (Djadochta) וברון גויוט (Barun Goyot), הידועות בסופות החול שלהן שקברו דינוזאורים חיים ושימרו אותם מושלם.</p>
+                </div>
+                <div class="space-y-3 lg:col-span-2 text-right">
+                    <h4 class="text-orange-400 text-xs font-bold uppercase tracking-widest">סיווג טקסונומי קריטי</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">תרופוד מנוצה (Dromaeosauridae)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed font-bold">נציג מפורסם של משפחת הדרומאוזאוריים (ה"רפטורים"). התאפיין בגולגולת צרה וארוכה, מוח גדול יחסית, וטופר חרמש קטלני בכל אחת מרגליו האחוריות. הוא היה מכוסה לחלוטין בנוצות.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-orange-500 italic font-mono">01 //</span> ניתוח אטימולוגי נרחב
+            </h2>
+            <div class="overflow-hidden rounded-[2.5rem] border border-gray-800 bg-gray-900/50 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
+                            <th class="p-8 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-8 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-8 border-b border-gray-700">פירוש ומשמעות היסטורית</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200">
+                        <tr class="hover:bg-orange-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-orange-500 font-black text-3xl" dir="ltr">Velox</td>
+                            <td class="p-8 font-bold text-amber-500">לטינית</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">מהיר / זריז (Swift)</span>
+                                השם הוענק בשנת 1924 על ידי נשיא המוזיאון האמריקאי לתולדות הטבע, הנרי פיירפילד אוסבורן (H.F. Osborn), שזיהה מיד שמבנה רגליו האחוריות נועד לריצה מהירה במיוחד.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-orange-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-orange-500 font-black text-3xl" dir="ltr">raptor</td>
+                            <td class="p-8 font-bold text-amber-500">לטינית</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">שודד / גזלן (Plunderer / Robber)</span>
+                                מונח המתאר עופות דורסים או טורפים זריזים שתופסים את טרפם בכוח. הלחם השם המלא: **"השודד המהיר"**.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-orange-500/5 transition-colors">
+                            <td class="p-8 font-mono text-orange-500 font-black text-3xl" dir="ltr">mongoliensis</td>
+                            <td class="p-8 font-bold text-amber-500">לטינית של מיקום גיאוגרפי</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">ממונגוליה</span>
+                                שם המין המוכר ביותר, המציין את ארץ המוצא שבה נמצא ההולוטייפ (במדבר גובי שבמונגוליה החיצונית). קיימים מינים נוספים כמו *V. osmolskae* מסין.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-orange-500 italic font-mono">02 //</span> תולדות הגילוי: הרפתקאות במדבר ואוצרות החול
+            </h2>
+            
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-gray-300">
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-orange-500 text-right">משלחות רוי צ'פמן אנדרוז (1923)</h4>
+                        <p class="leading-relaxed text-right">
+                            ב-1922, המוזיאון האמריקאי לתולדות הטבע שלח משלחת אדירה למדבר גובי בראשותו של ההרפתקן **רוי צ'פמן אנדרוז** (ההשראה לאינדיאנה ג'ונס). הם חצו את המדבר בשיירת מכוניות דודג' וגמלים. ב-11 באוגוסט 1923, הפלאונטולוג פיטר קייסן מצא גולגולת (אמנם מעט מעוכה) וטופר חרמש מאיים. שנה לאחר מכן, הטורף הזריז קיבל את השם הרשמי "ולוצירפטור".
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-orange-500 text-right">הוליווד מול המדע: "פארק היורה" (1993)</h4>
+                        <p class="leading-relaxed text-right">
+                            הסרט הפך אותו לטורף מפורסם, אך יצר מיתוסים שגויים. הרפטורים בסרט היו בגובה של אדם (2 מטרים), חסרי נוצות, וחיו באקלים טרופי. במציאות הם הגיעו עד גובה הברך של אדם (0.5 מטרים), חיו במדבר דיונות צחיח, והיו מכוסים בנוצות. סטיבן ספילברג ביסס את הרפטורים שלו על קרוב משפחה גדול בשם דיינוניכוס, אך העדיף את השם "ולוצירפטור" מטעמים קולנועיים.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900/80 p-8 rounded-[2rem] border border-gray-700 mt-6">
+                    <h4 class="text-xl font-bold text-white text-right mb-6 border-b border-gray-800 pb-2">מצב הממצאים: אוצרות החול של גובי (התשובות לתעלומות השלד)</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed text-right mb-6">
+                        בניגוד לדינוזאורי ענק שקשה לשמר (כדוגמת הספינוזאורוס), ההיסטוריה של הולוצירפטור היא גן עדן לפלאונטולוגים:
+                    </p>
+                    <ul class="space-y-5 text-sm text-gray-400 leading-relaxed text-right">
+                        <li>
+                            <strong class="text-orange-400 text-base block mb-1">האם נמצא מאובן שלם? בהחלט כן!</strong>
+                            מכיוון שהולוצירפטור היה חיה קטנה, סופות חול פתאומיות או קריסות של דיונות חול במדבר גובי קברו פרטים רבים בעודם בחיים. אסונות אלו מנעו מטורפים אוכלי נבלות לפזר את העצמות. התוצאה: בידי המדע ישנם שלדים שלמים, מחוברים לחלוטין.
+                        </li>
+                        <li>
+                            <strong class="text-orange-400 text-base block mb-1">כמות הממצאים: למעלה מ-24 פרטים</strong>
+                            עד היום נמצאו **למעלה מ-24 פרטים שונים** במצב שימור טוב עד מושלם (מתוכם לפחות 12 שלדים מחוברים ושלמים כמעט לחלוטין). בעולם התרופודים מדובר בכמות אדירה, רובה מגיעה מתצורות הסלע דג'דוכטה וברון גויוט במונגוליה ובסין. כמות זו אפשרה לחקור את קצב הגידול שלהם, מגורים ועד בוגרים.
+                        </li>
+                        <li>
+                            <strong class="text-orange-400 text-base block mb-1">גולגולות שלמות וחוטם קעור:</strong>
+                            האם מצאו גולגולת שלמה? **כן, ובכמויות מרשימות!** הגולגולות השלמות הוכיחו שלולוצירפטור הייתה גולגולת צרה וארוכה (כ-25 ס"מ), בעלת חוטם קעור וייחודי (Snoot) שחלקו העליון התעקל מעט כלפי מעלה. הגולגולות האלו נסרקו ב-CT והוכיחו אינטליגנציה גבוהה וחושי ריח וראייה מפותחים מאוד.
+                        </li>
+                        <li>
+                            <strong class="text-orange-400 text-base block mb-1">הדינוזאורים הלוחמים (1971):</strong>
+                            זהו אולי השלד השלם המפורסם ביותר שנמצא. משלחת פולנית-מונגולית מצאה בלב המדבר שלד של ולוצירפטור הנעול בקרב למוות עם פרוטוצרטופס (צמחוני קטן). הרפטור נעץ את טופר החרמש שלו בצווארו של הפרוטוצרטופס, בעוד שהאחרון כלא את זרועו של הרפטור במקורו. סופת חול קברה את שניהם יחד, והקפיאה את סצנת הקרב ל-71 מיליון שנה.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden border-orange-500/30">
+            <h3 class="text-4xl font-black text-white text-center mb-12 uppercase tracking-tighter">אקולוגיה וביומכניקה: רוצח במדבר</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                
+                <div class="space-y-8 text-gray-300">
+                    <p class="text-xl leading-relaxed text-right mb-4">
+                        הולוצירפטור היה טורף מתוחכם (Carnivore) מותאם לדיונות. למרות מוחו הגדול, **אין שום ראיה מדעית לכך שצדו בלהקות מאורגנות** (מיתוס נוסף מפארק היורה). סביר יותר שצדו לבד או כהתקבצות אקראית של פרטים.
+                    </p>
+                    <div class="highlight-box p-8 rounded-l-[2rem]">
+                        <h4 class="text-orange-400 font-bold mb-4 uppercase text-xs tracking-widest">טופר החרמש (The Sickle Claw)</h4>
+                        <p class="text-sm leading-relaxed text-right mb-4">
+                            סימן ההיכר שלו היה הטופר הענק (כ-6.5 ס"מ) על הבוהן השנייה של כל רגל. במהלך ריצה, הטופר הוחזק מורם באוויר כדי למנוע את שחיקתו. 
+                        </p>
+                        <p class="text-sm leading-relaxed text-right">
+                            בעבר חשבו ששימש לשיסוף קורבנות. מודלים ביומכניים הראו שהטופר שימש למעשה כמו **קרסי טיפוס (Grappling hook)**. הוא קפץ על הטרף (כמו פרוטוצרטופס), ונעץ את הטפרים עמוק בבשר כדי לרתק את הטרף לקרקע בזמן שאכל אותו בעודו בחיים.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="space-y-8 bg-gray-900/60 p-10 rounded-[2.5rem] border border-gray-800 shadow-xl mt-8 md:mt-0 h-full flex flex-col justify-center">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tighter text-right">אנטומיה של דורס מנוצה וזנב נוקשה</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right mb-4">
+                        **ההוכחה המוחלטת לנוצות (2007):** חוקרים גילו בעצם זרוע של ולוצירפטור "בליטות קולמוס" (Quill knobs), המוכיחות שהיו לו כנפיים מנוצות של ממש. למה דינוזאור שאינו עף צריך כנפיים? לתצוגה (חיזור), לדגירה (חימום הקן), וכדי לשמור על איזון ולרתק את הטרף לקרקע בנפנוף חזק של הכנפיים (Raptor Prey Restraint).
+                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right">
+                        **הזנב הנוקשה:** זנבו היה עטוף ברצועות גידים שהתאבנו (Ossified tendons). זה הפך את הזנב למוט נוקשה להפליא שהונף רק מצד לצד, ושימש כהגה איזון אווירודינמי שאפשר פניות חדות במהירויות גבוהות מבלי לאבד שיווי משקל.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
+        Velociraptor Research Phase // Verified by RAM // 2026
+    </footer>
+
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // מניעת גלילת הרקע בזמן שהתמונה פתוחה
+        }
+
+        function closeModal(event) {
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto'; // החזרת הגלילה לרקע
+            }
+        }
+
+        // סגירת התמונה בלחיצה על מקש Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+```

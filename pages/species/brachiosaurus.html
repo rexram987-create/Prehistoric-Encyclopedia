@@ -1,0 +1,293 @@
+```html
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>אנציקלופדיה פלאונטולוגית: מחקר ברכיוזאורוס (Brachiosaurus) אולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #e5e7eb; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(14, 165, 233, 0.3); /* Sky Blue border for High Canopy Feeder */
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%); /* Sky Blue gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-box {
+            border-right: 4px solid #0ea5e9;
+            background: rgba(14, 165, 233, 0.05);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 1rem;
+            box-shadow: 0 0 40px rgba(14, 165, 233, 0.4);
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body class="antialiased pb-24 text-justify">
+
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="../../index.html" class="flex items-center gap-3 text-sky-500 hover:text-sky-400 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-extrabold text-xl tracking-tight text-white">ארכיון האנציקלופדיה</span>
+            </a>
+            <div class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.2em]">The Jurassic Titan // File: BRAC-ULTIMATE</div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-20">
+        
+        <header class="text-center space-y-6 pt-10">
+            <div class="inline-block px-4 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(14,165,233,0.2)]">
+                ענק הצמרות של תור היורה
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient tracking-tighter">ברכיוזאורוס</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Arm Lizard: Brachiosaurus altithorax</p>
+            
+            <div class="relative mt-12 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-sky-600 to-blue-900 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[3rem] p-6 border border-gray-800 overflow-hidden shadow-2xl">
+                    <img src="../../assets/images/brachiosaurus.png" alt="ברכיוזאורוס" onclick="openModal(this.src)" class="w-full max-h-[550px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105 mt-6 cursor-pointer hover:opacity-90" onerror="this.style.display='none'" title="לחץ להגדלת התמונה">
+                </div>
+            </div>
+        </header>
+
+        <section class="glass-card rounded-[3rem] p-10 md:p-14 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-10 flex items-center gap-4">
+                <span class="w-2 h-10 bg-sky-500 rounded-full"></span>
+                תיק מחקר: נתונים אבולוציוניים משולבים
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-right">
+                <div class="space-y-3">
+                    <h4 class="text-sky-400 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">לפני כ-154 עד 153 מיליון שנה</p>
+                    <p class="text-sm text-gray-500 italic">תור היורה המאוחר (גיל הקימרידג'י - טיטוני מוקדם).</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-sky-400 text-xs font-bold uppercase tracking-widest">מסה ומשקל</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">35 עד 50 טונות</p>
+                    <p class="text-sm text-gray-500 italic">שווה למשקלם של כ-8 פילים אפריקאיים. מסתו העצומה הפכה אותו לאחד הדינוזאורים הגדולים ביותר שחיו אי פעם בצפון אמריקה.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-sky-400 text-xs font-bold uppercase tracking-widest">ממדים (אורך וגובה)</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">אורך כ-20 מטרים, גובה כ-13 מטרים</p>
+                    <p class="text-sm text-gray-500 italic">המבנה האנכי הייחודי שלו איפשר לו להגיע לגובה של בניין בן 4 קומות.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-sky-400 text-xs font-bold uppercase tracking-widest">מיקום גיאוגרפי</h4>
+                    <p class="text-2xl font-medium text-sky-400 font-bold underline">קולורדו ויוטה, ארה"ב</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">שרידיו התגלו בשכבות הסלע של תצורת מוריסון, שהייתה אז מישור הצפה טרופי למחצה.</p>
+                </div>
+                <div class="space-y-3 lg:col-span-2 text-right">
+                    <h4 class="text-sky-400 text-xs font-bold uppercase tracking-widest">סיווג טקסונומי קריטי</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">דינוזאור זאורופוד (Sauropoda / Macronaria)</p>
+                    <p class="text-sm text-gray-500 leading-relaxed font-bold">נציג מובהק של קבוצת ה"מקרונריה" (נחיריים גדולים). בניגוד לדיפלודוקוס, הברכיוזאורוס היה בעל גפיים קדמיות ארוכות יותר מהאחוריות, מה שהעניק לו יציבה זקופה דמוית ג'ירפה.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-sky-500 italic font-mono">01 //</span> ניתוח אטימולוגי נרחב
+            </h2>
+            <div class="overflow-hidden rounded-[2.5rem] border border-gray-800 bg-gray-900/50 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
+                            <th class="p-8 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-8 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-8 border-b border-gray-700">פירוש ומשמעות היסטורית</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200">
+                        <tr class="hover:bg-sky-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-sky-500 font-black text-3xl" dir="ltr">Brachio-</td>
+                            <td class="p-8 font-bold text-blue-400">יוונית עתיקה (βραחίων / brachion)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">זרוע (Arm)</span>
+                                השם הוענק לו על ידי אלמר ס. ריגס ב-1903, בשל התגלית המדהימה שעצם הזרוע שלו ארוכה באופן חריג ביחס לעצם הירך, דבר שהיה שונה מכל זאורופוד מוכר אחר.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-sky-500/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-sky-500 font-black text-3xl" dir="ltr">-saurus</td>
+                            <td class="p-8 font-bold text-blue-400">יוונית עתיקה (σαῦρος / sauros)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">לטאה</span>
+                                הסיומת הסטנדרטית. השם המלא: **"לטאת הזרוע"**.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-sky-500/5 transition-colors">
+                            <td class="p-8 font-mono text-sky-500 font-black text-3xl" dir="ltr">altithorax</td>
+                            <td class="p-8 font-bold text-blue-400">לטינית (altus + thorax)</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">חזה גבוה</span>
+                                מתאר את חלל בית החזה העמוק והגבוה שלו, שהכיל את הריאות והלב העצומים שנדרשו להפעלת גוף כה מסיבי.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-sky-500 italic font-mono">02 //</span> תולדות הגילוי: המשלחת, הרגע הגורלי וחידת הראש האבוד
+            </h2>
+            
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-gray-300">
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-sky-400 text-right">הסיבה למשלחת: התחרות מול חוף המזרח</h4>
+                        <p class="leading-relaxed text-right">
+                            בקיץ 1900, הפלאונטולוג **אלמר ס. ריגס** רצה לבסס את מעמדו של "מוזיאון פילד" משיקגו כמעצמת מחקר. באותם ימים, המוזיאונים העשירים בחוף המזרחי (כמו זה של מארש) שלטו בתגליות. ריגס שמע דיווחים על עצמות ענק המבצבצות מהסלעים במערב קולורדו ויצא במשלחת דחופה כדי למצוא "אוצר" פרהיסטורי שיעמוד בתחרות מול יריביו.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-sky-400 text-right">נסיבות הגילוי: גזע העץ שהפך לעצם</h4>
+                        <p class="leading-relaxed text-right">
+                            ב-4 ביולי 1900, עוזרו של ריגס זיהה גוש עצום בתוך אבן חול מוצקה. בתחילה חשבו שמדובר בגזע עץ מאובן עבה, אך חפירה זהירה חשפה עצם זרוע באורך של למעלה מ-2 מטרים. ריגס הבין שזהו סוג חדש לחלוטין. הוצאת העצמות ששקלו טונות הצריכה שימוש בגלגלות ועגלות רתומות לסוסים בתנאי שטח קשים. השלד של ריגס היה חלקי אך מרשים, אולם היה חסר בו מרכיב קריטי אחד: הגולגולת.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900/80 p-8 rounded-[2rem] border border-gray-700 mt-6">
+                    <h4 class="text-xl font-bold text-white text-right mb-6 border-b border-gray-800 pb-2">תעלומת הגולגולת האבודה: פתרון של מאה שנה</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed text-right mb-6">
+                        סיפור ראשו של הברכיוזאורוס הוא אחת התעלומות המוזרות ביותר בפלאונטולוגיה, המדגימה כיצד ממצאים יכולים לחכות עשרות שנים במוזיאונים לפני שיובנו כהלכה:
+                    </p>
+                    <ul class="space-y-5 text-sm text-gray-400 leading-relaxed text-right">
+                        <li>
+                            <strong class="text-sky-400 text-base block mb-1">הטעות המקורית (1883):</strong>
+                            עוד לפני שריגס מצא את השלד שלו, הפלאונטולוג עותניאל צ'ארלס מארש מצא ב-1883 (בשיא "מלחמות העצמות") גולגולת בודדת מוזרה באתר גארדן פארק בקולורדו. הגולגולת הייתה שלמה למדי, עם חוטם רחב ועצמות אף גבוהות, אך מארש לא מצא שלד מחובר אליה. הוא שייך אותה בטעות לזאורופוד אחר (קמרזאורוס), והיא שכבה במרתפי המוזיאון כמעט ללא התייחסות.
+                        </li>
+                        <li>
+                            <strong class="text-sky-400 text-base block mb-1">הפיצוח והזיהוי המאוחר (1998):</strong>
+                            רק בשנת 1998, פלאונטולוגים שבחנו מחדש את האוספים הישנים במוזיאון הלאומי להיסטוריה של הטבע בוושינגטון, הבינו את הטעות. בעזרת השוואה אנטומית מדוקדקת לגולגולות השלמות הרבות של הג'ירפטיטאן האפריקאי (בן דודו הקרוב של הברכיוזאורוס), הם הוכיחו סופית שאותה גולגולת בודדת מ-1883 היא למעשה הגולגולת השלמה של הברכיוזאורוס האמריקאי המקורי.
+                        </li>
+                        <li>
+                            <strong class="text-sky-400 text-base block mb-1">נסיבות הניתוק:</strong>
+                            הסיבה שהגולגולת לא נמצאה עם השלד של ריגס קלאסית לעולם הפרהיסטורי: לאחר המוות, הגידים העדינים בצוואר הארוך נרקבו מהר, והראש הקטן והכבד יחסית התנתק, נשטף בזרמי מים של נהרות עתיקים ונשמר במרחק מה מהגוף, מה שמנע מהחוקרים הראשונים לחבר ביניהם.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden border-orange-500/30">
+            <h3 class="text-4xl font-black text-white text-center mb-12 uppercase tracking-tighter">אקולוגיה, ביומכניקה ותזונת ענק</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                
+                <div class="space-y-8 text-gray-300">
+                    <p class="text-xl leading-relaxed text-right mb-4">
+                        הברכיוזאורוס היה מכונת אכילה אדירה. כבעל-החיים הגבוה ביותר במערכת האקולוגית שלו, הוא ניצל נישה שהייתה מחוץ להישג ידם של מתחריו.
+                    </p>
+                    <div class="highlight-box p-8 rounded-l-[2rem]">
+                        <h4 class="text-sky-400 font-bold mb-4 uppercase text-xs tracking-widest">תזונה ותהליך עיכול (Diet & Digestion)</h4>
+                        <p class="text-sm leading-relaxed text-right mb-4">
+                            הוא ניזון מצמרות של עצי מחט, גינקו וציקסים קשוחים. שיניו היו דמויות אזמל, רחבות וחסונות, ושימשו רק ל**תלישת וגזירת העלים** מהענפים – הוא לא ידע ללעוס כלל. 
+                        </p>
+                        <p class="text-sm leading-relaxed text-right">
+                            כדי לתחזק גוף של 40 טונות, הוא נדרש לצרוך בין **200 ל-400 קילוגרמים של צמחייה טרייה בכל יום!** העלים נבלעו בשלמותם וירדו אל מערכת עיכול עצומה ששימשה כמיכל תסיסה (Hindgut fermentation), שם חיידקים פירקו את התאית הקשה לאורך ימים ארוכים.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="space-y-8 bg-gray-900/60 p-10 rounded-[2.5rem] border border-gray-800 shadow-xl">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tighter text-right">אתגר לחץ הדם (Gigantothermy)</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right mb-4">
+                        המבנה דמוי-ג'ירפה הציב אתגרים פיזיולוגיים חסרי תקדים. כדי להזרים דם למוח שנמצא כ-9 מטרים מעל הלב, נדרש לחץ דם כביר. הלב שלו היה חייב להיות ענק וחזק בצורה יוצאת דופן, עם דפנות כלי דם עבות במיוחד בצוואר.
+                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed text-right">
+                        מבחינת חום גופו, בשל המסה העצומה, הוא נהנה מ**גיגנטותרמיה**. חום הגוף שנוצר מפעילות השרירים והעיכול נאגר פנימה ולא ברח בקלות, מה ששמר עליו ככור גרעיני ביולוגי עם טמפרטורה פנימית קבועה של כ-38 מעלות, ללא קשר לטמפרטורה בחוץ.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
+        Brachiosaurus Research Phase // Verified by RAM // 2026
+    </footer>
+
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal(event) {
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+```
