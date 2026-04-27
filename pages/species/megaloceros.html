@@ -3,64 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>אנציקלופדיה פלאונטולוגית: מגלוצרוס (Megaloceros giganteus)</title>
+    <title>אנציקלופדיה פלאונטולוגית: מחקר מגלוצרוס (Megaloceros) אולטימטיבי</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700;800&display=swap');
-        body { background:#030712; color:#e5e7eb; font-family:'Assistant',sans-serif; }
-        .glass{ background:rgba(17,24,39,.7); border:1px solid rgba(168,85,247,.25); backdrop-filter: blur(8px); }
-        .accent{ background:linear-gradient(135deg,#a855f7,#7c3aed); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        body { 
+            background-color: #030712; 
+            color: #e5e7eb; 
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #78350f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-box {
+            border-right: 4px solid #f59e0b;
+            background: rgba(245, 158, 11, 0.05);
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 1rem;
+            box-shadow: 0 0 40px rgba(245, 158, 11, 0.4);
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
     </style>
 </head>
-<body class="pb-24 antialiased">
-    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 sticky top-0 z-50">
+
+<body class="antialiased pb-24 text-justify">
+
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-content" src="" alt="תמונה מוגדלת">
+    </div>
+
+    <nav class="bg-gray-900/90 border-b border-gray-800 p-5 shadow-2xl">
         <div class="max-w-5xl mx-auto flex items-center justify-between">
-            <a href="../../index.html" class="flex items-center gap-3 text-purple-400 hover:text-purple-300">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-                <span class="font-extrabold text-xl text-white">ארכיון האנציקלופדיה</span>
+            <a href="../../index.html" class="flex items-center gap-3 text-amber-500 hover:text-amber-400 transition-all group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <span class="font-extrabold text-xl tracking-tight text-white">ארכיון האנציקלופדיה</span>
             </a>
-            <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase">Late Pleistocene // MGL-ANTL</span>
+            <div class="text-gray-500 font-mono text-[10px] uppercase tracking-[0.2em]">The Giant Deer // File: MEGALOCEROS-ULTIMATE</div>
         </div>
     </nav>
 
-    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-16">
-        <header class="text-center space-y-6 pt-8">
-            <h1 class="text-5xl md:text-7xl font-black accent">מגלוצרוס</h1>
-            <p class="text-xl text-gray-400 italic" dir="ltr">Megaloceros giganteus ("Irish Elk")</p>
-            <div class="bg-gray-900 rounded-[2.5rem] border border-gray-800 p-6">
-                <img src="../../assets/images/megaloceros.png" alt="מגלוצרוס" class="w-full max-h-[520px] object-contain" onerror="this.style.display='none'">
+    <main class="max-w-5xl mx-auto p-6 md:p-10 space-y-20">
+        
+        <header class="text-center space-y-6 pt-10">
+            <div class="inline-block px-4 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-500 text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+                אייל הענק של עידן הקרח
+            </div>
+
+            <h1 class="text-6xl md:text-8xl font-black accent-gradient tracking-tighter">מגלוצרוס</h1>
+            <p class="text-2xl md:text-3xl text-gray-500 font-light italic" dir="ltr">The Giant Deer: Megaloceros giganteus</p>
+            
+            <div class="relative mt-12 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-yellow-900 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-gray-900 rounded-[3rem] p-6 border border-gray-800 overflow-hidden shadow-2xl">
+                    <img src="../../assets/images/megaloceros.png" alt="מגלוצרוס" onclick="openModal(this.src)" class="w-full max-h-[550px] object-contain rounded-2xl transform transition duration-700 group-hover:scale-105 mt-6 cursor-pointer hover:opacity-90" onerror="this.style.display='none'" title="לחץ להגדלת התמונה">
+                </div>
             </div>
         </header>
 
-        <section class="glass rounded-[2.5rem] p-8 md:p-12">
-            <h2 class="text-3xl font-extrabold mb-8">תעודת זהות מחקרית</h2>
-            <div class="grid md:grid-cols-2 gap-8 text-lg">
-                <div><strong class="text-purple-400">טווח זמן:</strong> פלייסטוקן מאוחר ועד תחילת הולוקן באזורים מסוימים.</div>
-                <div><strong class="text-purple-400">פריסה גיאוגרפית:</strong> אירואסיה הממוזגת-קרה.</div>
-                <div><strong class="text-purple-400">גובה כתף:</strong> עד ~2.1 מטר.</div>
-                <div><strong class="text-purple-400">קרניים:</strong> מוטת קרניים שעלולה להגיע לכ-3.5 מטר.</div>
+        <section class="glass-card rounded-[3rem] p-10 md:p-14 shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-white mb-10 flex items-center gap-4">
+                <span class="w-2 h-10 bg-amber-500 rounded-full"></span>
+                תיק מחקר: נתונים אבולוציוניים
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-right">
+                <div class="space-y-3">
+                    <h4 class="text-amber-500 text-xs font-bold uppercase tracking-widest">תקופת פעילות</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">פליסטוקן עד תחילת ההולוקן</p>
+                    <p class="text-sm text-gray-500 italic">נפוץ במיוחד בתקופת הקרח המאוחרת; שרידים מאוחרים מעידים שחלק מהאוכלוסיות שרדו גם לאחר סוף הפליסטוקן.</p>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-amber-500 text-xs font-bold uppercase tracking-widest">מסה ומשקל</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">כ-450 עד 700 ק"ג</p>
+                    <p class="text-sm text-gray-500 italic">אחד האיילים הגדולים ביותר שהתקיימו אי פעם, דומה בגובהו לאייל קורא גדול אך בעל מבנה גוף רחב ומרשים.</p>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-amber-500 text-xs font-bold uppercase tracking-widest">ממדים וקרניים</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">עד כ-2.1 מטר בכתף</p>
+                    <p class="text-sm text-gray-500 italic">מוטת הקרניים של הזכרים יכלה להגיע לכמעט 4 מטרים — מהגדולות ביותר הידועות בעולם החי.</p>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-amber-500 text-xs font-bold uppercase tracking-widest">מיקום גיאוגרפי</h4>
+                    <p class="text-2xl font-medium text-amber-500 font-bold underline">אירופה וצפון אסיה</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">לא היה באמת "אירי" בלבד: שרידים נמצאו מאירלנד ובריטניה ועד סיביר, אך הביצות האיריות שימרו מאובנים רבים במיוחד.</p>
+                </div>
+
+                <div class="space-y-3 lg:col-span-2 text-right">
+                    <h4 class="text-amber-500 text-xs font-bold uppercase tracking-widest">סיווג טקסונומי קריטי</h4>
+                    <p class="text-2xl font-medium text-gray-100 font-bold">יונק פרסתן — Cervidae / Megaloceros</p>
+                    <p class="text-sm text-gray-500 leading-relaxed font-bold">
+                        המגלוצרוס היה אייל אמיתי, לא אייל קורא ולא "אלק" אמריקאי. הכינוי האנגלי Irish Elk מטעה: הוא היה קרוב יותר לאיילים ממשפחת הצבאים מאשר לאייל הקורא, והיה נפוץ הרבה מעבר לאירלנד.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <section class="space-y-6">
-            <h2 class="text-3xl font-black">קרניים ענקיות: מחיר ביולוגי ויתרון רבייתי</h2>
-            <div class="glass rounded-3xl p-8 space-y-4 leading-relaxed text-gray-300">
-                <p>מגלוצרוס התפרסם בזכות הקרניים הפלמטיות הענקיות של הזכרים — תוצר של ברירה מינית עוצמתית. הקרניים שימשו כנראה להצגה, תחרות בין זכרים, ולסיגנל איכות גנטית.</p>
-                <p>מחקרים פלאואקולוגיים מציעים שהקרניים דרשו מינרלים ואנרגיה רבים, ולכן היו תלויות באיכות סביבה ותזונה עונתית.</p>
-                <p>למרות הכינוי "האייל האירי", המין לא היה מוגבל לאירלנד; המאובנים נמצאו במרחב אירואסייתי נרחב.</p>
+        <section class="space-y-10">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-amber-500 italic font-mono">01 //</span> ניתוח אטימולוגי נרחב
+            </h2>
+
+            <div class="overflow-hidden rounded-[2.5rem] border border-gray-800 bg-gray-900/50 shadow-2xl">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/80 text-gray-400 text-xs uppercase tracking-[0.2em]">
+                            <th class="p-8 border-b border-gray-700">החלק בשם</th>
+                            <th class="p-8 border-b border-gray-700">שפת מקור</th>
+                            <th class="p-8 border-b border-gray-700">פירוש ומשמעות היסטורית</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="text-gray-200">
+                        <tr class="hover:bg-amber-600/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-amber-500 font-black text-3xl" dir="ltr">Megalo-</td>
+                            <td class="p-8 font-bold text-yellow-400">יוונית עתיקה</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">גדול / עצום</span>
+                                החלק הראשון בשם מתאר את גודלו יוצא הדופן של בעל החיים, ובעיקר את הרושם הבלתי נשכח של הקרניים הענקיות. מגלוצרוס לא היה רק "אייל גדול"; הוא היה סמל של מוגזמות אבולוציונית — גוף גדול וקרניים שהפכו לאחד מסימני ההיכר המפורסמים ביותר של עידן הקרח.
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-amber-600/5 transition-colors border-b border-gray-800">
+                            <td class="p-8 font-mono text-amber-500 font-black text-3xl" dir="ltr">-ceros</td>
+                            <td class="p-8 font-bold text-yellow-400">יוונית עתיקה</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">קרן</span>
+                                החלק השני מתייחס לקרניים. השם Megaloceros פירושו בקירוב **"בעל הקרניים הגדולות"**. זהו שם מדויק במיוחד, מפני שהקרניים הן המאפיין המרכזי שהבדיל אותו כמעט מכל אייל אחר בהיסטוריה.
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-amber-600/5 transition-colors">
+                            <td class="p-8 font-mono text-amber-500 font-black text-3xl" dir="ltr">giganteus</td>
+                            <td class="p-8 font-bold text-yellow-400">לטינית</td>
+                            <td class="p-8 leading-relaxed text-right">
+                                <span class="block font-bold text-white mb-2 uppercase text-xs">ענקי</span>
+                                שם המין מדגיש את ממדי הגוף ואת הקרניים. המשמעות המלאה של השם המדעי היא בקירוב: **"בעל הקרניים הגדולות הענקי"** — שם שמתאר היטב את אחד האיילים הדרמטיים ביותר שחיו אי פעם.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
-        <section class="grid md:grid-cols-2 gap-8">
-            <article class="glass rounded-3xl p-8 space-y-4">
-                <h3 class="text-2xl font-bold text-purple-400">מזון ובית גידול</h3>
-                <p class="text-gray-300 leading-relaxed">המין התקיים בפסיפס של יער פתוח וערבה, וניזון מעשבים, עלים וצומח עונתי. שינויי צמחייה מהירים בסוף הפלייסטוקן פגעו ביציבות המזון שלו.</p>
-            </article>
-            <article class="glass rounded-3xl p-8 space-y-4">
-                <h3 class="text-2xl font-bold text-purple-400">הכחדה</h3>
-                <p class="text-gray-300 leading-relaxed">כנראה תוצאה של שילוב בין שינוי אקלימי, שינוי בנוף הצומח, ולחץ אנושי אזורי. המקרה של מגלוצרוס מדגים כיצד התמחות מורפולוגית מפוארת יכולה להפוך לפגיעות אקולוגית.</p>
-            </article>
+        <section class="space-y-12">
+            <h2 class="text-4xl font-black text-white flex items-center gap-4">
+                <span class="text-amber-500 italic font-mono">02 //</span> תולדות הגילוי: האייל שהפך לסמל אירי
+            </h2>
+            
+            <div class="glass-card p-10 md:p-14 rounded-[3.5rem] shadow-2xl space-y-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-gray-300">
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-amber-500 text-right">ביצות אירלנד ושימור יוצא דופן</h4>
+                        <p class="leading-relaxed text-right">
+                            אף שהמגלוצרוס חי באזורים נרחבים של אירופה ואסיה, אירלנד הפכה למקום המזוהה איתו ביותר בגלל שפע השרידים שנמצאו בביצות ובמשקעי אגמים. תנאי השימור באזורים אלה שמרו גולגולות, עצמות וקרניים עצומות באופן מרשים, ולכן שלדי מגלוצרוס הפכו למוצגים מפורסמים במוזיאונים, טירות ובתי אצולה.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-amber-500 text-right">השם המטעה: “Irish Elk”</h4>
+                        <p class="leading-relaxed text-right">
+                            הכינוי "אייל אירי" או Irish Elk נולד מהעובדה שבאירלנד נמצאו מאובנים רבים במיוחד, אך הוא מטעה בשני מובנים: המגלוצרוס לא חי רק באירלנד, והוא גם לא היה "Elk" במובן הזואולוגי המדויק. למעשה, מדובר באייל ענק ממשפחת הצבאיים, שהפך לסמל של עידן הקרח בזכות קרניו האדירות ולא בזכות קשר מיוחד לאירלנד בלבד.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900/80 p-8 rounded-[2rem] border border-gray-700 mt-6">
+                    <h4 class="text-xl font-bold text-white text-right mb-6 border-b border-gray-800 pb-2">מצב הממצאים: גולגולות עם כתרים עצומים</h4>
+
+                    <p class="text-sm text-gray-400 leading-relaxed text-right mb-6">
+                        המגלוצרוס מוכר למדע ממספר גדול יחסית של שרידים, ובמיוחד מגולגולות מחוברות לקרניים. השימור המרשים של הקרניים אפשר לחוקרים לבחון לא רק את גודלן, אלא גם את תפקידן החברתי, המיני והאקולוגי.
+                    </p>
+
+                    <ul class="space-y-5 text-sm text-gray-400 leading-relaxed text-right">
+                        <li>
+                            <strong class="text-yellow-400 text-base block mb-1">קרניים כבדות ורחבות במיוחד:</strong>
+                            הקרניים של הזכרים לא היו רק ארוכות, אלא גם שטוחות, מסועפות ורחבות. בחלק מהממצאים מוטת הקרניים הגיעה לכמעט 4 מטרים. זהו אחד המקרים המרשימים ביותר של התפתחות תכונה ראוותנית בעולם היונקים.
+                        </li>
+
+                        <li>
+                            <strong class="text-yellow-400 text-base block mb-1">שלדים שלמים ממוזיאונים וביצות:</strong>
+                            מגלוצרוס מוצג במוזיאונים רבים בעולם משום שחלק מהמאובנים השתמרו בצורה מרשימה במיוחד. גולגולות עם קרניים שלמות אפשרו למדענים לשחזר את תנוחת הראש, מבנה הצוואר, והעומס המכני שנדרש כדי לשאת את הקרניים.
+                        </li>
+
+                        <li>
+                            <strong class="text-yellow-400 text-base block mb-1">עדויות לאורח חיים פתוח:</strong>
+                            צורת הקרניים העצומה אינה מתאימה ליער סבוך במיוחד, שבו הן היו מסתבכות בצמחייה. לכן חוקרים רבים רואים במגלוצרוס בעל חיים של שטחים פתוחים יחסית — ערבות עשב, מישורים קרים ושולי יערות פתוחים.
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </section>
+
+        <section class="glass-card p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden border-amber-500/30">
+            <h3 class="text-4xl font-black text-white text-center mb-12 uppercase tracking-tighter">
+                אקולוגיה וביומכניקה: מחיר הקרניים הגדולות
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8 text-gray-300">
+                    <p class="text-xl leading-relaxed text-right mb-4">
+                        המגלוצרוס היה דוגמה קלאסית לבעל חיים שבו תכונה אחת — הקרניים — הפכה למרכז כל הדיון האבולוציוני. הקרניים הענקיות כנראה שימשו לתצוגה, מאבקי זכרים, הרתעה ובחירת בני זוג, אך הן גם דרשו משאבים רבים ונשיאת משקל משמעותית.
+                    </p>
+
+                    <div class="highlight-box p-8 rounded-l-[2rem]">
+                        <h4 class="text-amber-500 font-bold mb-4 uppercase text-xs tracking-widest">ברירה זוויגית</h4>
+                        <p class="text-sm leading-relaxed text-right mb-4">
+                            אחת ההשערות המרכזיות היא שהקרניים העצומות התפתחו בעיקר בגלל ברירה זוויגית: זכרים בעלי קרניים גדולות יותר יכלו להרשים נקבות, להפחיד יריבים, או לנצח בקרבות טקסיים. כלומר, הקרניים לא היו בהכרח "כלי הישרדות" פשוט, אלא מסר ביולוגי אדיר: אני חזק, בריא ומסוגל לשאת את העומס הזה.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="space-y-8 bg-gray-900/60 p-10 rounded-[2.5rem] border border-gray-800 shadow-xl">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tighter text-right">הכחדה: אקלים, צמחייה ואדם</h4>
+
+                    <p class="text-gray-400 text-sm leading-relaxed text-right mb-4">
+                        הכחדת המגלוצרוס אינה מוסברת בהכרח על ידי גורם אחד בלבד. שינויי אקלים בסוף עידן הקרח שינו את בתי הגידול, את הצמחייה ואת זמינות המזון. עבור בעל חיים גדול, הזקוק למזון רב ולמינרלים הדרושים לגידול קרניים אדירות, שינוי כזה היה עלול להיות קריטי.
+                    </p>
+
+                    <p class="text-gray-400 text-sm leading-relaxed text-right">
+                        ייתכן שגם ציד ולחץ מצד בני אדם תרמו לירידה באוכלוסיות, במיוחד באזורים שבהם בתי הגידול הצטמצמו. לכן המגלוצרוס נחשב דוגמה חשובה להכחדת מגפאונה: שילוב של שינוי סביבתי, דרישות אנרגטיות גבוהות, ורגישות של בעלי חיים גדולים לשינויים מהירים.
+                    </p>
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <footer class="max-w-5xl mx-auto p-12 text-center text-gray-700 text-[10px] uppercase tracking-[0.4em] font-mono border-t border-gray-900 mt-20">
+        Megaloceros Research Phase // Verified by RAM // 2026
+    </footer>
+
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (event.target === document.getElementById('imageModal') || event.target.className === 'close-modal') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
 </body>
 </html>
